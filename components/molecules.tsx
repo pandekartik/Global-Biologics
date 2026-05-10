@@ -7,57 +7,65 @@ export function SiteNav({
   brand,
   links,
   activeHref,
+  floating = false,
 }: {
   brand: string;
   links: Array<{ label: string; href: string }>;
   activeHref?: string;
+  floating?: boolean;
 }) {
   return (
-    <header className="pt-10">
+    <header className={cn("z-50 w-full", floating ? "fixed inset-x-0 top-0 pt-8" : "relative pt-10")}>
       <Container>
-        <div className="rounded-[2rem] border border-border/10 bg-white/80 px-5 py-4 shadow-soft backdrop-blur-xl md:px-7">
+        <div className="rounded-full border border-border/10 bg-white/90 px-6 py-3 shadow-soft backdrop-blur-xl md:px-8">
           <div className="flex items-center justify-between gap-6">
-            <Link href="/" className="flex items-center gap-3">
-              <BrandMark className="h-12 w-12 shrink-0" />
-              <span className="text-lg font-semibold tracking-tight text-ink md:text-xl">{brand}</span>
+            <Link href="/" className="flex items-center gap-2">
+              <img src="/images/logo.jpg" alt="" className="h-14 w-14 rounded-full object-cover" />
+              <span className="text-lg font-semibold tracking-tight text-ink">{brand}</span>
             </Link>
-            <nav className="hidden items-center gap-7 md:flex">
+            <nav className="hidden items-center gap-8 md:flex">
               {links.map((link) => {
                 const active = activeHref === link.href;
                 const isSolutions = link.label.toLowerCase() === "solutions";
                 return (
-                  <div key={link.href} className="relative group">
+                  <div key={link.href} className="relative group py-2">
                     <Link
                       href={link.href}
                       className={cn(
-                        "flex items-center gap-1 text-sm font-medium transition",
-                        active ? "text-brand" : "text-muted hover:text-ink",
+                        "flex items-center gap-1 text-[15px] font-medium transition",
+                        active ? "text-brand" : "text-slate-600 hover:text-brand",
                       )}
                     >
                       {link.label}
                       {isSolutions ? (
-                        <svg viewBox="0 0 12 8" className="h-2 w-3" fill="none" aria-hidden="true">
-                          <path d="M1 1.25L6 6.25L11 1.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <svg viewBox="0 0 12 8" className="h-2 w-3 opacity-70" fill="none" aria-hidden="true">
+                          <path d="M1 1.25L6 6.25L11 1.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       ) : null}
                     </Link>
                     {isSolutions ? (
-                      <div className="absolute left-1/2 top-full mt-4 hidden w-[221px] -translate-x-1/2 overflow-hidden rounded-xl border border-border/10 bg-white/80 shadow-soft backdrop-blur-xl group-hover:block">
-                        <Link
-                          href="/bed-sore-care"
-                          className="flex items-center gap-3 px-3 py-3 transition hover:bg-surface-strong"
-                        >
-                          <BrandMark className="h-12 w-12 shrink-0 scale-75" />
-                          <span className="text-sm font-medium text-ink">Bed Sore</span>
-                        </Link>
-                        <div className="mx-3 h-px bg-border/10" />
-                        <Link
-                          href="/ortho"
-                          className="flex items-center gap-3 px-3 py-3 transition hover:bg-surface-strong"
-                        >
-                          <BrandMark className="h-12 w-12 shrink-0 scale-75" />
-                          <span className="text-sm font-medium text-ink">Orthopedic</span>
-                        </Link>
+                      <div className="absolute right-0 top-full mt-2 hidden w-[240px] origin-top-right transform opacity-0 scale-95 transition duration-200 ease-out group-hover:block group-hover:opacity-100 group-hover:scale-100">
+                        <div className="overflow-hidden rounded-2xl border border-border/10 bg-white shadow-soft backdrop-blur-xl">
+                          <Link
+                            href="/bed-sore"
+                            className="flex items-center gap-3 px-4 py-4 transition hover:bg-surface-soft"
+                          >
+                            <div className="h-10 w-10 rounded-lg bg-brand/10 p-2 flex items-center justify-center font-bold text-brand text-xs">BS</div>
+                            <div className="flex flex-col">
+                              <span className="text-sm font-semibold text-ink">Bed Sore</span>
+                            </div>
+                          </Link>
+                          <div className="mx-4 h-px bg-border/5" />
+                          <Link
+                            href="/ortho"
+                            className="flex items-center gap-3 px-4 py-4 transition hover:bg-surface-soft"
+                          >
+                            <div className="h-10 w-10 rounded-lg bg-accent/10 p-2 flex items-center justify-center font-bold text-accent text-xs">OR</div>
+                            <div className="flex flex-col">
+                              <span className="text-sm font-semibold text-ink">Orthopedic</span>
+                            </div>
+                          </Link>
+                        </div>
                       </div>
                     ) : null}
                   </div>

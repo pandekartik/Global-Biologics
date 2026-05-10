@@ -118,18 +118,12 @@ export function BrandMark({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-strong text-white shadow-soft",
-        className,
-      )}
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 48 48" className="h-8 w-8" fill="none">
-        <path d="M12 13.5h12.5l9 21H21.4L12 13.5Z" fill="#94c706" />
-        <path d="M23.5 13.5H36L26.6 34.5H14l9.5-21Z" fill="#0077b1" />
-        <path d="M20.5 22h8" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
-      </svg>
+    <div className={cn("relative", className)}>
+       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="4" className="text-brand" opacity="0.8"/>
+         <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="4" className="text-accent" opacity="0.6"/>
+         <path d="M18 24H30" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+       </svg>
     </div>
   );
 }

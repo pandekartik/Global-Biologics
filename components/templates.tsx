@@ -192,7 +192,7 @@ export function HomeTemplate({
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/" />
+      <SiteNav brand={site.title} links={site.nav} activeHref="/" floating />
       <main>
         {page.sections.map((section, index) => (
           <Fragment key={`${section.type}-${index}`}>

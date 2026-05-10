@@ -1,8 +1,30 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { Badge, BrandMark, ButtonLink, Card, Container, SurfaceFrame } from "./atoms";
 import { InfoStrip, ProductCard, SectionHeader, SiteNav, StatBlock, TeamCard, TestimonialCard } from "./molecules";
 import type { LandingPage, Product, Solution, TeamMember, Testimonial } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { 
+  Sprout, 
+  Droplets, 
+  HandHeart, 
+  Microscope, 
+  CookingPot,
+  FlaskConical,
+  Recycle,
+  Leaf,
+  Globe,
+  BadgeCheck,
+  Boxes,
+  Zap,
+  CheckCircle2,
+  Scale,
+  Workflow,
+  ArrowRight,
+  Menu
+} from "lucide-react";
 
 export function HeroSection({
   eyebrow,
@@ -20,7 +42,7 @@ export function HeroSection({
   highlight?: string;
 }) {
   return (
-    <section className="overflow-hidden border-b border-border/10 bg-hero">
+    <section className="overflow-hidden border-b border-border/10 bg-hero pt-32">
       <Container className="grid gap-12 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-28">
         <div className="space-y-8">
           {eyebrow ? <Badge>{eyebrow}</Badge> : null}
@@ -70,52 +92,50 @@ export function HomeHero({
   ];
 
   return (
-    <section className="relative overflow-hidden border-b border-border/10">
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(249,249,255,1)_0%,rgba(249,249,255,0.95)_45%,rgba(249,249,255,0.72)_70%,rgba(246,249,246,0.98)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(148,199,6,0.12),transparent_28%),radial-gradient(circle_at_80%_20%,rgba(0,119,177,0.12),transparent_26%)]" />
-      <Container className="relative grid gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-20">
-        <div className="space-y-8">
-          <h1 className="max-w-[8ch] whitespace-pre-line text-[clamp(3.5rem,7.5vw,6rem)] font-medium leading-[0.92] tracking-[-0.03em] text-ink">
-            {title}
+    <section className="relative min-h-[600px] md:min-h-[800px] flex items-start overflow-hidden border-b border-border/10 bg-white">
+      <div className="absolute right-0 top-0 h-full w-full md:w-[75%] lg:w-[65%] z-0 pointer-events-none overflow-hidden">
+        <img 
+          src="/images/hero-bg.png" 
+          alt="" 
+          className="w-full h-full object-cover object-center opacity-90" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30 to-transparent" />
+      </div>
+      
+      <Container className="relative z-10 pt-32 pb-16 md:pt-40 grid gap-12 lg:grid-cols-[1fr_auto]">
+        <div className="space-y-8 lg:max-w-xl">
+          <h1 className="font-heading font-normal text-[5rem] sm:text-[6.5rem] md:text-[7.5rem] leading-[0.85] tracking-tight text-brand-strong">
+            {title.split("\n").map((line, i) => (
+              <span key={i} className={cn("block", i === 1 ? "text-brand ml-0" : "")}>{line}</span>
+            ))}
           </h1>
-          <p className="max-w-[31rem] text-[clamp(1.15rem,1.5vw,1.375rem)] leading-[1.5] text-muted">
+          
+          <p className="max-w-md text-[18px] leading-[1.6] text-muted font-medium opacity-90">
             {description}
           </p>
-          <div className="grid max-w-[26rem] grid-cols-2 gap-x-12 gap-y-4">
+          
+          <div className="grid max-w-sm grid-cols-2 gap-x-6 gap-y-3">
             {pills.map((pill) => (
               <p
                 key={pill}
-                className="text-[0.75rem] font-semibold uppercase tracking-[0.06em] text-brand"
+                className="text-[10px] font-bold uppercase tracking-widest text-accent border-l-2 border-accent/30 pl-3"
               >
                 {pill}
               </p>
             ))}
           </div>
-          <ButtonLink
-            href={primaryCta.href}
-            className="w-full max-w-[414px] min-h-[54px] rounded-[6px] px-8 text-[1.125rem] font-semibold shadow-none"
-          >
-            {primaryCta.label}
-          </ButtonLink>
-        </div>
-        <div className="relative hidden lg:block">
-          <div className="relative min-h-[510px] overflow-hidden rounded-[2.5rem] border border-border/10 bg-white/25 shadow-soft">
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.76)_30%,rgba(246,249,246,0.85)_60%,rgba(0,119,177,0.14)_100%)]" />
-            <div className="absolute left-10 top-10 h-40 w-40 rounded-full bg-brand/10 blur-2xl" />
-            <div className="absolute right-10 top-20 h-56 w-56 rounded-full bg-accent/10 blur-3xl" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.8),transparent_38%),radial-gradient(circle_at_70%_60%,rgba(148,199,6,0.2),transparent_30%),radial-gradient(circle_at_65%_35%,rgba(0,119,177,0.18),transparent_28%)]" />
-            <div className="absolute left-8 top-10 rounded-[1.5rem] border border-white/40 bg-white/70 px-5 py-4 shadow-soft backdrop-blur-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand">BioLogic Products</p>
-              <p className="mt-2 max-w-[18rem] text-sm leading-6 text-muted">
-                Herbal, steroid-free care ranges shaped for modern editorial workflows.
-              </p>
-            </div>
-            <div className="absolute bottom-10 right-8 rounded-[1.25rem] border border-white/40 bg-white/70 px-4 py-3 shadow-soft backdrop-blur-xl">
-              <p className="text-sm font-semibold text-ink">From Soil to Skin</p>
-              <p className="text-xs uppercase tracking-[0.24em] text-brand">Powered by Plants</p>
-            </div>
+          
+          <div className="pt-4">
+            <ButtonLink
+              href={primaryCta.href}
+              className="min-w-[240px] bg-brand text-white hover:bg-brand/90 rounded-[6px] px-8 py-4 text-[16px] font-semibold shadow-none text-center justify-center"
+            >
+              {primaryCta.label}
+            </ButtonLink>
           </div>
         </div>
+
+        
       </Container>
     </section>
   );
@@ -130,24 +150,56 @@ export function WhatWeDoSection({
   title: string;
   cards: Array<{ title: string; summary: string }>;
 }) {
+  const icons = [
+    <Sprout key="s" className="h-5 w-5 text-brand" />,
+    <Droplets key="d" className="h-5 w-5 text-brand" />,
+    <HandHeart key="h" className="h-5 w-5 text-brand" />,
+    <Microscope key="m" className="h-5 w-5 text-brand" />,
+    <CookingPot key="c" className="h-5 w-5 text-brand" />,
+    <FlaskConical key="f" className="h-5 w-5 text-brand" />,
+  ];
+
   return (
-    <section className="py-20">
-      <Container className="space-y-8">
-        <div className="max-w-[48rem] space-y-4">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="text-[clamp(2.2rem,4.1vw,3.35rem)] font-semibold leading-[1.08] tracking-[-0.02em] text-ink">
+    <section className="py-24 bg-white overflow-hidden">
+      <Container>
+        <div className="mb-12 max-w-3xl">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand mb-4 flex items-center gap-3">
+            {eyebrow}
+            <span className="h-px w-12 bg-brand/30"></span>
+          </p>
+          <h2 className="font-heading text-[2.8rem] leading-[1.1] tracking-tight text-ink">
             {title}
           </h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {cards.map((card) => (
-            <Card key={card.title} className="min-h-[176px] space-y-3">
-              <h3 className="text-[1.125rem] font-semibold uppercase tracking-[0.08em] text-brand">
-                {card.title}
-              </h3>
-              <p className="text-[1.125rem] leading-[1.5] text-muted">{card.summary}</p>
-            </Card>
-          ))}
+
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="space-y-5">
+            {cards.map((card, idx) => (
+              <div key={card.title} className="group flex gap-5 items-start rounded-xl p-4 transition-colors hover:bg-surface-soft">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-50/80 shadow-sm">
+                  {icons[idx % icons.length]}
+                </div>
+                <div className="space-y-1 pt-1">
+                  <h3 className="text-[15px] font-bold uppercase tracking-[0.05em] text-brand">
+                    {card.title}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-muted">{card.summary}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="relative">
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-[#e6edf8] relative flex items-center justify-center shadow-soft">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%]">
+                <img 
+                  src="/images/illustration.png" 
+                  alt="Science Illustration" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
@@ -165,21 +217,49 @@ export function VisionMissionSection({
   missionEyebrow: string;
   missions: string[];
 }) {
+  const missionIcons = [
+    <Recycle key="1" className="h-5 w-5 text-brand-strong" />,
+    <FlaskConical key="2" className="h-5 w-5 text-brand-strong" />,
+    <Sprout key="3" className="h-5 w-5 text-brand-strong" />,
+    <Globe key="4" className="h-5 w-5 text-brand-strong" />
+  ];
+
   return (
-    <section className="py-20">
-      <Container className="grid gap-10 lg:grid-cols-[1fr_0.88fr] lg:items-center">
-        <div className="space-y-6">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{visionEyebrow}</p>
-          <h2 className="max-w-[13ch] text-[clamp(2.9rem,5.8vw,4.4rem)] font-medium leading-[1.08] tracking-[-0.03em] text-ink">
-            {visionTitle}
-          </h2>
+    <section className="relative py-28 bg-[#f6f9f6] overflow-hidden">
+      {/* Large Drop/Leaf Watermark background style */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
+         <svg className="h-full max-h-[800px]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 10C100 10 170 70 170 120C170 158.66 138.66 190 100 190C61.3401 190 30 158.66 30 120C30 70 100 10 100 10Z" fill="currentColor" className="text-accent"/>
+         </svg>
+      </div>
+
+      <Container className="relative z-10 grid gap-16 lg:grid-cols-2">
+        <div className="space-y-8">
+          <div>
+            <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-accent flex items-center gap-3 mb-6">
+              {visionEyebrow}
+              <span className="h-px w-12 bg-accent/30"></span>
+            </p>
+            <h2 className="font-heading text-[3rem] md:text-[3.8rem] leading-[1.1] tracking-tight text-accent">
+              {visionTitle}
+            </h2>
+          </div>
         </div>
-        <div className="rounded-[2rem] border border-border/10 bg-white/80 p-8 shadow-soft">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{missionEyebrow}</p>
-          <div className="mt-6 space-y-4">
-            {missions.map((mission) => (
-              <div key={mission} className="rounded-2xl border border-border/10 bg-surface-strong px-4 py-4 text-[1.125rem] leading-[1.45] text-ink">
-                {mission}
+
+        <div className="lg:pt-8">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-accent flex items-center gap-3 mb-8">
+            {missionEyebrow}
+            <span className="h-px w-12 bg-accent/30"></span>
+          </p>
+          <div className="space-y-6">
+            {missions.map((mission, index) => (
+              <div key={index} className="flex gap-5 items-center">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white shadow-sm border border-border/5">
+                  {missionIcons[index % missionIcons.length]}
+                </div>
+                <p className="text-[17px] font-medium text-ink opacity-85">
+                  {mission}
+                </p>
               </div>
             ))}
           </div>
@@ -203,46 +283,72 @@ export function ChallengeApproachSection({
   approaches: Array<{ number: string; title: string; summary: string }>;
 }) {
   return (
-    <section className="py-20">
-      <Container className="space-y-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-[clamp(2.4rem,4vw,3.6rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-ink">
+    <section className="py-28 bg-white">
+      <Container className="space-y-16">
+        <div className="mx-auto text-center">
+          <h2 className="font-heading text-[3.2rem] font-medium leading-none text-ink mb-4">
             {title}
           </h2>
-          <p className="mt-5 text-[1.25rem] leading-[1.5] text-muted">{challengeIntro}</p>
+          <div className="mx-auto h-[4px] w-20 bg-brand rounded-full opacity-60"></div>
         </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Card className="space-y-5">
-            <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">The Challenge</p>
-            <div className="space-y-4">
+
+        <div className="grid gap-16 lg:grid-cols-2">
+          {/* The Challenge Column */}
+          <div className="space-y-10">
+            <div>
+              <p className="font-heading italic text-[22px] text-brand mb-3">
+                {challengeIntro.split(":")[0]}: <span className="font-sans not-italic text-[17px] leading-relaxed text-slate-600 font-medium">{challengeIntro.split(":")[1]}</span>
+              </p>
+            </div>
+            
+            <div className="space-y-8 pl-2">
               {challenges.map((item) => (
-                <div key={item.number} className="grid grid-cols-[72px_1fr] gap-4 rounded-2xl border border-border/10 bg-white/70 p-4">
-                  <div className="flex items-start justify-center pt-1 text-[4rem] leading-none text-ink/90">{item.number}</div>
-                  <div className="space-y-1">
-                    <h3 className="text-[1.125rem] font-semibold uppercase tracking-[0.08em] text-brand">{item.title}</h3>
-                    <p className="text-[1.125rem] leading-[1.45] text-muted">{item.summary}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-          <Card className="space-y-5">
-            <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">Our Approach</p>
-            <p className="text-[1.25rem] leading-[1.5] text-ink">{approachIntro}</p>
-            <div className="space-y-4">
-              {approaches.map((item) => (
-                <div key={item.number} className="grid grid-cols-[56px_1fr] gap-4 rounded-2xl border border-border/10 bg-surface-strong p-4">
-                  <div className="flex items-start justify-center pt-1 text-[1.5rem] font-semibold text-brand-strong">
+                <div key={item.number} className="flex gap-6 items-start group">
+                  <span className="font-sans text-[4.5rem] font-normal leading-[0.7] text-brand/10 group-hover:text-brand/30 transition-colors select-none">
                     {item.number}
-                  </div>
-                  <div className="space-y-1">
-                    <h3 className="text-[1.125rem] font-semibold uppercase tracking-[0.08em] text-brand">{item.title}</h3>
-                    <p className="text-[1.125rem] leading-[1.45] text-muted">{item.summary}</p>
+                  </span>
+                  <div className="pt-1 space-y-1">
+                    <h3 className="text-[15px] font-bold uppercase tracking-wide text-brand">
+                      {item.title}
+                    </h3>
+                    <p className="text-[15px] text-muted font-medium">{item.summary}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
+
+          {/* Our Approach Column */}
+          <div className="space-y-10">
+            <div>
+              <p className="font-heading italic text-[22px] text-brand mb-3">
+                {approachIntro.split(":")[0]}: <span className="font-sans not-italic text-[17px] leading-relaxed text-slate-600 font-medium">{approachIntro.split(":")[1]}</span>
+              </p>
+            </div>
+            
+            <div className="space-y-6 pl-4">
+              {approaches.map((item, idx) => {
+                return (
+                  <div key={item.number} className="flex items-center group">
+                    {/* 1. The number block */}
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[2px] text-white text-[17px] font-bold bg-[#0077b1] shadow-[0_4px_12px_rgba(0,0,0,0.12)] z-10">
+                      {item.number}
+                    </div>
+                    
+                    {/* 2. Text Content Card with rounded left border accent */}
+                    <div className="flex-1 bg-white px-6 py-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border-l-[3.5px] border-brand rounded-xl relative z-10 ml-3">
+                       <div className="pl-1">
+                          <h3 className="text-[16px] font-bold text-slate-900 tracking-tight leading-tight">
+                            {item.title}
+                          </h3>
+                          <p className="text-[13px] text-slate-500 mt-1.5 leading-relaxed font-medium">{item.summary}</p>
+                       </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </Container>
     </section>
@@ -258,23 +364,42 @@ export function WhyUsSection({
   title: string;
   cards: Array<{ title: string; summary: string }>;
 }) {
+  const whyIcons = [
+    <FlaskConical key="1" className="h-6 w-6 text-brand-strong" />,
+    <Leaf key="2" className="h-6 w-6 text-brand-strong" />,
+    <BadgeCheck key="3" className="h-6 w-6 text-brand-strong" />,
+    <Zap key="4" className="h-6 w-6 text-brand-strong" />,
+    <Boxes key="5" className="h-6 w-6 text-brand-strong" />,
+    <Workflow key="6" className="h-6 w-6 text-brand-strong" />,
+  ];
+
   return (
-    <section className="py-20">
-      <Container className="space-y-8">
-        <div className="max-w-[44rem] space-y-4">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="text-[clamp(2.4rem,4vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink">
+    <section className="py-24 bg-[#f8faf9]">
+      <Container className="space-y-16">
+        <div className="space-y-4">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.12em] text-accent mb-2">
+            {eyebrow}
+          </p>
+          <h2 className="font-heading text-[2.8rem] text-ink">
             {title}
           </h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {cards.map((card) => (
-            <Card key={card.title} className="min-h-[156px] space-y-3">
-              <h3 className="text-[1.125rem] font-semibold uppercase tracking-[0.08em] text-brand">
-                {card.title}
-              </h3>
-              <p className="text-[1.125rem] leading-[1.5] text-muted">{card.summary}</p>
-            </Card>
+
+        <div className="grid gap-y-12 gap-x-8 md:grid-cols-3">
+          {cards.map((card, index) => (
+            <div key={card.title} className="space-y-5 relative pb-6 border-b border-slate-200/80">
+              <div className="h-10 w-10 flex items-center justify-start text-accent">
+                {whyIcons[index % whyIcons.length]}
+              </div>
+              <div className="space-y-3">
+                <h3 className="text-[17px] font-bold text-ink">
+                  {card.title}
+                </h3>
+                <p className="text-[15px] leading-relaxed text-slate-600">
+                  {card.summary}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </Container>
@@ -293,64 +418,66 @@ export function SolutionsTabsSection({
   description: string;
   tabs: Array<{ label: string; title: string; summary: string; bullets: string[] }>;
 }) {
-  const active = tabs[0];
+  const [activeIdx, setActiveIdx] = useState(0);
+  const active = tabs[activeIdx] || tabs[0];
+
   return (
-    <section className="py-20">
-      <Container className="space-y-10">
+    <section className="py-24 bg-white" id="solutions">
+      <Container className="space-y-12">
         <div className="max-w-[48rem] space-y-4">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="text-[clamp(2.4rem,4vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
+          <h2 className="font-heading text-[2.8rem] leading-tight text-ink">
             {title}
           </h2>
-          <p className="text-[1.125rem] leading-[1.5] text-muted">{description}</p>
         </div>
-        <div className="overflow-hidden rounded-[2rem] border border-border/10 bg-white/70 p-5 shadow-soft">
-          <div className="flex flex-wrap gap-3 border-b border-border/10 pb-5">
-            {tabs.map((tab, index) => (
-              <button
-                key={tab.label}
-                className={cn(
-                  "rounded-full px-4 py-2 text-[0.75rem] font-semibold uppercase tracking-[0.05em] transition",
-                  index === 0
-                    ? "bg-brand-strong text-white"
-                    : "bg-white text-ink hover:bg-surface-strong",
-                )}
-                type="button"
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="rounded-[1.5rem] bg-brand-strong p-6 text-white shadow-soft">
-              <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-accent">Skincare & Herbal Cosmetic</p>
-              <p className="mt-5 text-[1.125rem] leading-[1.55] text-white/85">
-                {active.summary}
-              </p>
-              <div className="mt-6 space-y-3">
-                {active.bullets.map((bullet) => (
-                  <div key={bullet} className="text-[1.125rem] leading-[1.45] text-white">
-                    {bullet}
-                  </div>
-                ))}
-              </div>
-            </div>
+
+        {/* Tabs Navigator */}
+        <div className="border-b border-slate-100 flex overflow-x-auto no-scrollbar gap-12">
+          {tabs.map((tab, index) => (
+            <button
+              key={tab.label}
+              onClick={() => setActiveIdx(index)}
+              className={cn(
+                "pb-4 text-[11px] font-bold uppercase tracking-wider transition-all border-b-4 whitespace-nowrap shrink-0",
+                activeIdx === index
+                  ? "border-brand text-brand"
+                  : "border-transparent text-slate-400 hover:text-slate-600"
+              )}
+              type="button"
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Layout Split Content */}
+        <div className="grid gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-center mt-8">
+          <div className="space-y-6 animate-fade-in">
             <div className="space-y-4">
-              <h3 className="text-[1.5rem] font-medium leading-[1.2] text-ink">{active.title}</h3>
-              <p className="text-[1.125rem] leading-[1.55] text-muted">
+              <h3 className="text-[20px] font-bold text-slate-800 tracking-tight leading-snug">
+                {active.title}
+              </h3>
+              <p className="text-[15px] leading-relaxed text-slate-600 font-medium">
                 {active.summary}
               </p>
-              <div className="flex flex-wrap gap-3 pt-2">
-                {active.bullets.map((bullet) => (
-                  <span
-                    key={bullet}
-                    className="rounded-full border border-border/10 bg-white px-4 py-2 text-[0.875rem] text-ink shadow-sm"
-                  >
-                    {bullet}
-                  </span>
-                ))}
-              </div>
             </div>
+            
+            <div className="space-y-3 pt-2">
+              {active.bullets.map((bullet, idx) => (
+                <div key={idx} className="flex items-center gap-3 text-[15px] text-slate-600 font-medium">
+                  <CheckCircle2 className="h-[18px] w-[18px] text-brand/70 stroke-[1.8]" />
+                  {bullet}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#e6efff] flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+            <img 
+              src="/images/solutions-fern.png" 
+              alt="" 
+              className="w-full h-full object-cover opacity-95"
+            />
           </div>
         </div>
       </Container>
@@ -367,23 +494,29 @@ export function InnovationSection({
   title: string;
   cards: Array<{ title: string; summary: string }>;
 }) {
+  const innovIcons = [
+    <BadgeCheck key="i1" className="h-6 w-6 text-brand-strong" />,
+    <Boxes key="i2" className="h-6 w-6 text-brand-strong" />,
+    <Workflow key="i3" className="h-6 w-6 text-brand-strong" />,
+  ];
+
   return (
-    <section className="py-20">
-      <Container className="space-y-8">
-        <div className="max-w-[44rem] space-y-4">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="text-[clamp(2.2rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink">
+    <section className="py-20 bg-white border-b border-slate-50">
+      <Container className="space-y-12">
+        <div className="space-y-4">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-accent">{eyebrow}</p>
+          <h2 className="font-heading text-[2.8rem] leading-tight text-ink">
             {title}
           </h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {cards.map((card) => (
-            <Card key={card.title} className="space-y-3">
-              <h3 className="text-[1.125rem] font-semibold uppercase tracking-[0.08em] text-brand">
-                {card.title}
-              </h3>
-              <p className="text-[1rem] leading-[1.5] text-muted">{card.summary}</p>
-            </Card>
+        
+        <div className="grid gap-8 md:grid-cols-3">
+          {cards.map((card, i) => (
+            <div key={card.title} className="space-y-4">
+              <div className="text-accent">{innovIcons[i % innovIcons.length]}</div>
+              <h3 className="text-[17px] font-bold text-ink">{card.title}</h3>
+              <p className="text-[15px] text-muted leading-relaxed">{card.summary}</p>
+            </div>
           ))}
         </div>
       </Container>
@@ -401,28 +534,29 @@ export function FoundersSection({
   members: Array<{ initials: string; name: string; role: string; summary: string }>;
 }) {
   return (
-    <section className="py-20">
-      <Container className="space-y-8">
-        <div className="max-w-[48rem] space-y-4">
-          <p className="text-[18px] font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="text-[clamp(2.4rem,4vw,3.6rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink">
+    <section className="py-24 bg-white">
+      <Container className="space-y-16">
+        <div className="space-y-4">
+          <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
+          <h2 className="font-heading text-[2.8rem] leading-tight text-ink max-w-3xl">
             {title}
           </h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+
+        <div className="grid gap-6 md:grid-cols-3">
           {members.map((member) => (
-            <Card key={member.name} className="space-y-5">
-              <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-strong text-[1.125rem] font-semibold text-white">
-                  {member.initials}
-                </div>
-                <div>
-                  <h3 className="text-[1.375rem] leading-[1.1] font-semibold text-ink">{member.name}</h3>
-                  <p className="text-[1.125rem] uppercase tracking-[0.08em] text-brand">{member.role}</p>
-                </div>
+            <div key={member.name} className="rounded-2xl border border-blue-100/50 bg-white p-4 shadow-soft flex flex-col">
+              <div className="aspect-square w-full rounded-xl bg-blue-50/60 border border-brand/20 flex items-center justify-center mb-6 relative">
+                 <span className="text-brand font-semibold text-2xl">{member.initials}</span>
               </div>
-              <p className="text-[1rem] leading-[1.5] text-muted">{member.summary}</p>
-            </Card>
+              <div className="flex-1 space-y-2 px-2 pb-4">
+                <h3 className="text-[18px] font-medium text-ink tracking-tight">{member.name}</h3>
+                <p className="text-[14px] text-slate-600 mb-2 font-medium leading-tight">{member.summary}</p>
+                <p className="text-[15px] font-bold text-brand leading-snug pt-2 border-t border-slate-100">
+                   {member.role}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </Container>
@@ -442,26 +576,31 @@ export function FinalCtaSection({
   primaryCta: { label: string; href: string };
 }) {
   return (
-    <section className="py-20">
+    <section className="py-28 bg-[#f6f9f6]">
       <Container>
-        <div className="mx-auto max-w-[54rem] text-center">
-          <h2 className="text-[clamp(2.8rem,4.4vw,4rem)] font-medium leading-[1.08] tracking-[-0.03em] text-ink">
+        <div className="mx-auto max-w-[54rem] text-center space-y-8">
+          <h2 className="font-heading text-[3.8rem] leading-[1.05] text-ink whitespace-pre-line">
             {title}
           </h2>
-          <p className="mx-auto mt-6 max-w-[42rem] text-[1.125rem] leading-[1.5] text-muted">
+          <p className="mx-auto max-w-md text-[16px] text-muted font-medium opacity-90">
             {description}
           </p>
-          <p className="mt-8 text-[1rem] leading-[1.5] text-muted">We invite collaborations and partnerships across:</p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
+          
+          <div className="flex flex-wrap justify-center gap-3 pt-4">
             {tags.map((tag) => (
-              <span key={tag} className="text-[0.875rem] text-ink">
+              <span key={tag} className="px-4 py-2 rounded-full border border-slate-200 bg-white text-[11px] font-bold uppercase tracking-wider text-slate-700 shadow-sm">
                 {tag}
               </span>
             ))}
           </div>
-          <div className="mt-10 flex justify-center">
-            <ButtonLink href={primaryCta.href} className="min-h-[56px] min-w-[278px] rounded-[6px] px-8 text-[1.125rem] font-semibold shadow-none">
+          
+          <div className="pt-8">
+            <ButtonLink 
+              href={primaryCta.href} 
+              className="inline-flex items-center justify-center gap-3 bg-[#2d6900] hover:bg-[#224d00] text-white min-h-[56px] min-w-[260px] rounded-[6px] px-8 text-[16px] font-bold shadow-md transition-all hover:shadow-lg group"
+            >
               {primaryCta.label}
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </ButtonLink>
           </div>
         </div>
@@ -652,49 +791,53 @@ export function Footer({
   id?: string;
 }) {
   return (
-    <footer id={id} className="border-t border-accent/20 bg-brand-strong py-12 text-white">
-      <Container className="space-y-8">
-        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
-          <div className="space-y-5">
-            <Link href="/" className="flex items-center gap-3">
-              <BrandMark className="h-12 w-12 shrink-0" />
-              <span className="text-lg font-semibold tracking-tight text-white">{brand}</span>
+    <footer id={id} className="bg-[#0f2a44] py-16 text-white">
+      <Container className="space-y-12">
+        <div className="grid gap-10 md:grid-cols-[1.5fr_0.8fr_0.8fr_0.8fr]">
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-2">
+               <img src="/images/logo.jpg" alt="" className="h-12 w-auto rounded-full object-cover" />
+               <span className="text-[20px] font-semibold tracking-tight text-white">{brand}</span>
             </Link>
-            <p className="max-w-xs text-sm leading-6 text-white/80">{address}</p>
-            <div className="space-y-1 text-sm leading-6 text-white/80">
+            <p className="max-w-xs text-[14px] text-white/80 leading-relaxed">{address}</p>
+            <div className="space-y-1 text-[14px] text-white/80">
               <p>{phone}</p>
-              <p>{email}</p>
+              <p className="hover:text-white transition-colors"><a href={`mailto:${email}`}>{email}</a></p>
             </div>
           </div>
+          
           <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-accent">Solutions</p>
-            <div className="space-y-3 text-sm text-white">
-              <p>Bed Sore</p>
-              <p>Orthopedic</p>
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-accent">Solutions</p>
+            <div className="space-y-3 text-[14px] text-white/70">
+              <p className="hover:text-white cursor-pointer">Bed Sore</p>
+              <p className="hover:text-white cursor-pointer">Orthopedic</p>
             </div>
           </div>
+          
           <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-accent">About</p>
-            <div className="space-y-3 text-sm text-white">
-              <p>Founders</p>
-              <p>Contact</p>
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-accent">About</p>
+            <div className="space-y-3 text-[14px] text-white/70">
+              <p className="hover:text-white cursor-pointer">Founders</p>
+              <p className="hover:text-white cursor-pointer">Contact</p>
             </div>
           </div>
+          
           <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-accent">Web</p>
-            <div className="space-y-3 text-sm text-white">
-              <p>{website ?? "www.globalbiologic.com"}</p>
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-accent">Web</p>
+            <div className="space-y-3 text-[14px] text-white/70">
+              <p className="hover:text-white cursor-pointer truncate">{website ?? "www.globalbiologic.com"}</p>
             </div>
           </div>
         </div>
-        <div className="border-t border-white/10 pt-5">
-          <div className="flex flex-col gap-3 text-sm text-white/40 md:flex-row md:items-center md:justify-between">
-            <p>From Soil to Skin — Powered by Plants</p>
+        
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-col gap-4 text-[12px] text-white/40 md:flex-row md:items-center md:justify-between">
+            <p className="uppercase tracking-wider">FROM SOIL TO SKIN — POWERED BY PLANTS</p>
             <div className="flex items-center gap-6">
-              <Link href="/" className="transition hover:text-white/70">
+              <Link href="/" className="transition hover:text-white/70 uppercase tracking-wide">
                 Privacy Policy
               </Link>
-              <Link href="/" className="transition hover:text-white/70">
+              <Link href="/" className="transition hover:text-white/70 uppercase tracking-wide">
                 Terms of Service
               </Link>
             </div>
