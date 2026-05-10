@@ -1,0 +1,18 @@
+{
+  "slug": "back-care-oil",
+  "title": "SaSneh Back Care Oil",
+  "category": "Orthopedic",
+  "summary": "Herbal massage oil for back and lumbar support.",
+  "description": "A topical herbal formulation designed for back stiffness, lumbar discomfort, and everyday mobility support.",
+  "price": "₹448.78",
+  "badge": "Featured",
+  "ctaLabel": "Know More",
+  "ctaHref": "/ortho/products/back-care-oil",
+  "benefits": [
+    "Supports back and lumbar comfort with a steroid-free formulation.",
+    "Fits a long-term care strategy for orthopedic support.",
+    "Can be surfaced in CMS-driven landing pages and product blocks."
+  ],
+  "conditions": ["Back pain", "Lumbar support", "Muscle stiffness"],
+  "featured": true
+}

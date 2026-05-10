@@ -1,0 +1,268 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: site
+    label: Site
+    files:
+      - name: home
+        label: Home Page
+        file: content/pages/home.json
+        format: json
+        fields:
+          - { label: Slug, name: slug, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Sections
+            name: sections
+            widget: list
+            summary: "{{fields.type}}: {{fields.heading}}{{fields.title}}"
+            fields:
+              - label: Type
+                name: type
+                widget: select
+                options: ["hero", "what-we-do", "vision-mission", "challenge-approach", "why-us", "solutions-tabs", "innovation", "founders", "final-cta", "feature-grid", "solution-grid", "product-grid", "testimonial-band", "team-strip", "cta-band", "copy"]
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string, required: false }
+              - { label: Description, name: description, widget: text, required: false }
+              - { label: Vision Eyebrow, name: visionEyebrow, widget: string, required: false }
+              - { label: Vision Title, name: visionTitle, widget: text, required: false }
+              - { label: Mission Eyebrow, name: missionEyebrow, widget: string, required: false }
+              - { label: Challenge Intro, name: challengeIntro, widget: text, required: false }
+              - { label: Approach Intro, name: approachIntro, widget: text, required: false }
+              - label: Primary CTA
+                name: primaryCta
+                widget: object
+                required: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+              - label: Secondary CTA
+                name: secondaryCta
+                widget: object
+                required: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+              - { label: Highlight, name: highlight, widget: text, required: false }
+              - label: Cards
+                name: cards
+                widget: list
+                required: false
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+              - label: Challenges
+                name: challenges
+                widget: list
+                required: false
+                fields:
+                  - { label: Number, name: number, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+              - label: Approaches
+                name: approaches
+                widget: list
+                required: false
+                fields:
+                  - { label: Number, name: number, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+              - label: Missions
+                name: missions
+                widget: list
+                required: false
+                field: { label: Mission, name: mission, widget: string }
+              - label: Tabs
+                name: tabs
+                widget: list
+                required: false
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+                  - label: Bullets
+                    name: bullets
+                    widget: list
+                    field: { label: Bullet, name: bullet, widget: string }
+              - label: Members
+                name: members
+                widget: list
+                required: false
+                fields:
+                  - { label: Initials, name: initials, widget: string }
+                  - { label: Name, name: name, widget: string }
+                  - { label: Role, name: role, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+              - label: Tags
+                name: tags
+                widget: list
+                required: false
+                field: { label: Tag, name: tag, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+                  - { label: Tag, name: tag, widget: string, required: false }
+              - label: Product Slugs
+                name: productSlugs
+                widget: list
+                required: false
+                field: { label: Product Slug, name: slug, widget: string }
+              - label: Solution Slugs
+                name: solutionSlugs
+                widget: list
+                required: false
+                field: { label: Solution Slug, name: slug, widget: string }
+              - label: Testimonial Slugs
+                name: testimonialSlugs
+                widget: list
+                required: false
+                field: { label: Testimonial Slug, name: slug, widget: string }
+              - label: Team Slugs
+                name: teamSlugs
+                widget: list
+                required: false
+                field: { label: Team Slug, name: slug, widget: string }
+  - name: landing_pages
+    label: Landing Pages
+    folder: content/pages/landing
+    create: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - label: Sections
+        name: sections
+        widget: list
+        summary: "{{fields.type}}: {{fields.heading}}{{fields.title}}"
+        fields:
+          - label: Type
+            name: type
+            widget: select
+            options: ["hero", "what-we-do", "vision-mission", "challenge-approach", "why-us", "solutions-tabs", "innovation", "founders", "final-cta", "feature-grid", "solution-grid", "product-grid", "testimonial-band", "team-strip", "cta-band", "copy"]
+          - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Heading, name: heading, widget: string, required: false }
+          - { label: Description, name: description, widget: text, required: false }
+          - label: Primary CTA
+            name: primaryCta
+            widget: object
+            required: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Href, name: href, widget: string }
+          - label: Secondary CTA
+            name: secondaryCta
+            widget: object
+            required: false
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Href, name: href, widget: string }
+          - { label: Highlight, name: highlight, widget: text, required: false }
+          - label: Items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Tag, name: tag, widget: string, required: false }
+          - label: Product Slugs
+            name: productSlugs
+            widget: list
+            required: false
+            field: { label: Product Slug, name: slug, widget: string }
+          - label: Solution Slugs
+            name: solutionSlugs
+            widget: list
+            required: false
+            field: { label: Solution Slug, name: slug, widget: string }
+          - label: Testimonial Slugs
+            name: testimonialSlugs
+            widget: list
+            required: false
+            field: { label: Testimonial Slug, name: slug, widget: string }
+          - label: Team Slugs
+            name: teamSlugs
+            widget: list
+            required: false
+            field: { label: Team Slug, name: slug, widget: string }
+  - name: products
+    label: Products
+    folder: content/products
+    create: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Category, name: category, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Description, name: description, widget: text }
+      - { label: Price, name: price, widget: string, required: false }
+      - { label: Badge, name: badge, widget: string, required: false }
+      - { label: CTA Label, name: ctaLabel, widget: string, required: false }
+      - { label: CTA Href, name: ctaHref, widget: string, required: false }
+      - label: Benefits
+        name: benefits
+        widget: list
+        field: { label: Benefit, name: benefit, widget: string }
+      - label: Conditions
+        name: conditions
+        widget: list
+        field: { label: Condition, name: condition, widget: string }
+      - { label: Featured, name: featured, widget: boolean, required: false, default: false }
+  - name: solutions
+    label: Solutions
+    folder: content/solutions
+    create: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Description, name: description, widget: text }
+      - { label: Icon, name: icon, widget: string, required: false }
+      - { label: Featured, name: featured, widget: boolean, required: false, default: false }
+  - name: team
+    label: Team
+    folder: content/team
+    create: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Name, name: name, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Bio, name: bio, widget: text }
+      - { label: Avatar, name: avatar, widget: string, required: false }
+  - name: testimonials
+    label: Testimonials
+    folder: content/testimonials
+    create: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Quote, name: quote, widget: text }
+      - { label: Name, name: name, widget: string }
+      - { label: Role, name: role, widget: string }
+      - { label: Company, name: company, widget: string, required: false }
+      - { label: Featured, name: featured, widget: boolean, required: false, default: false }

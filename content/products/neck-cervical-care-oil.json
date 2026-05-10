@@ -1,0 +1,17 @@
+{
+  "slug": "neck-cervical-care-oil",
+  "title": "SaSneh Neck & Cervical Care Oil",
+  "category": "Orthopedic",
+  "summary": "Herbal massage oil for neck stiffness and screen-related pain.",
+  "description": "A steroid-free topical oil for neck, cervical, and screen-fatigue related discomfort.",
+  "price": "₹448.78",
+  "ctaLabel": "Know More",
+  "ctaHref": "/ortho/products/neck-cervical-care-oil",
+  "benefits": [
+    "Supports neck and cervical comfort with a topical herbal profile.",
+    "Fits the `/ortho/products/[slug]` template route.",
+    "Can be reused in templates and landing page blocks."
+  ],
+  "conditions": ["Neck pain", "Cervical support", "Headache relief"],
+  "featured": true
+}

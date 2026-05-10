@@ -1,0 +1,16 @@
+{
+  "title": "BioLogic Products",
+  "description": "BioLogic Products builds herbal, steroid-free care ranges for orthopedic, skin, and wellness use cases.",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Solutions", "href": "/#solutions" },
+    { "label": "Contact", "href": "/#footer" }
+  ],
+  "footer": {
+    "brand": "BioLogic Products Pvt. Ltd.",
+    "address": "Pune, India",
+    "phone": "+91 8308272299",
+    "email": "biologicproductspvtltd@gmail.com",
+    "website": "www.globalbiologic.com"
+  }
+}
