@@ -44,10 +44,10 @@ export function SiteNav({
                       ) : null}
                     </Link>
                     {isSolutions ? (
-                      <div className="absolute right-0 top-full mt-2 hidden w-[240px] origin-top-right transform opacity-0 scale-95 transition duration-200 ease-out group-hover:block group-hover:opacity-100 group-hover:scale-100">
+                      <div className="absolute right-0 top-full pt-2 hidden w-[240px] origin-top-right transform opacity-0 scale-95 transition duration-200 ease-out group-hover:block group-hover:opacity-100 group-hover:scale-100">
                         <div className="overflow-hidden rounded-2xl border border-border/10 bg-white shadow-soft backdrop-blur-xl">
                           <Link
-                            href="/bed-sore"
+                            href="/bedsore"
                             className="flex items-center gap-3 px-4 py-4 transition hover:bg-surface-soft"
                           >
                             <div className="h-10 w-10 rounded-lg bg-brand/10 p-2 flex items-center justify-center font-bold text-brand text-xs">BS</div>

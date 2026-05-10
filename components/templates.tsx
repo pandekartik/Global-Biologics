@@ -218,7 +218,7 @@ export function OrthoTemplate({
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho" />
+      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho" floating />
       <main>
         <HeroSection
           eyebrow="ORTHOPEDIC CARE RANGE"
@@ -266,7 +266,7 @@ export function ProductTemplate({
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho/products" />
+      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho/products" floating />
       <main>
         <HeroSection
           eyebrow={product.category}
@@ -333,7 +333,7 @@ export function LandingPageTemplate({
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} />
+      <SiteNav brand={site.title} links={site.nav} floating />
       <main>
         {page.sections.map((section) => renderSection(section, { products, testimonials, team, solutions }))}
         <Footer {...site.footer} id="footer" />

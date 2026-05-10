@@ -809,8 +809,8 @@ export function Footer({
           <div className="space-y-4">
             <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-accent">Solutions</p>
             <div className="space-y-3 text-[14px] text-white/70">
-              <p className="hover:text-white cursor-pointer">Bed Sore</p>
-              <p className="hover:text-white cursor-pointer">Orthopedic</p>
+              <Link href="/bedsore" className="block hover:text-white transition-colors">Bed Sore</Link>
+              <Link href="/ortho" className="block hover:text-white transition-colors">Orthopedic</Link>
             </div>
           </div>
           
