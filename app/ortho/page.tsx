@@ -190,7 +190,7 @@ export default async function OrthoPage() {
         <section className="py-32 bg-[#f7f9f5] relative overflow-hidden">
           {/* Subtle oversized drop outline icon - exactly centered as requested */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.06] pointer-events-none">
-             <svg width="700" height="700" viewBox="0 0 24 24" fill="none" stroke="#6b8a25" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+             <svg width="420" height="420" viewBox="0 0 24 24" fill="none" stroke="#6b8a25" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 4.91421 12 1 12 1C12 1 2 4.91421 2 12C2 17.5228 6.47715 22 12 22Z"/>
              </svg>
           </div>
