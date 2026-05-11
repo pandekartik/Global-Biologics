@@ -4,7 +4,9 @@
   "hero": {
     "badge": "COMPLETE CARE FOR PRESSURE-PRONE SKIN",
     "title": "TWARABiO™",
-    "subtitle": "Advanced Herbal Care for Pressure-Prone Skin"
+    "subtitle": "Advanced Herbal Care for Pressure-Prone Skin",
+    "heroImage": "/images/bedsore-hero.png",
+    "logoImage": "/images/twarabio-logo.jpg"
   },
   "intro": {
     "title": "The Growing burden of bed sores",
@@ -27,5 +29,84 @@
         { "stat": "25-30%", "description": "Prevalence of bed sores in long-term care settings and high economic burden on healthcare systems." }
       ]
     }
-  ]
+  ],
+  "atRisk": {
+    "eyebrow": "WHO IS AT RISK?",
+    "heading": "Designed for patients at risk of prolonged immobility and skin breakdown.",
+    "subheading": "Why special care is needed?",
+    "patients": [
+      "BEDRIDDEN PATIENTS.",
+      "ELDERLY INDIVIDUALS.",
+      "STROKE/PARALYSIS PATIENTS.",
+      "POST SURGICAL PATIENTS.",
+      "ICU/ CRITICAL PATIENTS",
+      "WHEELCHAIR-BOUND INDIVIDUALS"
+    ],
+    "reasons": [
+      "Continuous pressure reduces blood flow, triggering infections.",
+      "Leads to tissue damage and skin breakdown worsening the bed sore.",
+      "Affected skin becomes dry, fragile and overly moist.",
+      "All of this leads to increased infection susceptibility."
+    ]
+  },
+  "gapVsNeed": {
+    "title": "Gap vs. Need",
+    "gapIntro": "Rising prevalence of chronic skin conditions, with growing concerns around side effects of existing treatments.",
+    "gaps": [
+      "OVER-RELIANCE ON CHEMICAL BASED CARE.",
+      "LACK OF PREVENTIVE DAILY PROTOCOLS.",
+      "LIMITED HERBAL LONG-TERM SOLUTIONS.",
+      "CAREGIVER DEPENDANCY CHALLENGES."
+    ],
+    "needIntro": "Safe and efficacious phytotherapeutics for bed sore.",
+    "needs": [
+      "Safe for long-term use.",
+      "Gentle on fragile skin.",
+      "Maintains hygiene & moisture balance.",
+      "Supports prevention care and easy for hospital & home use."
+    ]
+  },
+  "productSection": {
+    "eyebrow": "OUR SOLUTION",
+    "heading": "Introducing TwaraBio™ Bed Sore Protocol",
+    "description": "A range of herbal products that can be used individually or in combination, based on patient condition and care needs.",
+    "productSlugs": ["twarabio-skincare-lotion", "twarabio-cleansing-liquid", "twarabio-skincare-oil", "twarabio-dusting-powder"]
+  },
+  "careInstructions": {
+    "steps": [
+      "Reposition patient regularly.",
+      "Maintain clean & dry skin.",
+      "Avoid prolonged pressure.",
+      "Use gentle application only."
+    ],
+    "noteTitle": "Note for use",
+    "noteText": "Product can be used individually or in combination. Selection depends on stage, condition, and patient needs.",
+    "dailyFrequency": "3x",
+    "initialCourse": "14d"
+  },
+  "productRoutine": {
+    "title": "Product Routine",
+    "steps": [
+      "Clean the affected area gently with TwaraBio cleansing liquid.",
+      "Pat dry and apply TwaraBio skincare lotion.",
+      "Allow the lotion to absorb fully.",
+      "Apply TwaraBio skincare oil on dry areas.",
+      "Use TwaraBio dusting powder on moisture-prone folds."
+    ]
+  },
+  "whyDifferent": {
+    "eyebrow": "WHY TWARABiO™?",
+    "heading": "Four Reasons We Are Different",
+    "cards": [
+      { "title": "Herbal & Clinically Relevant", "text": "Inspired by traditional botanical knowledge and adapted for modern care needs." },
+      { "title": "Steroid Free & Gentle", "text": "Suitable for long-term use and safe for fragile and elderly skin." },
+      { "title": "Flexible Usage Approach", "text": "Not a rigid protocol, use based on patient condition." },
+      { "title": "Real Care Settings", "text": "Easy for caregivers and suitable for hospital & home use." }
+    ]
+  },
+  "testimonials": {
+    "heading": "Clinical Validation & People Stories",
+    "testimonialSlugs": ["dr-marcus-thorne", "physio-neha-rai", "clinical-partner-samir"],
+    "videoSlugs": ["sarah-mitchell", "rajesh-kumar", "priya-sharma"]
+  }
 }

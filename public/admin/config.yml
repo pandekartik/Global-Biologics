@@ -150,6 +150,8 @@ collections:
               - { label: Badge, name: badge, widget: string }
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Hero Image, name: heroImage, widget: image, required: false }
+              - { label: Logo Image, name: logoImage, widget: image, required: false }
           - label: Approach
             name: approach
             widget: object
@@ -165,6 +167,7 @@ collections:
             name: features
             widget: object
             fields:
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
               - { label: Heading, name: heading, widget: text }
               - label: Items
                 name: items
@@ -172,6 +175,21 @@ collections:
                 fields:
                   - { label: Stat, name: stat, widget: string }
                   - { label: Label, name: label, widget: string }
+          - label: Challenge Section
+            name: challenge
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Challenge Intro, name: challengeIntro, widget: text }
+              - label: Challenges
+                name: challenges
+                widget: list
+                field: { label: Challenge, name: text, widget: string }
+              - { label: Approach Intro, name: approachIntro, widget: text }
+              - label: Approaches
+                name: approaches
+                widget: list
+                field: { label: Approach, name: text, widget: string }
           - label: Vision
             name: vision
             widget: object
@@ -185,6 +203,37 @@ collections:
                 name: items
                 widget: list
                 field: { label: Item, name: text, widget: string }
+          - label: Product Section
+            name: productSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+          - label: Why Different
+            name: whyDifferent
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Cards
+                name: cards
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+          - label: Testimonials Section
+            name: testimonials
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Testimonial Slugs
+                name: testimonialSlugs
+                widget: list
+                field: { label: Slug, name: slug, widget: string }
+              - label: Video Slugs
+                name: videoSlugs
+                widget: list
+                field: { label: Slug, name: slug, widget: string }
       - name: bedsore
         label: Bedsore Page
         file: content/pages/bedsore.json
@@ -199,6 +248,8 @@ collections:
               - { label: Badge, name: badge, widget: string }
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Hero Image, name: heroImage, widget: image, required: false }
+              - { label: Logo Image, name: logoImage, widget: image, required: false }
           - label: Intro
             name: intro
             widget: object
@@ -217,6 +268,93 @@ collections:
                 fields:
                   - { label: Stat, name: stat, widget: string }
                   - { label: Description, name: description, widget: text }
+          - label: At Risk Section
+            name: atRisk
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: text }
+              - { label: Subheading, name: subheading, widget: string }
+              - label: Patients
+                name: patients
+                widget: list
+                field: { label: Patient Type, name: text, widget: string }
+              - label: Reasons
+                name: reasons
+                widget: list
+                field: { label: Reason, name: text, widget: text }
+          - label: Gap vs Need
+            name: gapVsNeed
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Gap Intro, name: gapIntro, widget: text }
+              - label: Gaps
+                name: gaps
+                widget: list
+                field: { label: Gap, name: text, widget: string }
+              - { label: Need Intro, name: needIntro, widget: text }
+              - label: Needs
+                name: needs
+                widget: list
+                field: { label: Need, name: text, widget: string }
+          - label: Product Section
+            name: productSection
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }
+              - label: Product Slugs
+                name: productSlugs
+                widget: list
+                field: { label: Slug, name: slug, widget: string }
+          - label: Care Instructions
+            name: careInstructions
+            widget: object
+            fields:
+              - label: Steps
+                name: steps
+                widget: list
+                field: { label: Step, name: text, widget: string }
+              - { label: Note Title, name: noteTitle, widget: string }
+              - { label: Note Text, name: noteText, widget: text }
+              - { label: Daily Frequency, name: dailyFrequency, widget: string }
+              - { label: Initial Course, name: initialCourse, widget: string }
+          - label: Product Routine
+            name: productRoutine
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                field: { label: Step, name: text, widget: string }
+          - label: Why Different
+            name: whyDifferent
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: heading, widget: string }
+              - label: Cards
+                name: cards
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+          - label: Testimonials Section
+            name: testimonials
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Testimonial Slugs
+                name: testimonialSlugs
+                widget: list
+                field: { label: Slug, name: slug, widget: string }
+              - label: Video Slugs
+                name: videoSlugs
+                widget: list
+                field: { label: Slug, name: slug, widget: string }
   - name: landing_pages
     label: Landing Pages
     folder: content/pages/landing
@@ -344,7 +482,7 @@ collections:
       - { label: Role, name: role, widget: string }
       - { label: Summary, name: summary, widget: text }
       - { label: Bio, name: bio, widget: text }
-      - { label: Avatar, name: avatar, widget: string, required: false }
+      - { label: Avatar, name: avatar, widget: image, required: false }
   - name: testimonials
     label: Testimonials
     folder: content/testimonials
@@ -357,4 +495,18 @@ collections:
       - { label: Name, name: name, widget: string }
       - { label: Role, name: role, widget: string }
       - { label: Company, name: company, widget: string, required: false }
+      - { label: Rating, name: rating, widget: number, required: false, default: 5, value_type: int, min: 1, max: 5 }
+      - { label: Avatar, name: avatar, widget: image, required: false }
       - { label: Featured, name: featured, widget: boolean, required: false, default: false }
+  - name: video_testimonials
+    label: Video Testimonials
+    folder: content/video-testimonials
+    create: true
+    format: json
+    slug: "{{slug}}"
+    fields:
+      - { label: Slug, name: slug, widget: string }
+      - { label: Name, name: name, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: Cover Image, name: coverImage, widget: image }
+      - { label: Video URL, name: videoUrl, widget: string, required: false }

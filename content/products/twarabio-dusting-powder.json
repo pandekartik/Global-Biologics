@@ -1,0 +1,19 @@
+{
+  "slug": "twarabio-dusting-powder",
+  "title": "Twarabio™ Herbal Dusting Powder",
+  "category": "Bedsore",
+  "brand": "TwaraBio™",
+  "volume": "10ml",
+  "summary": "For sweating or moisture prone areas and risk of maceration and prevents friction-related damage.",
+  "description": "Herbal dusting powder for moisture-prone skin areas.",
+  "composition": "Moisturizer, keeps skin dry & comfortable, reduces moisture related breakdown.",
+  "usage": "Suitable for repeated daily use and on skin folds (groin, underarms, back folds).",
+  "price": "₹399",
+  "badge": "BED SORE",
+  "ctaLabel": "Buy Now",
+  "image": "/images/product-image.png",
+  "thumbnails": ["/images/product-image.png", "/images/product-image.png", "/images/product-image.png", "/images/product-image.png"],
+  "benefits": ["Moisture control", "Friction prevention", "Skin fold care"],
+  "conditions": ["Bed Sore", "Skin Healing"],
+  "featured": true
+}

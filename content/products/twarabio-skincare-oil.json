@@ -1,0 +1,19 @@
+{
+  "slug": "twarabio-skincare-oil",
+  "title": "Twarabio™ Herbal Skincare Oil",
+  "category": "Bedsore",
+  "brand": "TwaraBio™",
+  "volume": "10ml",
+  "summary": "For bed-sore prone areas (before ulcer formation) and on dry, poorly nourished skin.",
+  "description": "Nourishing herbal oil for preventive bed sore care.",
+  "composition": "Nourishing ingredients, supports skin integrity and resilience.",
+  "usage": "Ideal for preventive care and for long-term bedridden patients. Suitable for use on pressure points (heels, hips, back, elbows).",
+  "price": "₹399",
+  "badge": "BED SORE",
+  "ctaLabel": "Buy Now",
+  "image": "/images/product-image.png",
+  "thumbnails": ["/images/product-image.png", "/images/product-image.png", "/images/product-image.png", "/images/product-image.png"],
+  "benefits": ["Preventive care", "Skin nourishment", "Pressure point support"],
+  "conditions": ["Bed Sore", "Skin Healing"],
+  "featured": true
+}

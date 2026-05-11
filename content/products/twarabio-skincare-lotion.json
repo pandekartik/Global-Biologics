@@ -1,0 +1,19 @@
+{
+  "slug": "twarabio-skincare-lotion",
+  "title": "Twarabio™ Herbal Skincare Lotion",
+  "category": "Bedsore",
+  "brand": "TwaraBio™",
+  "volume": "10ml",
+  "summary": "Supports early-stage bed sores and maintenance care in high-risk patients.",
+  "description": "A steroid-free herbal lotion for pressure-prone skin care.",
+  "composition": "Aloe-based, maintains hydration and skin comfort.",
+  "usage": "Suitable for frequent application and for all skin types (dry, sensitive or fragile skin). Patch test required on burning or inflamed skin.",
+  "price": "₹399",
+  "badge": "BED SORE",
+  "ctaLabel": "Buy Now",
+  "image": "/images/product-image.png",
+  "thumbnails": ["/images/product-image.png", "/images/product-image.png", "/images/product-image.png", "/images/product-image.png"],
+  "benefits": ["Hydration support", "Safe for fragile skin", "Steroid free"],
+  "conditions": ["Bed Sore", "Skin Healing"],
+  "featured": true
+}

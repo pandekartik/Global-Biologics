@@ -51,7 +51,17 @@ export type Testimonial = {
   name: string;
   role: string;
   company?: string;
+  rating?: number;
+  avatar?: string;
   featured?: boolean;
+};
+
+export type VideoTestimonial = {
+  slug: string;
+  name: string;
+  description: string;
+  coverImage: string;
+  videoUrl?: string;
 };
 
 export type PageSection =

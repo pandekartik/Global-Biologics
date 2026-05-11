@@ -1,0 +1,19 @@
+{
+  "slug": "twarabio-cleansing-liquid",
+  "title": "Twarabio™ Herbal Cleansing & Sponging Liquid",
+  "category": "Bedsore",
+  "brand": "TwaraBio™",
+  "volume": "10ml",
+  "summary": "Helps in wound cleaning before application of other products and used on bed sores with discharge, debris or contamination.",
+  "description": "Gentle herbal cleansing liquid for wound hygiene.",
+  "composition": "Gentle herbal cleansing, maintain hygiene without irritation.",
+  "usage": "Suitable for repeated daily use. Daily sponging in bedridden patients. Can also be used on foul-smelling wounds.",
+  "price": "₹399",
+  "badge": "BED SORE",
+  "ctaLabel": "Buy Now",
+  "image": "/images/product-image.png",
+  "thumbnails": ["/images/product-image.png", "/images/product-image.png", "/images/product-image.png", "/images/product-image.png"],
+  "benefits": ["Wound hygiene", "Daily sponging", "Gentle cleansing"],
+  "conditions": ["Bed Sore", "Skin Healing"],
+  "featured": true
+}

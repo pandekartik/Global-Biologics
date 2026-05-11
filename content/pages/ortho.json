@@ -4,7 +4,9 @@
   "hero": {
     "badge": "CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF",
     "title": "SaSneh™",
-    "subtitle": "Advanced topical herbal solutions for comprehensive musculoskeletal care"
+    "subtitle": "Advanced topical herbal solutions for comprehensive musculoskeletal care",
+    "heroImage": "/images/bedsore-hero.png",
+    "logoImage": "/images/sasneh-logo.jpg"
   },
   "approach": {
     "title": "The SaSneh™ Approach",
@@ -16,12 +18,30 @@
     ]
   },
   "features": {
+    "eyebrow": "OUR ORTHOPEDIC CARE",
     "heading": "We offer advanced topical herbal solutions for comprehensive musculoskeletal care.",
     "items": [
       { "stat": "120+", "label": "Orthopedic conditions mapped." },
       { "stat": "Free of Steroids", "label": "Non-steroidal & safe for long-term use." },
       { "stat": "Care Settings", "label": "Designed for doctors & physiotherapists." },
       { "stat": "Product efficacy", "label": "Targeted localized action." }
+    ]
+  },
+  "challenge": {
+    "title": "Challenge vs. Approach",
+    "challengeIntro": "Rising prevalence of orthopedic conditions, with growing concerns around side effects of existing treatments.",
+    "challenges": [
+      "LONG TERM SYSTEMIC MEDICATIONS & SIDE EFFECTS.",
+      "STEROID USE LEADS TO LIMITED LONG TERM SUITABILITY.",
+      "GENERIC OILS LACK TARGETED ACTION.",
+      "CAREGIVER DEPENDANCY CHALLENGES."
+    ],
+    "approachIntro": "Safe and efficacious phytotherapeutics for musculoskeletal care.",
+    "approaches": [
+      "Condition-specific formulations.",
+      "Steroid free & safe for repeated use.",
+      "Targeted local action.",
+      "Supports physiotherapy and rehabilitation."
     ]
   },
   "vision": {
@@ -33,5 +53,24 @@
       "Replace chemical-based systems so safe for long-term use.",
       "Designed for clinical integration."
     ]
+  },
+  "productSection": {
+    "eyebrow": "OUR SOLUTIONS",
+    "heading": "Introducing SaSneh™ Orthopedic Care Range"
+  },
+  "whyDifferent": {
+    "eyebrow": "WHY SASNEH™?",
+    "heading": "Four Reasons We Are Different",
+    "cards": [
+      { "title": "Herbal & Clinically Relevant", "text": "Condition specific formulation and adjunct to physiotherapy." },
+      { "title": "Steroid Free & Gentle", "text": "Steroid free formulations, so suitable for long term use." },
+      { "title": "Clinical Mapping Approach", "text": "Clinical mapping approach for chronic pain management & post surgery support." },
+      { "title": "Real Care Settings", "text": "Doctor & physio friendly & supports geriatric mobility care." }
+    ]
+  },
+  "testimonials": {
+    "heading": "Clinical Validation & People Stories",
+    "testimonialSlugs": ["dr-marcus-thorne", "physio-neha-rai", "clinical-partner-samir"],
+    "videoSlugs": ["sarah-mitchell", "rajesh-kumar", "priya-sharma"]
   }
 }

@@ -9,11 +9,12 @@ import type {
   Solution,
   TeamMember,
   Testimonial,
+  VideoTestimonial,
 } from "./types";
 
 const contentRoot = path.join(process.cwd(), "content");
 
-const productSchema: z.ZodType<Product> = z.object({
+const productSchema = z.object({
   slug: z.string(),
   title: z.string(),
   category: z.string(),
@@ -30,10 +31,10 @@ const productSchema: z.ZodType<Product> = z.object({
   ctaHref: z.string().optional(),
   image: z.string().optional(),
   thumbnails: z.array(z.string()).optional(),
-  benefits: z.array(z.string()),
-  conditions: z.array(z.string()),
+  benefits: z.array(z.string()).default([]),
+  conditions: z.array(z.string()).default([]),
   featured: z.boolean().optional(),
-});
+}) as z.ZodType<Product>;
 
 const solutionSchema: z.ZodType<Solution> = z.object({
   slug: z.string(),
@@ -59,7 +60,17 @@ const testimonialSchema: z.ZodType<Testimonial> = z.object({
   name: z.string(),
   role: z.string(),
   company: z.string().optional(),
+  rating: z.number().optional(),
+  avatar: z.string().optional(),
   featured: z.boolean().optional(),
+});
+
+const videoTestimonialSchema: z.ZodType<VideoTestimonial> = z.object({
+  slug: z.string(),
+  name: z.string(),
+  description: z.string(),
+  coverImage: z.string(),
+  videoUrl: z.string().optional(),
 });
 
 const landingSchema = z.object({
@@ -166,4 +177,8 @@ export async function getOrthoPageContent() {
 
 export async function getBedsorePageContent() {
   return readJsonFile(["pages", "bedsore.json"], z.any());
+}
+
+export async function getVideoTestimonials() {
+  return readJsonDir(["video-testimonials"], videoTestimonialSchema);
 }
