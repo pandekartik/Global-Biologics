@@ -29,10 +29,12 @@ export type Product = {
 
 export type Solution = {
   slug: string;
+  label?: string;
   title: string;
   summary: string;
   description: string;
   icon?: string;
+  bullets?: string[];
   featured?: boolean;
 };
 

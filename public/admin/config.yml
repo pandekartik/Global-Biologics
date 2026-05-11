@@ -359,72 +359,7 @@ collections:
                 name: videoSlugs
                 widget: list
                 field: { label: Slug, name: slug, widget: string }
-  - name: landing_pages
-    label: Landing Pages
-    folder: content/pages/landing
-    create: true
-    format: json
-    slug: "{{slug}}"
-    fields:
-      - { label: Slug, name: slug, widget: string }
-      - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: text }
-      - label: Sections
-        name: sections
-        widget: list
-        summary: "{{fields.type}}: {{fields.heading}}{{fields.title}}"
-        fields:
-          - label: Type
-            name: type
-            widget: select
-            options: ["hero", "what-we-do", "vision-mission", "challenge-approach", "why-us", "solutions-tabs", "innovation", "founders", "final-cta", "feature-grid", "solution-grid", "product-grid", "testimonial-band", "team-strip", "cta-band", "copy"]
-          - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Heading, name: heading, widget: string, required: false }
-          - { label: Description, name: description, widget: text, required: false }
-          - label: Primary CTA
-            name: primaryCta
-            widget: object
-            required: false
-            fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Href, name: href, widget: string }
-          - label: Secondary CTA
-            name: secondaryCta
-            widget: object
-            required: false
-            fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Href, name: href, widget: string }
-          - { label: Highlight, name: highlight, widget: text, required: false }
-          - label: Items
-            name: items
-            widget: list
-            required: false
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
-              - { label: Tag, name: tag, widget: string, required: false }
-          - label: Product Slugs
-            name: productSlugs
-            widget: list
-            required: false
-            field: { label: Product Slug, name: slug, widget: string }
-          - label: Solution Slugs
-            name: solutionSlugs
-            widget: list
-            required: false
-            field: { label: Solution Slug, name: slug, widget: string }
-          - label: Testimonial Slugs
-            name: testimonialSlugs
-            widget: list
-            required: false
-            field: { label: Testimonial Slug, name: slug, widget: string }
-          - label: Team Slugs
-            name: teamSlugs
-            widget: list
-            required: false
-            field: { label: Team Slug, name: slug, widget: string }
+
   - name: products
     label: Products
     folder: content/products
@@ -469,10 +404,16 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: Slug, name: slug, widget: string }
+      - { label: Label, name: label, widget: string, required: false }
       - { label: Title, name: title, widget: string }
       - { label: Summary, name: summary, widget: text }
       - { label: Description, name: description, widget: text }
       - { label: Icon, name: icon, widget: string, required: false }
+      - label: Bullets
+        name: bullets
+        widget: list
+        required: false
+        field: { label: Bullet, name: text, widget: string }
       - { label: Featured, name: featured, widget: boolean, required: false, default: false }
   - name: team
     label: Team

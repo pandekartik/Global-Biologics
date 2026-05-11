@@ -38,10 +38,12 @@ const productSchema = z.object({
 
 const solutionSchema: z.ZodType<Solution> = z.object({
   slug: z.string(),
+  label: z.string().optional(),
   title: z.string(),
   summary: z.string(),
   description: z.string(),
   icon: z.string().optional(),
+  bullets: z.array(z.string()).optional().default([]),
   featured: z.boolean().optional(),
 });
 

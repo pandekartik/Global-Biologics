@@ -1,0 +1,13 @@
+{
+  "slug": "orthopedic",
+  "label": "Orthopedic",
+  "title": "Orthopedic Care",
+  "summary": "Safe and scalable orthopedic support built into the content system.",
+  "description": "Advanced formulation for musculoskeletal relief.",
+  "bullets": [
+    "Back and knee care",
+    "Neck and cervical support",
+    "New routes without dev work"
+  ],
+  "featured": true
+}
