@@ -2,6 +2,7 @@ import { getSiteMeta, getProducts, getOrthoPageContent, getTestimonials, getVide
 import { SiteNav } from "@/components/molecules";
 import { Footer } from "@/components/organisms";
 import { Container } from "@/components/atoms";
+import { ProductGridList } from "@/components/ProductGridList";
 import {
   CheckCircle2,
   Zap,
@@ -243,31 +244,7 @@ export default async function OrthoPage() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {orthoProducts.map((prod, i) => (
-                <div key={i} className="flex flex-col group">
-                  <div className="aspect-square bg-white border border-slate-200 rounded-t-lg overflow-hidden p-4 flex items-center justify-center relative">
-                    <img src={prod.image || `/images/ortho-product-${i+1}.png`} alt={prod.title} className="max-h-[85%] object-contain" />
-                  </div>
-                  <div className="border border-t-0 border-slate-200 p-4 rounded-b-lg flex-1 flex flex-col bg-white">
-                    {prod.badge && (
-                      <span className="inline-block px-2 py-0.5 bg-[#dbebf7] text-[#007db8] text-[9px] font-bold uppercase tracking-wider rounded-sm mb-3 w-fit">
-                        {prod.badge}
-                      </span>
-                    )}
-                    <h3 className="font-bold text-[14px] text-slate-900 leading-tight mb-2 min-h-[36px]">{prod.title}</h3>
-                    <p className="text-[12px] text-slate-500 mb-4 flex-1 leading-relaxed line-clamp-3">{prod.summary}</p>
-                    {prod.price && <div className="font-bold text-slate-900 mb-4">{prod.price}</div>}
-                    <Link 
-                      href={`/ortho/product/${prod.slug}`}
-                      className="block text-center w-full py-2.5 border border-[#007db8]/30 text-[#007db8] text-[12px] font-bold uppercase tracking-wider rounded-sm hover:bg-[#007db8] hover:text-white transition-colors"
-                    >
-                      KNOW MORE
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ProductGridList products={orthoProducts} variant="ortho" />
           </Container>
         </section>
 

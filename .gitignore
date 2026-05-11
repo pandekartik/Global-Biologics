@@ -4,3 +4,4 @@ public/uploads
 .DS_Store
 coverage
 npm-debug.log*
+*.tsbuildinfo

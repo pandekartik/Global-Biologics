@@ -1,31 +1,29 @@
 {
-  "slug": "neck-cervical-care-oil",
-  "title": "SaSneh™ Neck & Cervical Care Oil",
-  "category": "Orthopedic",
-  "brand": "SaSneh™",
-  "volume": "10ml",
-  "summary": "Used for neck stiffness, muscle strain, screen-related pain, ligament sprain, muscle spasm & headache.",
-  "description": "A steroid-free topical oil for neck, cervical, and screen-fatigue related discomfort. Specifically designed to map underlying musculoskeletal triggers.",
-  "composition": "Herbal massage oil for cervical & neck support.",
   "usage": "Apply pea-sized amount on pain areas and massage well. Suitable for dry skin.",
-  "price": "₹448.70",
-  "strikePrice": "₹599",
   "badge": "NECK PAIN / CERVICAL CARE / TARGETED RELIEF",
   "ctaLabel": "Buy Now",
-  "ctaHref": "/ortho/product/neck-cervical-care-oil",
-  "image": "/images/product-image.png",
-  "thumbnails": [
-    "/images/product-image.png",
-    "/images/product-image.png",
-    "/images/product-image.png",
-    "/images/product-image.png"
+  "summary": "Used for neck stiffness, muscle strain, screen-related pain, ligament sprain, muscle spasm & headache.",
+  "thumbnails": [],
+  "brand": "SaSneh™",
+  "price": "₹448.70",
+  "composition": "Herbal massage oil for cervical & neck support.",
+  "slug": "neck-cervical-care-oil",
+  "featured": true,
+  "strikePrice": "₹599",
+  "title": "SaSneh™ Neck & Cervical Care Oil",
+  "conditions": [
+    "Neck Pain",
+    "Cervical Care"
   ],
+  "volume": "10ml",
+  "image": "/uploads/ortho-product-3.png",
+  "ctaHref": "/ortho/product/neck-cervical-care-oil",
   "benefits": [
     "Condition specific care for neck pain.",
     "Steroid free & safe for repeated use.",
     "Targeted localized relief.",
     "Clinical validation for muscle strain relief."
   ],
-  "conditions": ["Neck Pain", "Cervical Care"],
-  "featured": true
+  "description": "A steroid-free topical oil for neck, cervical, and screen-fatigue related discomfort. Specifically designed to map underlying musculoskeletal triggers.",
+  "category": "Orthopedic"
 }
