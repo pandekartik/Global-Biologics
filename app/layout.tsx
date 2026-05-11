@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { getSiteMeta } from "@/lib/content";
@@ -35,6 +36,22 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${dmSans.variable} ${cormorantGaramond.variable}`}>
+      <head>
+        <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" strategy="beforeInteractive" />
+        <Script id="netlify-identity-redirect" strategy="afterInteractive">
+          {`
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          `}
+        </Script>
+      </head>
       <body>
         <div className="min-h-screen">{children}</div>
         <div className="sr-only" aria-hidden="true">
