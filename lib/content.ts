@@ -135,7 +135,11 @@ export async function getProducts() {
 
 export async function getProductBySlug(slug: string) {
   const products = await getProducts();
-  return products.find((entry) => entry.slug === slug);
+  const cleanTarget = decodeURIComponent(slug).trim().toLowerCase();
+  return products.find((entry) => {
+    const entrySlug = entry.slug.trim().toLowerCase();
+    return entrySlug === cleanTarget || entrySlug.replaceAll(" ", "-") === cleanTarget.replaceAll(" ", "-");
+  });
 }
 
 export async function getFeaturedProducts() {
