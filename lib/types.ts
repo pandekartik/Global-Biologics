@@ -12,10 +12,16 @@ export type Product = {
   summary: string;
   description: string;
   price?: string;
+  strikePrice?: string;
+  brand?: string;
+  volume?: string;
+  composition?: string;
+  usage?: string;
   badge?: string;
   ctaLabel?: string;
   ctaHref?: string;
   image?: string;
+  thumbnails?: string[];
   benefits: string[];
   conditions: string[];
   featured?: boolean;

@@ -1,0 +1,37 @@
+{
+  "title": "Orthopedic Care Range",
+  "description": "Advanced topical herbal solutions for comprehensive musculoskeletal care",
+  "hero": {
+    "badge": "CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF",
+    "title": "SaSneh™",
+    "subtitle": "Advanced topical herbal solutions for comprehensive musculoskeletal care"
+  },
+  "approach": {
+    "title": "The SaSneh™ Approach",
+    "subtitle": "ADDRESSING ORTHOPEDIC PAIN & ITS CHALLENGES",
+    "intro": "Musculoskeletal disorders are among the leading causes of pain and disability across all age groups. These conditions significantly impact mobility, productivity, and quality of life.",
+    "stats": [
+      "1 in 3 individuals affected globally",
+      "20-30% prevalence in India"
+    ]
+  },
+  "features": {
+    "heading": "We offer advanced topical herbal solutions for comprehensive musculoskeletal care.",
+    "items": [
+      { "stat": "120+", "label": "Orthopedic conditions mapped." },
+      { "stat": "Free of Steroids", "label": "Non-steroidal & safe for long-term use." },
+      { "stat": "Care Settings", "label": "Designed for doctors & physiotherapists." },
+      { "stat": "Product efficacy", "label": "Targeted localized action." }
+    ]
+  },
+  "vision": {
+    "title": "SaSneh™- Because Every Pain Is Different And Deserves Different Care"
+  },
+  "mission": {
+    "items": [
+      "Condition specific care.",
+      "Replace chemical-based systems so safe for long-term use.",
+      "Designed for clinical integration."
+    ]
+  }
+}

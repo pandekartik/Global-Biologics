@@ -1,4 +1,4 @@
-import { getSiteMeta } from "@/lib/content";
+import { getSiteMeta, getProducts, getOrthoPageContent } from "@/lib/content";
 import { SiteNav } from "@/components/molecules";
 import { Footer } from "@/components/organisms";
 import { Container } from "@/components/atoms";
@@ -18,7 +18,10 @@ import {
 import Link from "next/link";
 
 export default async function OrthoPage() {
-  const site = await getSiteMeta();
+  const [site, products, page] = await Promise.all([getSiteMeta(), getProducts(), getOrthoPageContent()]);
+  
+  // Filter only ortho products for the carousel
+  const orthoProducts = products.filter(p => p.category.toLowerCase().includes("ortho"));
 
   return (
     <>
@@ -49,14 +52,14 @@ export default async function OrthoPage() {
                 </nav>
 
                 <div className="inline-flex items-center px-3 py-1 rounded-full border border-[#6b8a25] text-[9px] font-bold uppercase tracking-[0.15em] text-[#6b8a25] mb-4">
-                  CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF
+                  {page?.hero?.badge || "CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF"}
                 </div>
 
                 <h1 className="font-heading font-normal text-[5.5rem] leading-[0.9] text-[#0077b1] mb-4">
-                  SaSneh™
+                  {page?.hero?.title || "SaSneh™"}
                 </h1>
                 <p className="text-lg md:text-xl font-medium text-slate-500 tracking-wide">
-                  Advanced topical herbal solutions for comprehensive musculoskeletal care
+                  {page?.hero?.subtitle || "Advanced topical herbal solutions for comprehensive musculoskeletal care"}
                 </p>
               </div>
 
@@ -78,18 +81,18 @@ export default async function OrthoPage() {
           <Container>
             <div className="max-w-4xl mx-auto">
               <h2 className="font-heading text-[3.5rem] leading-tight text-slate-900 mb-6">
-                The SaSneh™ Approach
+                {page?.approach?.title || "The SaSneh™ Approach"}
               </h2>
               <p className="text-[#009bd6] text-[13px] font-bold uppercase tracking-[0.2em] mb-10">
-                ADDRESSING ORTHOPEDIC PAIN & ITS CHALLENGES
+                {page?.approach?.subtitle || "ADDRESSING ORTHOPEDIC PAIN & ITS CHALLENGES"}
               </p>
               <div className="text-[17px] leading-[1.8] text-slate-600 max-w-3xl mx-auto font-medium space-y-3">
-                <p>Musculoskeletal disorders are among the leading causes of pain and disability across all age groups.</p>
+                <p>{page?.approach?.intro || "Musculoskeletal disorders are among the leading causes of pain and disability across all age groups."}</p>
                 <div className="flex flex-col items-center justify-center gap-1 text-slate-700 font-semibold">
-                  <div className="flex items-center gap-2">• 1 in 3 individuals affected globally</div>
-                  <div className="flex items-center gap-2">• 20-30% prevalence in India</div>
+                  {(page?.approach?.stats || ["1 in 3 individuals affected globally", "20-30% prevalence in India"]).map((stat: string, i: number) => (
+                    <div key={i} className="flex items-center gap-2">• {stat}</div>
+                  ))}
                 </div>
-                <p className="pt-2">These conditions significantly impact mobility, productivity, and quality of life.</p>
               </div>
             </div>
           </Container>
@@ -103,27 +106,22 @@ export default async function OrthoPage() {
                 OUR ORTHOPEDIC CARE
               </span>
               <h2 className="font-heading text-[2.8rem] leading-[1.15] text-slate-800 max-w-3xl">
-                We offer advanced topical herbal solutions for comprehensive musculoskeletal care.
+                {page?.features?.heading || "We offer advanced topical herbal solutions for comprehensive musculoskeletal care."}
               </h2>
             </div>
 
             <div className="grid md:grid-cols-4 gap-8">
-              <div className="space-y-3">
-                <div className="font-serif text-[3rem] leading-none text-[#6b8a25] font-medium">120+</div>
-                <div className="text-[15px] font-medium text-slate-600">Orthopedic conditions mapped.</div>
-              </div>
-              <div className="space-y-3">
-                <div className="font-serif text-[2.5rem] leading-tight text-[#6b8a25] font-medium">Free of Steroids</div>
-                <div className="text-[15px] font-medium text-slate-600">Non-steroidal & safe for long-term use.</div>
-              </div>
-              <div className="space-y-3">
-                <div className="font-serif text-[2.5rem] leading-tight text-[#6b8a25] font-medium">Care Settings</div>
-                <div className="text-[15px] font-medium text-slate-600">Designed for doctors & physiotherapists.</div>
-              </div>
-              <div className="space-y-3">
-                <div className="font-serif text-[2.5rem] leading-tight text-[#6b8a25] font-medium">Product efficacy</div>
-                <div className="text-[15px] font-medium text-slate-600">Targeted localized action.</div>
-              </div>
+              {(page?.features?.items || [
+                { "stat": "120+", "label": "Orthopedic conditions mapped." },
+                { "stat": "Free of Steroids", "label": "Non-steroidal & safe for long-term use." },
+                { "stat": "Care Settings", "label": "Designed for doctors & physiotherapists." },
+                { "stat": "Product efficacy", "label": "Targeted localized action." }
+              ]).map((item: any, i: number) => (
+                <div key={i} className="space-y-3">
+                  <div className="font-serif text-[2.5rem] md:text-[2.5rem] leading-tight text-[#6b8a25] font-medium">{item.stat}</div>
+                  <div className="text-[15px] font-medium text-slate-600">{item.label}</div>
+                </div>
+              ))}
             </div>
           </Container>
         </section>
@@ -203,7 +201,7 @@ export default async function OrthoPage() {
                   <div className="h-px w-12 bg-[#6b8a25]/40" />
                 </div>
                 <h2 className="font-heading text-[3.5rem] leading-[1.1] text-[#6b8a25] max-w-xl">
-                  SaSneh™- Because Every Pain Is Different And Deserves Different Care
+                  {page?.vision?.title || "SaSneh™- Because Every Pain Is Different And Deserves Different Care"}
                 </h2>
               </div>
 
@@ -213,11 +211,11 @@ export default async function OrthoPage() {
                   <div className="h-px w-12 bg-[#6b8a25]/40" />
                 </div>
                 <div className="space-y-6">
-                  {[
+                  {(page?.mission?.items || [
                     "Condition specific care.",
                     "Replace chemical-based systems so safe for long-term use.",
                     "Designed for clinical integration.",
-                  ].map((mission, i) => (
+                  ]).map((mission: string, i: number) => (
                     <div key={i} className="flex items-center gap-5">
                       <div className="w-14 h-14 rounded-xl bg-white shadow-[0_8px_24px_rgba(0,0,0,0.04)] border border-slate-50 flex items-center justify-center shrink-0">
                         {i === 0 ? <CheckCircle2 className="w-6 h-6 text-[#6b8a25] stroke-[1.5]" /> : i === 1 ? <FlaskConical className="w-6 h-6 text-[#6b8a25] stroke-[1.5]" /> : <Sprout className="w-6 h-6 text-[#6b8a25] stroke-[1.5]" />}
@@ -246,27 +244,26 @@ export default async function OrthoPage() {
             </div>
 
             <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {[
-                { img: "ortho-product-1.png", badge: "BACK PAIN", title: "SaSneh™ Back Care Oil", desc: "Herbal massage oil for back & lumbar support." },
-                { img: "ortho-product-2.png", badge: "JOINT PAIN", title: "SaSneh™ Knee Care Oil", desc: "Herbal massage oil for knee & leg joint support." },
-                { img: "ortho-product-3.png", badge: "JOINT PAIN", title: "SaSneh™ Neck & Cervical Care Oil", desc: "Herbal massage oil for cervical & neck support." },
-                { img: "ortho-product-4.png", badge: "JOINT PAIN", title: "SaSneh™ Shoulder Care Oil", desc: "Herbal massage oil for shoulder support." },
-                { img: "ortho-product-5.png", badge: "NERVE PAIN", title: "SaSneh™ Nerve Care Oil", desc: "Herbal massage oil for neuro-muscular support." },
-              ].map((prod, i) => (
+              {orthoProducts.map((prod, i) => (
                 <div key={i} className="flex flex-col group">
                   <div className="aspect-square bg-white border border-slate-200 rounded-t-lg overflow-hidden p-4 flex items-center justify-center relative">
-                    <img src={`/images/${prod.img}`} alt={prod.title} className="max-h-[85%] object-contain" />
+                    <img src={prod.image || `/images/ortho-product-${i+1}.png`} alt={prod.title} className="max-h-[85%] object-contain" />
                   </div>
                   <div className="border border-t-0 border-slate-200 p-4 rounded-b-lg flex-1 flex flex-col bg-white">
-                    <span className="inline-block px-2 py-0.5 bg-[#dbebf7] text-[#007db8] text-[9px] font-bold uppercase tracking-wider rounded-sm mb-3 w-fit">
-                      {prod.badge}
-                    </span>
+                    {prod.badge && (
+                      <span className="inline-block px-2 py-0.5 bg-[#dbebf7] text-[#007db8] text-[9px] font-bold uppercase tracking-wider rounded-sm mb-3 w-fit">
+                        {prod.badge}
+                      </span>
+                    )}
                     <h3 className="font-bold text-[14px] text-slate-900 leading-tight mb-2 min-h-[36px]">{prod.title}</h3>
-                    <p className="text-[12px] text-slate-500 mb-4 flex-1 leading-relaxed">{prod.desc}</p>
-                    <div className="font-bold text-slate-900 mb-4">₹448.70</div>
-                    <button className="w-full py-2.5 border border-[#007db8]/30 text-[#007db8] text-[12px] font-bold uppercase tracking-wider rounded-sm hover:bg-[#007db8] hover:text-white transition-colors">
+                    <p className="text-[12px] text-slate-500 mb-4 flex-1 leading-relaxed line-clamp-3">{prod.summary}</p>
+                    {prod.price && <div className="font-bold text-slate-900 mb-4">{prod.price}</div>}
+                    <Link 
+                      href={`/ortho/product/${prod.slug}`}
+                      className="block text-center w-full py-2.5 border border-[#007db8]/30 text-[#007db8] text-[12px] font-bold uppercase tracking-wider rounded-sm hover:bg-[#007db8] hover:text-white transition-colors"
+                    >
                       KNOW MORE
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}

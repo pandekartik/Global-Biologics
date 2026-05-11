@@ -20,10 +20,16 @@ const productSchema: z.ZodType<Product> = z.object({
   summary: z.string(),
   description: z.string(),
   price: z.string().optional(),
+  strikePrice: z.string().optional(),
+  brand: z.string().optional(),
+  volume: z.string().optional(),
+  composition: z.string().optional(),
+  usage: z.string().optional(),
   badge: z.string().optional(),
   ctaLabel: z.string().optional(),
   ctaHref: z.string().optional(),
   image: z.string().optional(),
+  thumbnails: z.array(z.string()).optional(),
   benefits: z.array(z.string()),
   conditions: z.array(z.string()),
   featured: z.boolean().optional(),
@@ -152,4 +158,12 @@ export async function getLandingPageByPath(slug: string) {
   const reserved = new Set(["ortho", "admin", "api"]);
   if (reserved.has(slug)) return undefined;
   return getLandingPageBySlug(slug);
+}
+
+export async function getOrthoPageContent() {
+  return readJsonFile(["pages", "ortho.json"], z.any());
+}
+
+export async function getBedsorePageContent() {
+  return readJsonFile(["pages", "bedsore.json"], z.any());
 }

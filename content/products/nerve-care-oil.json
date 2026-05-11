@@ -1,0 +1,21 @@
+{
+  "slug": "nerve-care-oil",
+  "title": "SaSneh™ Nerve Care Oil",
+  "category": "Orthopedic",
+  "brand": "SaSneh™",
+  "volume": "10ml",
+  "summary": "Herbal massage oil for neuro-muscular support.",
+  "description": "Safe and efficacious phytotherapeutics for musculoskeletal nerve care.",
+  "composition": "Herbal massage oil for neuro-muscular support.",
+  "usage": "Apply on affected nerve areas and massage well.",
+  "price": "₹448.70",
+  "strikePrice": "₹599",
+  "badge": "NERVE PAIN",
+  "ctaLabel": "Buy Now",
+  "ctaHref": "/ortho/product/nerve-care-oil",
+  "image": "/images/ortho-product-5.png",
+  "thumbnails": ["/images/ortho-product-5.png"],
+  "benefits": ["Nerve support", "Steroid free"],
+  "conditions": ["Nerve Pain"],
+  "featured": true
+}

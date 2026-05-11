@@ -1,0 +1,21 @@
+{
+  "slug": "shoulder-care-oil",
+  "title": "SaSneh™ Shoulder Care Oil",
+  "category": "Orthopedic",
+  "brand": "SaSneh™",
+  "volume": "10ml",
+  "summary": "Herbal massage oil for shoulder support.",
+  "description": "Safe and efficacious phytotherapeutics for musculoskeletal shoulder care.",
+  "composition": "Herbal massage oil for shoulder support.",
+  "usage": "Apply on shoulder areas and massage well.",
+  "price": "₹448.70",
+  "strikePrice": "₹599",
+  "badge": "JOINT PAIN",
+  "ctaLabel": "Buy Now",
+  "ctaHref": "/ortho/product/shoulder-care-oil",
+  "image": "/images/ortho-product-4.png",
+  "thumbnails": ["/images/ortho-product-4.png"],
+  "benefits": ["Shoulder relief", "Safe for long term use"],
+  "conditions": ["Joint Pain", "Shoulder"],
+  "featured": true
+}

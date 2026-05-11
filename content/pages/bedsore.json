@@ -1,0 +1,31 @@
+{
+  "title": "Bed Sore Care",
+  "description": "Advanced Herbal Care for Pressure-Prone Skin",
+  "hero": {
+    "badge": "COMPLETE CARE FOR PRESSURE-PRONE SKIN",
+    "title": "TWARABiO™",
+    "subtitle": "Advanced Herbal Care for Pressure-Prone Skin"
+  },
+  "intro": {
+    "title": "The Growing burden of bed sores",
+    "subtitle": "A SILENT & SERIOUS HEALTHCARE CHALLENGE",
+    "text": "Bed sores (pressure ulcers) are major yet under-recognized healthcare problem affecting millions worldwide. They develop due to prolonged pressure on skin, especially in bedridden, elderly, paralysed, and critically ill patients."
+  },
+  "scenarios": [
+    {
+      "heading": "Indian Scenario",
+      "items": [
+        { "stat": "140M+", "description": "Elderly population are increasingly affected." },
+        { "stat": "10-25%", "description": "Bedridden patients develop bed sores and high burden of stroke, paralysis & diabetes-related immobility. Low awareness in home care settings." }
+      ]
+    },
+    {
+      "heading": "Global Scenario",
+      "items": [
+        { "stat": "700M", "description": "People are at risk of bed sores globally." },
+        { "stat": "8-23%", "description": "Hospitalized patients develop pressure ulcers and increase the risk of infection, morbidity & hospital stay." },
+        { "stat": "25-30%", "description": "Prevalence of bed sores in long-term care settings and high economic burden on healthcare systems." }
+      ]
+    }
+  ]
+}

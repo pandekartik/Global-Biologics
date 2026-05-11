@@ -136,6 +136,87 @@ collections:
                 widget: list
                 required: false
                 field: { label: Team Slug, name: slug, widget: string }
+      - name: ortho
+        label: Ortho Page
+        file: content/pages/ortho.json
+        format: json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Badge, name: badge, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: text }
+          - label: Approach
+            name: approach
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
+              - { label: Intro Text, name: intro, widget: text }
+              - label: Stats
+                name: stats
+                widget: list
+                field: { label: Stat, name: text, widget: string }
+          - label: Features
+            name: features
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: text }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Stat, name: stat, widget: string }
+                  - { label: Label, name: label, widget: string }
+          - label: Vision
+            name: vision
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: text }
+          - label: Mission
+            name: mission
+            widget: object
+            fields:
+              - label: Items
+                name: items
+                widget: list
+                field: { label: Item, name: text, widget: string }
+      - name: bedsore
+        label: Bedsore Page
+        file: content/pages/bedsore.json
+        format: json
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Badge, name: badge, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: text }
+          - label: Intro
+            name: intro
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Scenarios
+            name: scenarios
+            widget: list
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                fields:
+                  - { label: Stat, name: stat, widget: string }
+                  - { label: Description, name: description, widget: text }
   - name: landing_pages
     label: Landing Pages
     folder: content/pages/landing
@@ -212,12 +293,23 @@ collections:
       - { label: Slug, name: slug, widget: string }
       - { label: Title, name: title, widget: string }
       - { label: Category, name: category, widget: string }
+      - { label: Brand, name: brand, widget: string, required: false }
+      - { label: Volume, name: volume, widget: string, required: false }
       - { label: Summary, name: summary, widget: text }
       - { label: Description, name: description, widget: text }
+      - { label: Composition, name: composition, widget: text, required: false }
+      - { label: Usage, name: usage, widget: text, required: false }
       - { label: Price, name: price, widget: string, required: false }
+      - { label: Strike Price, name: strikePrice, widget: string, required: false }
       - { label: Badge, name: badge, widget: string, required: false }
       - { label: CTA Label, name: ctaLabel, widget: string, required: false }
       - { label: CTA Href, name: ctaHref, widget: string, required: false }
+      - { label: Main Image, name: image, widget: image, required: false }
+      - label: Thumbnails
+        name: thumbnails
+        widget: list
+        required: false
+        field: { label: Thumbnail, name: thumbnail, widget: image }
       - label: Benefits
         name: benefits
         widget: list
