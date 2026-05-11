@@ -209,6 +209,10 @@ collections:
             fields:
               - { label: Eyebrow, name: eyebrow, widget: string }
               - { label: Heading, name: heading, widget: string }
+              - label: Product Slugs
+                name: productSlugs
+                widget: list
+                field: { label: Slug, name: slug, widget: string }
           - label: Why Different
             name: whyDifferent
             widget: object

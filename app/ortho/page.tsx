@@ -25,7 +25,11 @@ export default async function OrthoPage() {
     getSiteMeta(), getProducts(), getOrthoPageContent(), getTestimonials(), getVideoTestimonials(),
   ]);
   
-  const orthoProducts = products.filter(p => p.category.toLowerCase().includes("ortho"));
+  // Filter ortho products by slugs from CMS, or fallback to category
+  const productSlugs: string[] = page?.productSection?.productSlugs || [];
+  const orthoProducts = productSlugs.length > 0
+    ? products.filter(p => productSlugs.includes(p.slug))
+    : products.filter(p => p.category.toLowerCase().includes("ortho"));
 
   // Filter testimonials and videos by slugs from CMS
   const testimonialSlugs: string[] = page?.testimonials?.testimonialSlugs || [];

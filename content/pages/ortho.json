@@ -56,7 +56,8 @@
   },
   "productSection": {
     "eyebrow": "OUR SOLUTIONS",
-    "heading": "Introducing SaSneh™ Orthopedic Care Range"
+    "heading": "Introducing SaSneh™ Orthopedic Care Range",
+    "productSlugs": ["back-care-oil", "knee-care-oil", "nerve-care-oil", "shoulder-care-oil", "neck-cervical-care-oil"]
   },
   "whyDifferent": {
     "eyebrow": "WHY SASNEH™?",
