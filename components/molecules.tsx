@@ -219,7 +219,7 @@ export function ProductCard({ product }: { product: Product }) {
         ))}
       </div>
       <div className="mt-auto">
-        <ButtonLink href={`/ortho/product/${product.slug}`} variant="secondary">
+        <ButtonLink href={product.ctaHref || `/ortho/product/${product.slug}`} variant="secondary">
           {product.ctaLabel ?? "Know more"}
         </ButtonLink>
       </div>
