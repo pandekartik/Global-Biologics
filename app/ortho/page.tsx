@@ -73,7 +73,7 @@ export default async function OrthoPage() {
                   {page?.hero?.badge || "CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF"}
                 </div>
 
-                <h1 className="font-heading font-normal text-[5.5rem] leading-[0.9] text-[#0077b1] mb-4">
+                <h1 className="font-heading font-normal text-[3.5rem] md:text-[5.5rem] leading-[0.9] text-[#0077b1] mb-4">
                   {page?.hero?.title || "SaSneh™"}
                 </h1>
                 <p className="text-lg md:text-xl font-medium text-slate-500 tracking-wide">
@@ -98,7 +98,7 @@ export default async function OrthoPage() {
         <section className="py-24 bg-white text-center">
           <Container>
             <div className="max-w-4xl mx-auto">
-              <h2 className="font-heading text-[3.5rem] leading-tight text-slate-900 mb-6">
+              <h2 className="font-heading text-[2.5rem] md:text-[3.5rem] leading-tight text-slate-900 mb-6">
                 {page?.approach?.title || "The SaSneh™ Approach"}
               </h2>
               <p className="text-[#009bd6] text-[13px] font-bold uppercase tracking-[0.2em] mb-10">
@@ -123,7 +123,7 @@ export default async function OrthoPage() {
               <span className="text-[#6b8a25] text-[12px] font-bold uppercase tracking-[0.25em] mb-4 block">
                 {page?.features?.eyebrow || "OUR ORTHOPEDIC CARE"}
               </span>
-              <h2 className="font-heading text-[2.8rem] leading-[1.15] text-slate-800 max-w-3xl">
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-[1.15] text-slate-800 max-w-3xl">
                 {page?.features?.heading || "We offer advanced topical herbal solutions for comprehensive musculoskeletal care."}
               </h2>
             </div>
@@ -131,7 +131,7 @@ export default async function OrthoPage() {
             <div className="grid md:grid-cols-4 gap-8">
               {(page?.features?.items || []).map((item: any, i: number) => (
                 <div key={i} className="space-y-3">
-                  <div className="font-serif text-[2.5rem] leading-tight text-[#6b8a25] font-medium">{item.stat}</div>
+                  <div className="font-serif text-[2rem] md:text-[2.5rem] leading-tight text-[#6b8a25] font-medium">{item.stat}</div>
                   <div className="text-[15px] font-medium text-slate-600">{item.label}</div>
                 </div>
               ))}
@@ -143,7 +143,7 @@ export default async function OrthoPage() {
         <section className="py-28 bg-white">
           <Container>
             <div className="text-center mb-20">
-              <h2 className="font-heading text-[3rem] text-slate-800 relative inline-block">
+              <h2 className="font-heading text-[2.2rem] md:text-[3rem] text-slate-800 relative inline-block">
                 {page?.challenge?.title || "Challenge vs. Approach"}
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-1 bg-[#007db8]"></span>
               </h2>
@@ -202,7 +202,7 @@ export default async function OrthoPage() {
                   <span className="text-[11px] font-bold uppercase tracking-[0.25em]">OUR VISION</span>
                   <div className="h-px w-12 bg-[#6b8a25]/40" />
                 </div>
-                <h2 className="font-heading text-[3.5rem] leading-[1.1] text-[#6b8a25] max-w-xl">
+                <h2 className="font-heading text-[2.5rem] md:text-[3.5rem] leading-[1.1] text-[#6b8a25] max-w-xl">
                   {page?.vision?.title || "SaSneh™- Because Every Pain Is Different And Deserves Different Care"}
                 </h2>
               </div>
@@ -233,10 +233,10 @@ export default async function OrthoPage() {
         {/* SECTION 6: Product Carousel Strip */}
         <section className="py-28 bg-white">
           <Container>
-            <div className="flex items-end justify-between mb-16">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
               <div>
                 <span className="text-[#007db8] text-[12px] font-bold uppercase tracking-[0.25em] mb-3 block">{page?.productSection?.eyebrow || "OUR SOLUTIONS"}</span>
-                <h2 className="font-heading text-[2.8rem] text-slate-900">{page?.productSection?.heading || "Introducing SaSneh™ Orthopedic Care Range"}</h2>
+                <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] text-slate-900">{page?.productSection?.heading || "Introducing SaSneh™ Orthopedic Care Range"}</h2>
               </div>
               <div className="flex gap-3">
                 <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition text-slate-500"><ChevronLeft className="w-5 h-5" /></button>
@@ -255,7 +255,7 @@ export default async function OrthoPage() {
               <span className="text-[#6b8a25] text-[12px] font-bold uppercase tracking-[0.25em] mb-3 block">
                 {page?.whyDifferent?.eyebrow || "WHY SASNEH™?"}
               </span>
-              <h2 className="font-heading text-[2.8rem] leading-tight text-slate-900">
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-slate-900">
                 {page?.whyDifferent?.heading || "Four Reasons We Are Different"}
               </h2>
             </div>
@@ -282,7 +282,7 @@ export default async function OrthoPage() {
         {/* SECTION 8: Clinical Validation */}
         <section className="py-24 bg-white">
           <Container>
-            <h2 className="font-heading text-[2.8rem] text-center mb-16">
+            <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] text-center mb-16">
               {page?.testimonials?.heading || "Clinical Validation & People Stories"}
             </h2>
 

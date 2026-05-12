@@ -19,7 +19,7 @@ export function ProductGridList({ products, variant = "ortho" }: Props) {
 
   return (
     <>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {products.map((prod, i) => (
           <div key={i} className="flex flex-col group relative">
             

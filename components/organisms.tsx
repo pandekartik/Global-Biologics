@@ -104,7 +104,7 @@ export function HomeHero({
       
       <Container className="relative z-10 pt-32 pb-16 md:pt-40 grid gap-12 lg:grid-cols-[1fr_auto]">
         <div className="space-y-8 lg:max-w-xl">
-          <h1 className="font-heading font-normal text-[5rem] sm:text-[6.5rem] md:text-[7.5rem] leading-[0.85] tracking-tight text-brand-strong">
+          <h1 className="font-heading font-normal text-[3.5rem] sm:text-[5.5rem] md:text-[7.5rem] leading-[0.85] tracking-tight text-brand-strong">
             {title.split("\n").map((line, i) => (
               <span key={i} className={cn("block", i === 1 ? "text-brand ml-0" : "")}>{line}</span>
             ))}
@@ -167,7 +167,7 @@ export function WhatWeDoSection({
             {eyebrow}
             <span className="h-px w-12 bg-brand/30"></span>
           </p>
-          <h2 className="font-heading text-[2.8rem] leading-[1.1] tracking-tight text-ink">
+          <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-[1.1] tracking-tight text-ink">
             {title}
           </h2>
         </div>
@@ -240,7 +240,7 @@ export function VisionMissionSection({
               {visionEyebrow}
               <span className="h-px w-12 bg-accent/30"></span>
             </p>
-            <h2 className="font-heading text-[3rem] md:text-[3.8rem] leading-[1.1] tracking-tight text-accent">
+            <h2 className="font-heading text-[2.4rem] md:text-[3.8rem] leading-[1.1] tracking-tight text-accent">
               {visionTitle}
             </h2>
           </div>
@@ -286,7 +286,7 @@ export function ChallengeApproachSection({
     <section className="py-28 bg-white">
       <Container className="space-y-16">
         <div className="mx-auto text-center">
-          <h2 className="font-heading text-[3.2rem] font-medium leading-none text-ink mb-4">
+          <h2 className="font-heading text-[2.5rem] md:text-[3.2rem] font-medium leading-tight text-ink mb-4">
             {title}
           </h2>
           <div className="mx-auto h-[4px] w-20 bg-brand rounded-full opacity-60"></div>
@@ -296,8 +296,8 @@ export function ChallengeApproachSection({
           {/* The Challenge Column */}
           <div className="space-y-10">
             <div>
-              <p className="font-heading italic text-[22px] text-brand mb-3">
-                {challengeIntro.split(":")[0]}: <span className="font-sans not-italic text-[17px] leading-relaxed text-slate-600 font-medium">{challengeIntro.split(":")[1]}</span>
+              <p className="font-heading italic text-[18px] md:text-[22px] text-brand mb-3">
+                {challengeIntro.split(":")[0]}: <span className="font-sans not-italic text-[15px] md:text-[17px] leading-relaxed text-slate-600 font-medium">{challengeIntro.split(":")[1]}</span>
               </p>
             </div>
             
@@ -321,12 +321,12 @@ export function ChallengeApproachSection({
           {/* Our Approach Column */}
           <div className="space-y-10">
             <div>
-              <p className="font-heading italic text-[22px] text-brand mb-3">
-                {approachIntro.split(":")[0]}: <span className="font-sans not-italic text-[17px] leading-relaxed text-slate-600 font-medium">{approachIntro.split(":")[1]}</span>
+              <p className="font-heading italic text-[18px] md:text-[22px] text-brand mb-3">
+                {approachIntro.split(":")[0]}: <span className="font-sans not-italic text-[15px] md:text-[17px] leading-relaxed text-slate-600 font-medium">{approachIntro.split(":")[1]}</span>
               </p>
             </div>
             
-            <div className="space-y-6 pl-4">
+            <div className="space-y-6 md:pl-4">
               {approaches.map((item, idx) => {
                 return (
                   <div key={item.number} className="flex items-center group">
@@ -380,7 +380,7 @@ export function WhyUsSection({
           <p className="font-heading text-sm font-bold uppercase tracking-[0.12em] text-accent mb-2">
             {eyebrow}
           </p>
-          <h2 className="font-heading text-[2.8rem] text-ink">
+          <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] text-ink">
             {title}
           </h2>
         </div>
@@ -426,7 +426,7 @@ export function SolutionsTabsSection({
       <Container className="space-y-12">
         <div className="max-w-[48rem] space-y-4">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="font-heading text-[2.8rem] leading-tight text-ink">
+          <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-ink">
             {title}
           </h2>
         </div>
@@ -505,7 +505,7 @@ export function InnovationSection({
       <Container className="space-y-12">
         <div className="space-y-4">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-accent">{eyebrow}</p>
-          <h2 className="font-heading text-[2.8rem] leading-tight text-ink">
+          <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-ink">
             {title}
           </h2>
         </div>
@@ -538,7 +538,7 @@ export function FoundersSection({
       <Container className="space-y-16">
         <div className="space-y-4">
           <p className="font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand">{eyebrow}</p>
-          <h2 className="font-heading text-[2.8rem] leading-tight text-ink max-w-3xl">
+          <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-ink max-w-3xl">
             {title}
           </h2>
         </div>
@@ -579,7 +579,7 @@ export function FinalCtaSection({
     <section className="py-28 bg-[#f6f9f6]">
       <Container>
         <div className="mx-auto max-w-[54rem] text-center space-y-8">
-          <h2 className="font-heading text-[3.8rem] leading-[1.05] text-ink whitespace-pre-line">
+          <h2 className="font-heading text-[2.5rem] md:text-[3.8rem] leading-[1.05] text-ink whitespace-pre-line">
             {title}
           </h2>
           <p className="mx-auto max-w-md text-[16px] text-muted font-medium opacity-90">

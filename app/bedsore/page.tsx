@@ -70,7 +70,7 @@ export default async function BedsorePage() {
                   {page?.hero?.badge || "COMPLETE CARE FOR PRESSURE-PRONE SKIN"}
                 </div>
 
-                <h1 className="font-heading font-normal text-[5.5rem] leading-[0.9] text-[#0077b1] mb-4">
+                <h1 className="font-heading font-normal text-[3.5rem] md:text-[5.5rem] leading-[0.9] text-[#0077b1] mb-4">
                   {page?.hero?.title || "TWARABiO™"}
                 </h1>
                 <p className="text-lg md:text-xl font-medium text-slate-500 tracking-wide">
@@ -95,7 +95,7 @@ export default async function BedsorePage() {
         <section className="py-24 bg-white text-center">
           <Container>
             <div className="max-w-4xl mx-auto">
-              <h2 className="font-heading text-[3.5rem] leading-tight text-slate-900 mb-6">
+              <h2 className="font-heading text-[2.5rem] md:text-[3.5rem] leading-tight text-slate-900 mb-6">
                 {page?.intro?.title || "The Growing burden of bed sores"}
               </h2>
               <p className="text-[#009bd6] text-[13px] font-bold uppercase tracking-[0.2em] mb-8">
@@ -115,7 +115,7 @@ export default async function BedsorePage() {
               <span className="text-[#8fb339] text-[12px] font-bold uppercase tracking-[0.25em] mb-4 block">
                 THE SCENARIO
               </span>
-              <h2 className="font-heading text-[2.8rem] leading-[1.15] text-slate-800 max-w-3xl">
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-[1.15] text-slate-800 max-w-3xl">
                 We support healing and pain relief for bed sores through our nonsteroidal phytomedicines.
               </h2>
             </div>
@@ -129,7 +129,7 @@ export default async function BedsorePage() {
                   <div className="space-y-8">
                     {(scenario.items || []).map((item: any, ii: number) => (
                       <div key={ii}>
-                        <div className="text-[3.2rem] font-light text-[#6b8a25] leading-none tracking-tight">{item.stat}</div>
+                        <div className="text-[2.5rem] md:text-[3.2rem] font-light text-[#6b8a25] leading-none tracking-tight">{item.stat}</div>
                         <p className="text-[15px] text-slate-600 font-medium mt-2 leading-relaxed">{item.description}</p>
                       </div>
                     ))}
@@ -147,7 +147,7 @@ export default async function BedsorePage() {
               <span className="text-[#0077b1] text-[12px] font-bold uppercase tracking-[0.25em] mb-4 block">
                 {page?.atRisk?.eyebrow || "WHO IS AT RISK?"}
               </span>
-              <h2 className="font-heading text-[2.8rem] leading-tight text-slate-800 max-w-2xl">
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-slate-800 max-w-2xl">
                 {page?.atRisk?.heading || "Designed for patients at risk of prolonged immobility and skin breakdown."}
               </h2>
             </div>
@@ -172,7 +172,7 @@ export default async function BedsorePage() {
               </div>
 
               <div className="md:col-span-8">
-                <div className="grid grid-cols-2 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
                   {(page?.atRisk?.reasons || []).map((text: string, i: number) => (
                     <div 
                       key={i} 
@@ -193,7 +193,7 @@ export default async function BedsorePage() {
         <section className="py-24 bg-[#f5faf2]">
           <Container>
             <div className="text-center mb-20">
-              <h2 className="font-heading text-[3rem] text-slate-800 relative inline-block">
+              <h2 className="font-heading text-[2.2rem] md:text-[3rem] text-slate-800 relative inline-block">
                 {page?.gapVsNeed?.title || "Gap vs. Need"}
                 <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-20 h-1 bg-[#6b8a25]"></span>
               </h2>
@@ -244,7 +244,7 @@ export default async function BedsorePage() {
               <span className="text-[#0077b1] text-[12px] font-bold uppercase tracking-[0.25em] mb-3 block">
                 {page?.productSection?.eyebrow || "OUR SOLUTION"}
               </span>
-              <h2 className="font-heading text-[2.8rem] leading-tight text-slate-900 mb-3">
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-slate-900 mb-3">
                 {page?.productSection?.heading || "Introducing TwaraBio™ Bed Sore Protocol"}
               </h2>
               <p className="text-slate-500 font-medium">
@@ -260,7 +260,7 @@ export default async function BedsorePage() {
                   : { badgeBg: "bg-[#e0f1f9]", badgeText: "text-[#007db8]", iconColor: "text-[#009bd6]", brandColor: "text-[#007db8]", btnBg: "bg-[#007db8] hover:bg-[#006091]" };
 
                 return (
-                  <div key={prod.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? 'bg-[#f9faf8] p-8 lg:p-12 rounded-3xl' : 'bg-white'}`}>
+                  <div key={prod.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? 'bg-[#f9faf8] p-6 md:p-8 lg:p-12 rounded-3xl' : 'bg-white'}`}>
                     {/* Visual Container */}
                     <div className={`space-y-4 ${isReversed ? 'order-1 lg:order-2' : ''}`}>
                       <div className="aspect-[4/3] bg-[#18100e] rounded-2xl relative overflow-hidden p-6 flex items-center justify-center border border-slate-100">
@@ -384,7 +384,7 @@ export default async function BedsorePage() {
               <span className="text-[#6b8a25] text-[12px] font-bold uppercase tracking-[0.25em] mb-3 block">
                 {page?.whyDifferent?.eyebrow || "WHY TWARABiO™?"}
               </span>
-              <h2 className="font-heading text-[2.8rem] leading-tight text-slate-900">
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] leading-tight text-slate-900">
                 {page?.whyDifferent?.heading || "Four Reasons We Are Different"}
               </h2>
             </div>
@@ -411,7 +411,7 @@ export default async function BedsorePage() {
         {/* SECTION 9: Clinical Validation */}
         <section className="py-24 bg-white">
           <Container>
-            <h2 className="font-heading text-[2.8rem] text-center mb-16">
+            <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] text-center mb-16">
               {page?.testimonials?.heading || "Clinical Validation & People Stories"}
             </h2>
 

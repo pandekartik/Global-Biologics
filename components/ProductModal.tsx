@@ -34,7 +34,7 @@ export function ProductQuickViewModal({ product, isOpen, onClose }: Props) {
         </button>
 
         {/* Left Side: Image / Illustration */}
-        <div className="w-full md:w-[45%] bg-white p-8 md:p-12 flex items-center justify-center relative border-r border-slate-100">
+        <div className="w-full md:w-[45%] bg-white p-6 md:p-12 flex items-center justify-center relative border-r border-slate-100">
           <img 
             src={product.image || "/uploads/placeholder.png"} 
             alt={product.title} 
@@ -43,7 +43,7 @@ export function ProductQuickViewModal({ product, isOpen, onClose }: Props) {
         </div>
 
         {/* Right Side: Info Details */}
-        <div className="flex-1 p-8 md:p-10 overflow-y-auto">
+        <div className="flex-1 p-5 md:p-10 overflow-y-auto">
           <div className="space-y-6 h-full flex flex-col">
             
             {/* 1. Tags / Conditions */}

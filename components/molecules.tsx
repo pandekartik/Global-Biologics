@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Badge, BrandMark, ButtonLink, Card, Container, Pill, SurfaceFrame } from "./atoms";
 import type { Product, TeamMember, Testimonial } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -14,15 +18,23 @@ export function SiteNav({
   activeHref?: string;
   floating?: boolean;
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+
   return (
-    <header className={cn("z-50 w-full", floating ? "fixed inset-x-0 top-0 pt-8" : "relative pt-10")}>
+    <header className={cn("z-50 w-full", floating ? "fixed inset-x-0 top-0 pt-4 md:pt-8" : "relative pt-6 md:pt-10")}>
       <Container>
-        <div className="rounded-full border border-border/10 bg-white/90 px-6 py-3 shadow-soft backdrop-blur-xl md:px-8">
-          <div className="flex items-center justify-between gap-6">
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/images/logo.jpg" alt="" className="h-14 w-14 rounded-full object-cover" />
-              <span className="text-lg font-semibold tracking-tight text-ink">{brand}</span>
+        <div className={cn(
+          "relative rounded-3xl border border-border/10 bg-white/95 shadow-soft backdrop-blur-xl transition-all duration-300 md:rounded-full",
+          isOpen ? "rounded-3xl" : "rounded-full"
+        )}>
+          <div className="flex items-center justify-between px-4 py-2 md:px-8 md:py-3">
+            <Link href="/" className="flex items-center gap-2 z-10">
+              <img src="/images/logo.jpg" alt="" className="h-10 w-10 md:h-14 md:w-14 rounded-full object-cover" />
+              <span className="text-base md:text-lg font-semibold tracking-tight text-ink">{brand}</span>
             </Link>
+
+            {/* Desktop Nav */}
             <nav className="hidden items-center gap-8 md:flex">
               {links.map((link) => {
                 const active = activeHref === link.href;
@@ -38,9 +50,7 @@ export function SiteNav({
                     >
                       {link.label}
                       {isSolutions ? (
-                        <svg viewBox="0 0 12 8" className="h-2 w-3 opacity-70" fill="none" aria-hidden="true">
-                          <path d="M1 1.25L6 6.25L11 1.25" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        <ChevronDown className="h-3 w-3 opacity-70 transition-transform group-hover:rotate-180" />
                       ) : null}
                     </Link>
                     {isSolutions ? (
@@ -76,6 +86,88 @@ export function SiteNav({
                 );
               })}
             </nav>
+
+            {/* Mobile Toggle */}
+            <button
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-ink md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
+
+          {/* Mobile Menu Dropdown */}
+          <div className={cn(
+            "grid overflow-hidden transition-all duration-300 md:hidden",
+            isOpen ? "grid-rows-[1fr] border-t border-border/5 opacity-100" : "grid-rows-[0fr] opacity-0"
+          )}>
+            <div className="min-h-0 overflow-hidden">
+              <nav className="flex flex-col gap-1 p-4">
+                {links.map((link) => {
+                  const active = activeHref === link.href;
+                  const isSolutions = link.label.toLowerCase() === "solutions";
+
+                  if (isSolutions) {
+                    return (
+                      <div key={link.href} className="flex flex-col">
+                        <button
+                          onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                          className={cn(
+                            "flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium transition",
+                            active ? "bg-brand/5 text-brand" : "text-slate-600"
+                          )}
+                        >
+                          {link.label}
+                          <ChevronDown className={cn("h-4 w-4 transition-transform", mobileDropdownOpen && "rotate-180")} />
+                        </button>
+                        <div className={cn(
+                          "grid overflow-hidden transition-all bg-slate-50/50 rounded-xl mt-1 mx-2",
+                          mobileDropdownOpen ? "grid-rows-[1fr] py-2" : "grid-rows-[0fr]"
+                        )}>
+                          <div className="min-h-0 space-y-1 px-2">
+                            <Link
+                              href="/bedsore"
+                              onClick={() => setIsOpen(false)}
+                              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white"
+                            >
+                              <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center">
+                                <img src="/images/twarabio-logo.jpg" alt="" className="object-contain" />
+                              </div>
+                              Bed Sore
+                            </Link>
+                            <Link
+                              href="/ortho"
+                              onClick={() => setIsOpen(false)}
+                              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white"
+                            >
+                              <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center">
+                                <img src="/images/sasneh-logo.jpg" alt="" className="object-contain" />
+                              </div>
+                              Orthopedic
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "rounded-xl px-4 py-3 text-[15px] font-medium transition",
+                        active ? "bg-brand/5 text-brand" : "text-slate-600 active:bg-slate-50"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
           </div>
         </div>
       </Container>
