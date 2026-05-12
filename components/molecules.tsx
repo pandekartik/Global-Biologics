@@ -24,10 +24,7 @@ export function SiteNav({
   return (
     <header className={cn("z-50 w-full", floating ? "fixed inset-x-0 top-0 pt-4 md:pt-8" : "relative pt-6 md:pt-10")}>
       <Container>
-        <div className={cn(
-          "relative rounded-3xl border border-border/10 bg-white/95 shadow-soft backdrop-blur-xl transition-all duration-300 md:rounded-full",
-          isOpen ? "rounded-3xl" : "rounded-full"
-        )}>
+        <div className="relative rounded-full border border-border/10 bg-white/95 shadow-soft backdrop-blur-xl transition-all duration-300">
           <div className="flex items-center justify-between px-4 py-2 md:px-8 md:py-3">
             <Link href="/" className="flex items-center gap-2 z-10">
               <img src="/images/logo.jpg" alt="" className="h-10 w-10 md:h-14 md:w-14 rounded-full object-cover" />
@@ -89,85 +86,85 @@ export function SiteNav({
 
             {/* Mobile Toggle */}
             <button
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-ink md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-ink md:hidden focus:outline-none transition-colors active:bg-slate-100"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
+        </div>
 
-          {/* Mobile Menu Dropdown */}
-          <div className={cn(
-            "grid overflow-hidden transition-all duration-300 md:hidden",
-            isOpen ? "grid-rows-[1fr] border-t border-border/5 opacity-100" : "grid-rows-[0fr] opacity-0"
-          )}>
-            <div className="min-h-0 overflow-hidden">
-              <nav className="flex flex-col gap-1 p-4">
-                {links.map((link) => {
-                  const active = activeHref === link.href;
-                  const isSolutions = link.label.toLowerCase() === "solutions";
+        {/* Mobile Menu Dropdown (Absolute floating card) */}
+        <div className={cn(
+          "absolute inset-x-6 top-full mt-3 md:hidden transition-all duration-200 origin-top ease-out z-50",
+          isOpen ? "opacity-100 translate-y-0 pointer-events-auto scale-100" : "opacity-0 -translate-y-2 pointer-events-none scale-[0.98]"
+        )}>
+          <div className="overflow-hidden rounded-2xl border border-slate-200/60 bg-white shadow-xl">
+            <nav className="flex flex-col gap-1 p-3">
+              {links.map((link) => {
+                const active = activeHref === link.href;
+                const isSolutions = link.label.toLowerCase() === "solutions";
 
-                  if (isSolutions) {
-                    return (
-                      <div key={link.href} className="flex flex-col">
-                        <button
-                          onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-                          className={cn(
-                            "flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium transition",
-                            active ? "bg-brand/5 text-brand" : "text-slate-600"
-                          )}
-                        >
-                          {link.label}
-                          <ChevronDown className={cn("h-4 w-4 transition-transform", mobileDropdownOpen && "rotate-180")} />
-                        </button>
-                        <div className={cn(
-                          "grid overflow-hidden transition-all bg-slate-50/50 rounded-xl mt-1 mx-2",
-                          mobileDropdownOpen ? "grid-rows-[1fr] py-2" : "grid-rows-[0fr]"
-                        )}>
-                          <div className="min-h-0 space-y-1 px-2">
-                            <Link
-                              href="/bedsore"
-                              onClick={() => setIsOpen(false)}
-                              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white"
-                            >
-                              <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center">
-                                <img src="/images/twarabio-logo.jpg" alt="" className="object-contain" />
-                              </div>
-                              Bed Sore
-                            </Link>
-                            <Link
-                              href="/ortho"
-                              onClick={() => setIsOpen(false)}
-                              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white"
-                            >
-                              <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center">
-                                <img src="/images/sasneh-logo.jpg" alt="" className="object-contain" />
-                              </div>
-                              Orthopedic
-                            </Link>
-                          </div>
+                if (isSolutions) {
+                  return (
+                    <div key={link.href} className="flex flex-col">
+                      <button
+                        onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                        className={cn(
+                          "flex items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium transition",
+                          active ? "bg-brand/5 text-brand" : "text-slate-600 active:bg-slate-50"
+                        )}
+                      >
+                        {link.label}
+                        <ChevronDown className={cn("h-4 w-4 transition-transform", mobileDropdownOpen && "rotate-180")} />
+                      </button>
+                      <div className={cn(
+                        "grid overflow-hidden transition-all bg-slate-50/50 rounded-xl mx-1",
+                        mobileDropdownOpen ? "grid-rows-[1fr] mt-1 mb-2" : "grid-rows-[0fr]"
+                      )}>
+                        <div className="min-h-0 space-y-0.5 px-1 py-1">
+                          <Link
+                            href="/bedsore"
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white active:bg-white"
+                          >
+                            <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center shadow-sm">
+                              <img src="/images/twarabio-logo.jpg" alt="" className="object-contain w-full h-full" />
+                            </div>
+                            Bed Sore
+                          </Link>
+                          <Link
+                            href="/ortho"
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white active:bg-white"
+                          >
+                            <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center shadow-sm">
+                              <img src="/images/sasneh-logo.jpg" alt="" className="object-contain w-full h-full" />
+                            </div>
+                            Orthopedic
+                          </Link>
                         </div>
                       </div>
-                    );
-                  }
-
-                  return (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "rounded-xl px-4 py-3 text-[15px] font-medium transition",
-                        active ? "bg-brand/5 text-brand" : "text-slate-600 active:bg-slate-50"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
+                    </div>
                   );
-                })}
-              </nav>
-            </div>
+                }
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "rounded-xl px-4 py-3 text-[15px] font-medium transition",
+                      active ? "bg-brand/5 text-brand" : "text-slate-600 active:bg-slate-50"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         </div>
       </Container>

@@ -92,7 +92,7 @@ export function HomeHero({
   ];
 
   return (
-    <section className="relative min-h-[600px] md:min-h-[800px] flex items-start overflow-hidden border-b border-border/10 bg-white">
+    <section className="relative min-h-screen flex items-center overflow-hidden border-b border-border/10 bg-white">
       <div className="absolute right-0 top-0 h-full w-full md:w-[75%] lg:w-[65%] z-0 pointer-events-none overflow-hidden">
         <img 
           src="/images/hero-bg.png" 
@@ -102,7 +102,7 @@ export function HomeHero({
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30 to-transparent" />
       </div>
       
-      <Container className="relative z-10 pt-32 pb-16 md:pt-40 grid gap-12 lg:grid-cols-[1fr_auto]">
+      <Container className="relative z-10 pt-32 pb-16 md:pt-24 grid gap-12 lg:grid-cols-[1fr_auto]">
         <div className="space-y-8 lg:max-w-xl">
           <h1 className="font-heading font-normal text-[3.5rem] sm:text-[5.5rem] md:text-[7.5rem] leading-[0.85] tracking-tight text-brand-strong">
             {title.split("\n").map((line, i) => (
