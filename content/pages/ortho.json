@@ -1,32 +1,4 @@
 {
-  "title": "Orthopedic Care Range",
-  "description": "Advanced topical herbal solutions for comprehensive musculoskeletal care",
-  "hero": {
-    "badge": "CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF",
-    "title": "SaSneh™",
-    "subtitle": "Advanced topical herbal solutions for comprehensive musculoskeletal care",
-    "heroImage": "/images/bedsore-hero.png",
-    "logoImage": "/images/sasneh-logo.jpg"
-  },
-  "approach": {
-    "title": "The SaSneh™ Approach",
-    "subtitle": "ADDRESSING ORTHOPEDIC PAIN & ITS CHALLENGES",
-    "intro": "Musculoskeletal disorders are among the leading causes of pain and disability across all age groups. These conditions significantly impact mobility, productivity, and quality of life.",
-    "stats": [
-      "1 in 3 individuals affected globally",
-      "20-30% prevalence in India"
-    ]
-  },
-  "features": {
-    "eyebrow": "OUR ORTHOPEDIC CARE",
-    "heading": "We offer advanced topical herbal solutions for comprehensive musculoskeletal care.",
-    "items": [
-      { "stat": "120+", "label": "Orthopedic conditions mapped." },
-      { "stat": "Free of Steroids", "label": "Non-steroidal & safe for long-term use." },
-      { "stat": "Care Settings", "label": "Designed for doctors & physiotherapists." },
-      { "stat": "Product efficacy", "label": "Targeted localized action." }
-    ]
-  },
   "challenge": {
     "title": "Challenge vs. Approach",
     "challengeIntro": "Rising prevalence of orthopedic conditions, with growing concerns around side effects of existing treatments.",
@@ -44,6 +16,15 @@
       "Supports physiotherapy and rehabilitation."
     ]
   },
+  "approach": {
+    "title": "The SaSneh™ Approach",
+    "subtitle": "ADDRESSING ORTHOPEDIC PAIN & ITS CHALLENGES",
+    "intro": "Musculoskeletal disorders are among the leading causes of pain and disability across all age groups. These conditions significantly impact mobility, productivity, and quality of life.",
+    "stats": [
+      "1 in 3 individuals affected globally",
+      "20-30% prevalence in India"
+    ]
+  },
   "vision": {
     "title": "SaSneh™- Because Every Pain Is Different And Deserves Different Care"
   },
@@ -54,24 +35,82 @@
       "Designed for clinical integration."
     ]
   },
-  "productSection": {
-    "eyebrow": "OUR SOLUTIONS",
-    "heading": "Introducing SaSneh™ Orthopedic Care Range",
-    "productSlugs": ["back-care-oil", "knee-care-oil", "nerve-care-oil", "shoulder-care-oil", "neck-cervical-care-oil"]
-  },
   "whyDifferent": {
     "eyebrow": "WHY SASNEH™?",
     "heading": "Four Reasons We Are Different",
     "cards": [
-      { "title": "Herbal & Clinically Relevant", "text": "Condition specific formulation and adjunct to physiotherapy." },
-      { "title": "Steroid Free & Gentle", "text": "Steroid free formulations, so suitable for long term use." },
-      { "title": "Clinical Mapping Approach", "text": "Clinical mapping approach for chronic pain management & post surgery support." },
-      { "title": "Real Care Settings", "text": "Doctor & physio friendly & supports geriatric mobility care." }
+      {
+        "title": "Herbal & Clinically Relevant",
+        "text": "Condition specific formulation and adjunct to physiotherapy."
+      },
+      {
+        "title": "Steroid Free & Gentle",
+        "text": "Steroid free formulations, so suitable for long term use."
+      },
+      {
+        "title": "Clinical Mapping Approach",
+        "text": "Clinical mapping approach for chronic pain management & post surgery support."
+      },
+      {
+        "title": "Real Care Settings",
+        "text": "Doctor & physio friendly & supports geriatric mobility care."
+      }
     ]
   },
   "testimonials": {
     "heading": "Clinical Validation & People Stories",
-    "testimonialSlugs": ["dr-marcus-thorne", "physio-neha-rai", "clinical-partner-samir"],
-    "videoSlugs": ["sarah-mitchell", "rajesh-kumar", "priya-sharma"]
+    "testimonialSlugs": [
+      "dr-marcus-thorne",
+      "physio-neha-rai",
+      "clinical-partner-samir"
+    ],
+    "videoSlugs": [
+      "sarah-mitchell",
+      "rajesh-kumar",
+      "priya-sharma"
+    ]
+  },
+  "productSection": {
+    "eyebrow": "OUR SOLUTIONS",
+    "heading": "Introducing SaSneh™ Orthopedic Care Range",
+    "productSlugs": [
+      "back-care-oil",
+      "knee-care-oil",
+      "nerve-care-oil",
+      "shoulder-care-oil",
+      "neck-cervical-care-oil",
+      "oil-care"
+    ]
+  },
+  "title": "Orthopedic Care Range",
+  "hero": {
+    "badge": "CONDITION-SPECIFIC • STEROID-FREE • TARGETED RELIEF",
+    "title": "SaSneh™",
+    "subtitle": "Advanced topical herbal solutions for comprehensive musculoskeletal care",
+    "heroImage": "/images/bedsore-hero.png",
+    "logoImage": "/images/sasneh-logo.jpg"
+  },
+  "description": "Advanced topical herbal solutions for comprehensive musculoskeletal care",
+  "features": {
+    "eyebrow": "OUR ORTHOPEDIC CARE",
+    "heading": "We offer advanced topical herbal solutions for comprehensive musculoskeletal care.",
+    "items": [
+      {
+        "stat": "120+",
+        "label": "Orthopedic conditions mapped."
+      },
+      {
+        "stat": "Free of Steroids",
+        "label": "Non-steroidal & safe for long-term use."
+      },
+      {
+        "stat": "Care Settings",
+        "label": "Designed for doctors & physiotherapists."
+      },
+      {
+        "stat": "Product efficacy",
+        "label": "Targeted localized action."
+      }
+    ]
   }
 }
