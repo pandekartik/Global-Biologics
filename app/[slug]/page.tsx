@@ -17,7 +17,10 @@ type Props = {
 export async function generateStaticParams() {
   const { getLandingPages } = await import("@/lib/content");
   const pages = await getLandingPages();
-  return pages.map((page) => ({ slug: page.slug }));
+  const reserved = new Set(["ortho", "bedsore"]);
+  return pages
+    .filter((page) => !reserved.has(page.slug))
+    .map((page) => ({ slug: page.slug }));
 }
 
 export default async function GenericLandingPage({ params }: Props) {
