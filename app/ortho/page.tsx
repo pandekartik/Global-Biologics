@@ -1,4 +1,4 @@
-import { getSiteMeta, getProducts, getOrthoPageContent, getTestimonials, getVideoTestimonials } from "@/lib/content";
+import { getSiteMeta, getProducts, getOrthoPageContent, getTestimonials, getVideoTestimonials, getLandingPages } from "@/lib/content";
 import { SiteNav } from "@/components/molecules";
 import { Footer } from "@/components/organisms";
 import { Container } from "@/components/atoms";
@@ -22,8 +22,8 @@ const missionIconMap: Record<number, React.ElementType> = { 0: CheckCircle2, 1: 
 const approachColors = ["bg-[#0073aa]", "bg-[#007fb9]", "bg-[#72b3d9]", "bg-[#abd0e5]"];
 
 export default async function OrthoPage() {
-  const [site, products, page, allTestimonials, allVideos] = await Promise.all([
-    getSiteMeta(), getProducts(), getOrthoPageContent(), getTestimonials(), getVideoTestimonials(),
+  const [site, products, page, allTestimonials, allVideos, solutionPages] = await Promise.all([
+    getSiteMeta(), getProducts(), getOrthoPageContent(), getTestimonials(), getVideoTestimonials(), getLandingPages()
   ]);
   
   // Filter ortho products by slugs from CMS, or fallback to category
@@ -44,7 +44,7 @@ export default async function OrthoPage() {
 
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho" floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} activeHref="/ortho" floating />
       
       <main className="relative overflow-hidden">
         {/* SECTION 1: Hero */}

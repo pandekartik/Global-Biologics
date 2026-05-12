@@ -1,4 +1,4 @@
-import { getHomePage, getSiteMeta, getSolutions, getTeam } from "@/lib/content";
+import { getHomePage, getLandingPages, getSiteMeta, getSolutions, getTeam } from "@/lib/content";
 import { SiteNav } from "@/components/molecules";
 import {
   Footer,
@@ -14,11 +14,12 @@ import {
 } from "@/components/organisms";
 
 export default async function HomePage() {
-  const [site, homeData, solutions, team] = await Promise.all([
+  const [site, homeData, solutions, team, solutionPages] = await Promise.all([
     getSiteMeta(),
     getHomePage(),
     getSolutions(),
-    getTeam()
+    getTeam(),
+    getLandingPages()
   ]);
 
   // Find sections efficiently by type from home.json layout if we want fine-grained fallback,
@@ -44,13 +45,14 @@ export default async function HomePage() {
       initials,
       name: member.name,
       role: member.role,
-      summary: member.summary
+      summary: member.summary,
+      avatar: member.avatar
     };
   });
 
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/" floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} activeHref="/" floating />
       
       <main>
         {/* 1. HERO */}

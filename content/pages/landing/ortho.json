@@ -1,0 +1,17 @@
+{
+  "slug": "ortho",
+  "title": "Orthopedic Care Range",
+  "description": "Advanced formulation for musculoskeletal relief.",
+  "navLabel": "Orthopedic",
+  "navLogo": "/images/sasneh-logo.jpg",
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "Orthopedic Care Range",
+      "title": "Advanced Musculoskeletal Solutions",
+      "description": "Safe and scalable orthopedic support using scientifically validation natural formulations.",
+      "primaryCta": { "label": "View Products", "href": "/#products" },
+      "secondaryCta": { "label": "Home", "href": "/" }
+    }
+  ]
+}

@@ -207,5 +207,7 @@ export type LandingPage = {
   slug: string;
   title: string;
   description: string;
+  navLabel?: string;
+  navLogo?: string;
   sections: PageSection[];
 };

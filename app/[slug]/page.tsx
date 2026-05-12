@@ -1,6 +1,7 @@
 import { LandingPageTemplate } from "@/components/templates";
 import {
   getLandingPageByPath,
+  getLandingPages,
   getProducts,
   getSiteMeta,
   getSolutions,
@@ -21,13 +22,14 @@ export async function generateStaticParams() {
 
 export default async function GenericLandingPage({ params }: Props) {
   const { slug } = await params;
-  const [site, page, products, solutions, testimonials, team] = await Promise.all([
+  const [site, page, products, solutions, testimonials, team, solutionPages] = await Promise.all([
     getSiteMeta(),
     getLandingPageByPath(slug),
     getProducts(),
     getSolutions(),
     getTestimonials(),
     getTeam(),
+    getLandingPages(),
   ]);
 
   if (!page) {
@@ -42,6 +44,7 @@ export default async function GenericLandingPage({ params }: Props) {
       solutions={solutions}
       testimonials={testimonials}
       team={team}
+      solutionPages={solutionPages}
     />
   );
 }

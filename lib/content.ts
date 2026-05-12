@@ -79,6 +79,8 @@ const landingSchema = z.object({
   slug: z.string(),
   title: z.string(),
   description: z.string(),
+  navLabel: z.string().optional(),
+  navLogo: z.string().optional(),
   sections: z.array(z.any()),
 }) as z.ZodType<LandingPage>;
 
@@ -172,7 +174,7 @@ export async function getFeaturedTestimonials() {
 }
 
 export async function getLandingPageByPath(slug: string) {
-  const reserved = new Set(["ortho", "admin", "api"]);
+  const reserved = new Set(["ortho", "bedsore", "admin", "api"]);
   if (reserved.has(slug)) return undefined;
   return getLandingPageBySlug(slug);
 }

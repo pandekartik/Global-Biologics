@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Badge, BrandMark, ButtonLink, Card, Container, Pill, SurfaceFrame } from "./atoms";
 import type { Product, TeamMember, Testimonial } from "@/lib/types";
@@ -11,11 +11,13 @@ export function SiteNav({
   brand,
   links,
   activeHref,
+  solutionPages = [],
   floating = false,
 }: {
   brand: string;
   links: Array<{ label: string; href: string }>;
   activeHref?: string;
+  solutionPages?: Array<{ slug: string; navLabel?: string; title: string; navLogo?: string }>;
   floating?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,29 +55,26 @@ export function SiteNav({
                     {isSolutions ? (
                       <div className="absolute right-0 top-full pt-2 hidden w-[240px] origin-top-right transform opacity-0 scale-95 transition duration-200 ease-out group-hover:block group-hover:opacity-100 group-hover:scale-100">
                         <div className="overflow-hidden rounded-2xl border border-border/10 bg-white shadow-soft backdrop-blur-xl">
-                           <Link
-                            href="/bedsore"
-                            className="flex items-center gap-3 px-4 py-4 transition hover:bg-surface-soft"
-                          >
-                            <div className="h-10 w-10 rounded-lg border border-slate-100 bg-white overflow-hidden flex items-center justify-center p-1">
-                              <img src="/images/twarabio-logo.jpg" alt="Twara" className="w-full h-full object-contain" />
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-sm font-semibold text-ink">Bed Sore</span>
-                            </div>
-                          </Link>
-                          <div className="mx-4 h-px bg-border/5" />
-                          <Link
-                            href="/ortho"
-                            className="flex items-center gap-3 px-4 py-4 transition hover:bg-surface-soft"
-                          >
-                            <div className="h-10 w-10 rounded-lg border border-slate-100 bg-white overflow-hidden flex items-center justify-center p-1">
-                              <img src="/images/sasneh-logo.jpg" alt="Sasneh" className="w-full h-full object-contain" />
-                            </div>
-                            <div className="flex flex-col">
-                              <span className="text-sm font-semibold text-ink">Orthopedic</span>
-                            </div>
-                          </Link>
+                          {solutionPages.map((page, idx) => (
+                            <Fragment key={page.slug}>
+                              {idx > 0 && <div className="mx-4 h-px bg-border/5" />}
+                              <Link
+                                href={`/${page.slug}`}
+                                className="flex items-center gap-3 px-4 py-4 transition hover:bg-surface-soft"
+                              >
+                                <div className="h-10 w-10 rounded-lg border border-slate-100 bg-white overflow-hidden flex items-center justify-center p-1">
+                                  {page.navLogo ? (
+                                    <img src={page.navLogo} alt="" className="w-full h-full object-contain" />
+                                  ) : (
+                                    <span className="font-bold text-brand opacity-50">{page.navLabel?.[0] ?? page.title[0]}</span>
+                                  )}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="text-sm font-semibold text-ink">{page.navLabel || page.title}</span>
+                                </div>
+                              </Link>
+                            </Fragment>
+                          ))}
                         </div>
                       </div>
                     ) : null}
@@ -124,26 +123,23 @@ export function SiteNav({
                         mobileDropdownOpen ? "grid-rows-[1fr] mt-1 mb-2" : "grid-rows-[0fr]"
                       )}>
                         <div className="min-h-0 space-y-0.5 px-1 py-1">
-                          <Link
-                            href="/bedsore"
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white active:bg-white"
-                          >
-                            <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center shadow-sm">
-                              <img src="/images/twarabio-logo.jpg" alt="" className="object-contain w-full h-full" />
-                            </div>
-                            Bed Sore
-                          </Link>
-                          <Link
-                            href="/ortho"
-                            onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white active:bg-white"
-                          >
-                            <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center shadow-sm">
-                              <img src="/images/sasneh-logo.jpg" alt="" className="object-contain w-full h-full" />
-                            </div>
-                            Orthopedic
-                          </Link>
+                          {solutionPages.map((page) => (
+                            <Link
+                              key={page.slug}
+                              href={`/${page.slug}`}
+                              onClick={() => setIsOpen(false)}
+                              className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-white active:bg-white"
+                            >
+                              <div className="h-8 w-8 shrink-0 rounded-md bg-white p-1 border border-slate-100 flex items-center justify-center shadow-sm">
+                                {page.navLogo ? (
+                                  <img src={page.navLogo} alt="" className="object-contain w-full h-full" />
+                                ) : (
+                                  <span className="font-bold text-xs text-brand/70">{page.navLabel?.[0] ?? page.title[0]}</span>
+                                )}
+                              </div>
+                              {page.navLabel || page.title}
+                            </Link>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -250,12 +246,16 @@ export function TeamCard({ member }: { member: TeamMember }) {
   return (
     <Card className="space-y-4">
       <div className="flex items-center gap-4">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-lg font-semibold text-brand-strong">
-          {member.name
-            .split(" ")
-            .map((part) => part[0])
-            .slice(0, 2)
-            .join("")}
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand/10 text-lg font-semibold text-brand-strong overflow-hidden shrink-0">
+          {member.avatar ? (
+            <img src={member.avatar} alt={member.name} className="h-full w-full object-cover" />
+          ) : (
+            member.name
+              .split(" ")
+              .map((part) => part[0])
+              .slice(0, 2)
+              .join("")
+          )}
         </div>
         <div>
           <h3 className="font-semibold text-ink">{member.name}</h3>

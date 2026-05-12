@@ -531,7 +531,7 @@ export function FoundersSection({
 }: {
   eyebrow: string;
   title: string;
-  members: Array<{ initials: string; name: string; role: string; summary: string }>;
+  members: Array<{ initials: string; name: string; role: string; summary: string; avatar?: string }>;
 }) {
   return (
     <section className="py-24 bg-white">
@@ -546,8 +546,12 @@ export function FoundersSection({
         <div className="grid gap-6 md:grid-cols-3">
           {members.map((member) => (
             <div key={member.name} className="rounded-2xl border border-blue-100/50 bg-white p-4 shadow-soft flex flex-col">
-              <div className="aspect-square w-full rounded-xl bg-blue-50/60 border border-brand/20 flex items-center justify-center mb-6 relative">
-                 <span className="text-brand font-semibold text-2xl">{member.initials}</span>
+              <div className="aspect-square w-full rounded-xl bg-blue-50/60 border border-brand/20 flex items-center justify-center mb-6 relative overflow-hidden">
+                 {member.avatar ? (
+                   <img src={member.avatar} alt={member.name} className="h-full w-full object-cover" />
+                 ) : (
+                   <span className="text-brand font-semibold text-2xl">{member.initials}</span>
+                 )}
               </div>
               <div className="flex-1 space-y-2 px-2 pb-4">
                 <h3 className="text-[18px] font-medium text-ink tracking-tight">{member.name}</h3>

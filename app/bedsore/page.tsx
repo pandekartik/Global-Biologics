@@ -1,4 +1,4 @@
-import { getSiteMeta, getProducts, getBedsorePageContent, getTestimonials, getVideoTestimonials } from "@/lib/content";
+import { getSiteMeta, getProducts, getBedsorePageContent, getTestimonials, getVideoTestimonials, getLandingPages } from "@/lib/content";
 import { SiteNav } from "@/components/molecules";
 import { Footer } from "@/components/organisms";
 import { Container } from "@/components/atoms";
@@ -19,8 +19,8 @@ const iconMap: Record<number, React.ElementType> = { 0: Sprout, 1: Leaf, 2: Zap,
 const needColors = ["bg-[#3b6b04]", "bg-[#2e5403]", "bg-[#7ea453]", "bg-[#a5c28c]"];
 
 export default async function BedsorePage() {
-  const [site, products, page, allTestimonials, allVideos] = await Promise.all([
-    getSiteMeta(), getProducts(), getBedsorePageContent(), getTestimonials(), getVideoTestimonials(),
+  const [site, products, page, allTestimonials, allVideos, solutionPages] = await Promise.all([
+    getSiteMeta(), getProducts(), getBedsorePageContent(), getTestimonials(), getVideoTestimonials(), getLandingPages()
   ]);
 
   // Filter bedsore products by slugs from CMS
@@ -41,7 +41,7 @@ export default async function BedsorePage() {
 
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} floating />
       
       <main className="relative overflow-hidden">
         {/* SECTION 1: Hero */}

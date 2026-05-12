@@ -1,0 +1,17 @@
+{
+  "slug": "bedsore",
+  "title": "Bed Sore Care",
+  "description": "Advanced Herbal Care for Pressure-Prone Skin",
+  "navLabel": "Bed Sore",
+  "navLogo": "/images/twarabio-logo.jpg",
+  "sections": [
+    {
+      "type": "hero",
+      "eyebrow": "Bed Sore Care",
+      "title": "Complete Care for Pressure-Prone Skin",
+      "description": "Advanced Herbal formulation to protect, cleanse, and manage the risks of pressure ulcers.",
+      "primaryCta": { "label": "See solutions", "href": "/#solutions" },
+      "secondaryCta": { "label": "Return home", "href": "/" }
+    }
+  ]
+}

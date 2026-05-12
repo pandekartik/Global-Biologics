@@ -1,4 +1,4 @@
-import { getProductBySlug, getSiteMeta, getTestimonials, getVideoTestimonials } from "@/lib/content";
+import { getProductBySlug, getSiteMeta, getTestimonials, getVideoTestimonials, getLandingPages } from "@/lib/content";
 import { notFound } from "next/navigation";
 import { SiteNav } from "@/components/molecules";
 import { Footer } from "@/components/organisms";
@@ -26,8 +26,8 @@ export async function generateStaticParams() {
 
 export default async function ProductDetailPage({ params }: Props) {
   const { slug } = await params;
-  const [site, product, testimonials, videos] = await Promise.all([
-    getSiteMeta(), getProductBySlug(slug), getTestimonials(), getVideoTestimonials(),
+  const [site, product, testimonials, videos, solutionPages] = await Promise.all([
+    getSiteMeta(), getProductBySlug(slug), getTestimonials(), getVideoTestimonials(), getLandingPages(),
   ]);
 
   if (!product) {
@@ -40,7 +40,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho" floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} activeHref="/ortho" floating />
       
       <main className="relative overflow-hidden">
         {/* SECTION 1: Product Hero */}

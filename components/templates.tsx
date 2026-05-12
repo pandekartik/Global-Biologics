@@ -186,13 +186,15 @@ function renderSection(
 export function HomeTemplate({
   site,
   page,
+  solutionPages = [],
 }: {
   site: Site;
   page: LandingPage;
+  solutionPages?: LandingPage[];
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/" floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} activeHref="/" floating />
       <main>
         {page.sections.map((section, index) => (
           <Fragment key={`${section.type}-${index}`}>
@@ -210,15 +212,17 @@ export function OrthoTemplate({
   products,
   testimonials,
   solutions,
+  solutionPages = [],
 }: {
   site: Site;
   products: Product[];
   testimonials: Testimonial[];
   solutions: Solution[];
+  solutionPages?: LandingPage[];
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho" floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} activeHref="/ortho" floating />
       <main>
         <HeroSection
           eyebrow="ORTHOPEDIC CARE RANGE"
@@ -260,13 +264,15 @@ export function OrthoTemplate({
 export function ProductTemplate({
   site,
   product,
+  solutionPages = [],
 }: {
   site: Site;
   product: Product;
+  solutionPages?: LandingPage[];
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} activeHref="/ortho/products" floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} activeHref="/ortho/products" floating />
       <main>
         <HeroSection
           eyebrow={product.category}
@@ -323,6 +329,7 @@ export function LandingPageTemplate({
   testimonials = [],
   team = [],
   solutions = [],
+  solutionPages = [],
 }: {
   site: Site;
   page: LandingPage;
@@ -330,10 +337,11 @@ export function LandingPageTemplate({
   testimonials?: Testimonial[];
   team?: TeamMember[];
   solutions?: Solution[];
+  solutionPages?: LandingPage[];
 }) {
   return (
     <>
-      <SiteNav brand={site.title} links={site.nav} floating />
+      <SiteNav brand={site.title} links={site.nav} solutionPages={solutionPages} floating />
       <main>
         {page.sections.map((section) => renderSection(section, { products, testimonials, team, solutions }))}
         <Footer {...site.footer} id="footer" />
