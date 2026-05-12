@@ -432,7 +432,7 @@ export function SolutionsTabsSection({
         </div>
 
         {/* Tabs Navigator */}
-        <div className="border-b border-slate-100 flex overflow-x-auto no-scrollbar gap-12">
+        <div className="border-b border-slate-100 flex overflow-x-auto no-scrollbar gap-6 md:gap-12">
           {tabs.map((tab, index) => (
             <button
               key={tab.label}
