@@ -431,14 +431,21 @@ export function SolutionsTabsSection({
           </h2>
         </div>
 
+        {/* Mobile swipe indicator */}
+        <div className="md:hidden flex justify-end -mt-6 -mb-6">
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400 flex items-center gap-1.5">
+            Swipe for more <ArrowRight className="w-3.5 h-3.5 text-brand animate-pulse" />
+          </span>
+        </div>
+
         {/* Tabs Navigator */}
-        <div className="border-b border-slate-100 flex overflow-x-auto no-scrollbar gap-6 md:gap-12">
+        <div className="-mx-6 px-6 md:mx-0 md:px-0 border-b border-slate-100 flex overflow-x-auto no-scrollbar gap-6 md:gap-12">
           {tabs.map((tab, index) => (
             <button
               key={tab.label}
               onClick={() => setActiveIdx(index)}
               className={cn(
-                "pb-4 text-[11px] font-bold uppercase tracking-wider transition-all border-b-4 whitespace-nowrap shrink-0",
+                "pb-4 px-3 md:px-0 text-[11px] font-bold uppercase tracking-wider transition-all border-b-4 whitespace-nowrap shrink-0",
                 activeIdx === index
                   ? "border-brand text-brand"
                   : "border-transparent text-slate-400 hover:text-slate-600"

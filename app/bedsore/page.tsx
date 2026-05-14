@@ -164,7 +164,7 @@ export default async function BedsorePage() {
                 {(page?.atRisk?.patients || []).map((label: string, i: number) => (
                   <div
                     key={i}
-                    className="bg-[#f1f8fb] text-[#0077b1] px-6 flex items-center flex-1 rounded-md text-[11px] font-bold tracking-wider"
+                    className="bg-[#f1f8fb] text-[#0077b1] px-6 py-4 flex items-center flex-1 rounded-md text-[11px] font-bold tracking-wider"
                   >
                     {label}
                   </div>
@@ -176,9 +176,9 @@ export default async function BedsorePage() {
                   {(page?.atRisk?.reasons || []).map((text: string, i: number) => (
                     <div 
                       key={i} 
-                      className="aspect-[4/3] lg:aspect-[1.3/1] bg-[#007db8] rounded-lg px-8 py-6 flex items-center justify-start shadow-sm"
+                      className="aspect-auto sm:aspect-[4/3] lg:aspect-[1.3/1] bg-[#007db8] rounded-lg px-8 py-8 sm:py-6 flex items-center justify-start shadow-sm"
                     >
-                      <p className="text-white text-[13px] md:text-[14px] font-medium leading-relaxed text-left max-w-[220px]">
+                      <p className="text-white text-[13px] md:text-[14px] font-medium leading-relaxed text-left sm:max-w-[220px] max-w-none">
                         {text}
                       </p>
                     </div>

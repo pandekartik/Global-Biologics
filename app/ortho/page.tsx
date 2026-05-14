@@ -233,15 +233,9 @@ export default async function OrthoPage() {
         {/* SECTION 6: Product Carousel Strip */}
         <section className="py-28 bg-white">
           <Container>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-              <div>
-                <span className="text-[#007db8] text-[12px] font-bold uppercase tracking-[0.25em] mb-3 block">{page?.productSection?.eyebrow || "OUR SOLUTIONS"}</span>
-                <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] text-slate-900">{page?.productSection?.heading || "Introducing SaSneh™ Orthopedic Care Range"}</h2>
-              </div>
-              <div className="flex gap-3">
-                <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition text-slate-500"><ChevronLeft className="w-5 h-5" /></button>
-                <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition text-slate-500"><ChevronRight className="w-5 h-5" /></button>
-              </div>
+            <div className="mb-16">
+              <span className="text-[#007db8] text-[12px] font-bold uppercase tracking-[0.25em] mb-3 block">{page?.productSection?.eyebrow || "OUR SOLUTIONS"}</span>
+              <h2 className="font-heading text-[2.2rem] md:text-[2.8rem] text-slate-900">{page?.productSection?.heading || "Introducing SaSneh™ Orthopedic Care Range"}</h2>
             </div>
 
             <ProductGridList products={orthoProducts} variant="ortho" />
