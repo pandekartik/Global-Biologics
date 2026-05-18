@@ -54,6 +54,7 @@ const teamSchema: z.ZodType<TeamMember> = z.object({
   summary: z.string(),
   bio: z.string(),
   avatar: z.string().optional(),
+  display_number: z.number().optional().default(0),
 });
 
 const testimonialSchema: z.ZodType<Testimonial> = z.object({
@@ -161,7 +162,8 @@ export async function getFeaturedSolutions() {
 }
 
 export async function getTeam() {
-  return readJsonDir(["team"], teamSchema);
+  const members = await readJsonDir(["team"], teamSchema);
+  return members.sort((a, b) => (a.display_number ?? 0) - (b.display_number ?? 0));
 }
 
 export async function getTestimonials() {

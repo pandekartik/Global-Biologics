@@ -45,6 +45,7 @@ export type TeamMember = {
   summary: string;
   bio: string;
   avatar?: string;
+  display_number?: number;
 };
 
 export type Testimonial = {

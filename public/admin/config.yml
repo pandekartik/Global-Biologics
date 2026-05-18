@@ -428,6 +428,7 @@ collections:
       - { label: Summary, name: summary, widget: text }
       - { label: Bio, name: bio, widget: text }
       - { label: Avatar, name: avatar, widget: image, required: false }
+      - { label: Display Number, name: display_number, widget: number, required: false, default: 0, value_type: int }
   - name: testimonials
     label: Testimonials
     folder: content/testimonials
