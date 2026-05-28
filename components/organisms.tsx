@@ -94,23 +94,23 @@ export function HomeHero({
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden border-b border-border/10 bg-white">
       
-      <Container className="relative z-10 pt-32 pb-16 md:pt-24 grid gap-12 lg:grid-cols-[1fr_auto]">
-        <div className="space-y-8 lg:max-w-xl">
+      <Container className="relative z-10 pt-32 pb-16 md:pt-24 flex flex-col items-center text-center">
+        <div className="space-y-8 max-w-3xl">
           <h1 className="font-heading font-normal text-[3.5rem] sm:text-[5.5rem] md:text-[7.5rem] leading-[0.85] tracking-tight text-brand-strong">
             {title.split("\n").map((line, i) => (
-              <span key={i} className={cn("block", i === 1 ? "text-brand ml-0" : "")}>{line}</span>
+              <span key={i} className={cn("block", i === 1 ? "text-brand" : "")}>{line}</span>
             ))}
           </h1>
           
-          <p className="max-w-md text-[18px] leading-[1.6] text-muted font-medium opacity-90">
+          <p className="mx-auto max-w-xl text-[18px] leading-[1.6] text-muted font-medium opacity-90">
             {description}
           </p>
           
-          <div className="grid max-w-sm grid-cols-2 gap-x-6 gap-y-3">
+          <div className="mx-auto grid max-w-md grid-cols-2 gap-x-6 gap-y-3">
             {pills.map((pill) => (
               <p
                 key={pill}
-                className="text-[10px] font-bold uppercase tracking-widest text-accent border-l-2 border-accent/30 pl-3"
+                className="text-[10px] font-bold uppercase tracking-widest text-accent border-l-2 border-accent/30 pl-3 text-left"
               >
                 {pill}
               </p>
@@ -126,8 +126,6 @@ export function HomeHero({
             </ButtonLink>
           </div>
         </div>
-
-        
       </Container>
     </section>
   );

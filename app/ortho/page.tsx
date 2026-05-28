@@ -48,15 +48,7 @@ export default async function OrthoPage() {
       
       <main className="relative overflow-hidden">
         {/* SECTION 1: Hero */}
-        <section className="relative min-h-screen flex items-end pb-20 overflow-hidden pt-32">
-          <div className="absolute inset-0 -z-10">
-            <img
-              src={page?.hero?.heroImage || "/images/bedsore-hero.png"}
-              alt="Research Lab"
-              className="h-full w-full object-cover object-right lg:object-[center_right]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent lg:via-white/80" />
-          </div>
+        <section className="relative overflow-hidden pt-32 pb-20 bg-white">
 
           <Container>
             <div className="grid lg:grid-cols-12 gap-12 items-end">
