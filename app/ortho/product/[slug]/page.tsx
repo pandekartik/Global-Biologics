@@ -35,8 +35,8 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   // Use up to 3 featured testimonials and videos
-  const displayTestimonials = testimonials.filter(t => t.featured).slice(0, 3);
-  const displayVideos = videos.slice(0, 3);
+  const displayTestimonials = (testimonials || []).filter(t => t && t.featured).slice(0, 3);
+  const displayVideos = (videos || []).slice(0, 3);
 
   return (
     <>
@@ -56,20 +56,20 @@ export default async function ProductDetailPage({ params }: Props) {
                   <span className="font-sans text-slate-300">&gt;</span>
                   <span>ORTHOPEDIC CARE RANGE</span>
                   <span className="font-sans text-slate-300">&gt;</span>
-                  <span className="text-blue-500 font-bold uppercase">{product.title.replace('SaSneh™ ', '')}</span>
+                  <span className="text-blue-500 font-bold uppercase">{product?.title ? product.title.replace('SaSneh™ ', '') : ''}</span>
                 </nav>
 
-                {product.badge && (
+                {product?.badge && (
                   <div className="inline-flex items-center px-3 py-1 rounded-full border border-[#6b8a25] text-[9px] font-bold uppercase tracking-[0.15em] text-[#6b8a25] mb-4">
                     {product.badge}
                   </div>
                 )}
 
                 <h1 className="font-heading font-normal text-[5.5rem] leading-[0.9] text-[#0077b1] mb-4">
-                  {product.brand || 'SaSneh™'}
+                  {product?.brand || 'SaSneh™'}
                 </h1>
                 <p className="text-lg font-medium text-slate-500 tracking-wide max-w-lg">
-                  {product.summary}
+                  {product?.summary || ''}
                 </p>
               </div>
 
@@ -91,15 +91,15 @@ export default async function ProductDetailPage({ params }: Props) {
           <Container>
             <div className="max-w-4xl mx-auto">
               <h2 className="font-heading text-[3.5rem] leading-tight text-slate-900 mb-6">
-                The {product.brand || 'SaSneh™'} Approach
+                The {product?.brand || 'SaSneh™'} Approach
               </h2>
               <p className="text-[#009bd6] text-[13px] font-bold uppercase tracking-[0.2em] mb-10">
-                ADDRESSING {product.conditions[0] || 'PAIN'} & ITS CHALLENGES
+                ADDRESSING {product?.conditions?.[0] || 'PAIN'} & ITS CHALLENGES
               </p>
               <div className="text-[17px] leading-[1.8] text-slate-600 max-w-3xl mx-auto font-medium space-y-3">
-                <p>{product.description}</p>
+                <p>{product?.description || ''}</p>
                 <div className="flex flex-col items-center justify-center gap-2 text-slate-700 font-semibold pt-4">
-                  {product.benefits.map((benefit, i) => (
+                  {(product?.benefits || []).map((benefit, i) => (
                     <div key={i} className="flex items-center gap-2">• {benefit}</div>
                   ))}
                 </div>
@@ -125,23 +125,23 @@ export default async function ProductDetailPage({ params }: Props) {
               <div className="space-y-6">
                 <div className="relative aspect-[4/3] bg-gradient-to-b from-[#1a1210] to-[#0e0908] rounded-3xl overflow-hidden flex items-center justify-center shadow-lg p-12">
                   <img 
-                    src={product.image || "/images/product-image.png"} 
-                    alt={product.title} 
+                    src={product?.image || "/images/product-image.png"} 
+                    alt={product?.title || ''} 
                     className="h-full w-auto object-contain" 
                   />
-                  {(product.price || product.strikePrice) && (
+                  {(product?.price || product?.strikePrice) && (
                     <div className="absolute bottom-6 right-6 bg-black/40 backdrop-blur-md border border-white/10 text-white px-4 py-1.5 rounded-full text-[14px] font-medium flex items-center gap-3">
-                      {product.price && <span className="font-bold">{product.price}</span>}
-                      {product.strikePrice && <span className="line-through opacity-50 text-[12px]">{product.strikePrice}</span>}
+                      {product?.price && <span className="font-bold">{product.price}</span>}
+                      {product?.strikePrice && <span className="line-through opacity-50 text-[12px]">{product.strikePrice}</span>}
                     </div>
                   )}
                 </div>
 
-                {product.thumbnails && product.thumbnails.length > 0 && (
+                {product?.thumbnails && product.thumbnails.length > 0 && (
                   <div className="grid grid-cols-4 gap-4">
                     {product.thumbnails.map((thumb, idx) => (
                       <div key={idx} className={`aspect-square bg-[#1a1210] rounded-xl overflow-hidden border-2 flex items-center justify-center p-4 cursor-pointer transition hover:opacity-90 ${idx === 0 ? 'border-[#6b8a25]' : 'border-transparent'}`}>
-                        <img src={thumb} alt={`${product.title} thumb ${idx}`} className="h-full object-contain" />
+                        <img src={thumb} alt={`${product?.title || ''} thumb ${idx}`} className="h-full object-contain" />
                       </div>
                     ))}
                   </div>
@@ -151,18 +151,18 @@ export default async function ProductDetailPage({ params }: Props) {
               {/* Right: Product Meta details */}
               <div className="lg:pt-6 flex flex-col h-full justify-center">
                 <div className="flex flex-wrap gap-3 mb-6">
-                  {product.conditions.map((cond, i) => (
+                  {(product?.conditions || []).map((cond, i) => (
                     <span key={i} className="px-3 py-1 bg-[#d1e4d6] text-[#46694e] text-[9px] font-bold uppercase tracking-wider rounded-md">{cond}</span>
                   ))}
                 </div>
 
-                <h3 className="font-bold text-[2rem] text-slate-900 leading-tight mb-4">{product.title}</h3>
+                <h3 className="font-bold text-[2rem] text-slate-900 leading-tight mb-4">{product?.title || ''}</h3>
                 <p className="text-slate-600 text-[16px] leading-relaxed font-medium mb-10">
-                  {product.summary}
+                  {product?.summary || ''}
                 </p>
 
                 <div className="space-y-8 mb-12">
-                  {product.composition && (
+                  {product?.composition && (
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-lg bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0">
                         <FlaskConical className="w-5 h-5 text-[#6b8a25]" />
@@ -174,7 +174,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     </div>
                   )}
 
-                  {product.usage && (
+                  {product?.usage && (
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-lg bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0">
                         <CalendarRange className="w-5 h-5 text-[#6b8a25]" />
@@ -190,13 +190,13 @@ export default async function ProductDetailPage({ params }: Props) {
                 </div>
 
                 <div className="flex items-center gap-6 mb-8 text-[13px] font-medium text-slate-600">
-                  {product.volume && <div className="flex items-center gap-2"><Scale className="w-4 h-4 text-[#6b8a25]" /> {product.volume}</div>}
-                  {product.volume && <div className="w-1 h-1 bg-slate-300 rounded-full" />}
-                  <div className="flex items-center gap-2"><Droplet className="w-4 h-4 text-[#6b8a25]" /> By {product.brand || 'SaSneh™'}</div>
+                  {product?.volume && <div className="flex items-center gap-2"><Scale className="w-4 h-4 text-[#6b8a25]" /> {product.volume}</div>}
+                  {product?.volume && <div className="w-1 h-1 bg-slate-300 rounded-full" />}
+                  <div className="flex items-center gap-2"><Droplet className="w-4 h-4 text-[#6b8a25]" /> By {product?.brand || 'SaSneh™'}</div>
                 </div>
 
                 <button className="w-full py-4 rounded-lg bg-[#2d5a13] text-white font-bold tracking-wide hover:bg-[#22450e] transition shadow-md text-[15px]">
-                  {product.ctaLabel || "Buy Now"}
+                  {product?.ctaLabel || "Buy Now"}
                 </button>
               </div>
             </div>

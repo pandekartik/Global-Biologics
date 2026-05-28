@@ -409,7 +409,7 @@ export function SolutionsTabsSection({
   tabs: Array<{ label: string; title: string; summary: string; bullets: string[] }>;
 }) {
   const [activeIdx, setActiveIdx] = useState(0);
-  const active = tabs[activeIdx] || tabs[0];
+  const active = tabs[activeIdx] || tabs[0] || { label: "", title: "", summary: "", bullets: [] };
 
   return (
     <section className="py-24 bg-white" id="solutions">

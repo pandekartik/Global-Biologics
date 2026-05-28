@@ -28,19 +28,19 @@ export default async function OrthoPage() {
   
   // Filter ortho products by slugs from CMS, or fallback to category
   const productSlugs: string[] = page?.productSection?.productSlugs || [];
-  const orthoProducts = productSlugs.length > 0
-    ? products.filter(p => productSlugs.includes(p.slug))
-    : products.filter(p => p.category.toLowerCase().includes("ortho"));
+  const orthoProducts = (products || []).filter(p => {
+    if (!p || !p.slug) return false;
+    if (productSlugs.length > 0) return productSlugs.includes(p.slug);
+    return p.category && p.category.toLowerCase().includes("ortho");
+  });
 
   // Filter testimonials and videos by slugs from CMS
   const testimonialSlugs: string[] = page?.testimonials?.testimonialSlugs || [];
   const videoSlugs: string[] = page?.testimonials?.videoSlugs || [];
-  const testimonials = testimonialSlugs.length > 0
-    ? allTestimonials.filter(t => testimonialSlugs.includes(t.slug))
-    : allTestimonials.slice(0, 3);
-  const videos = videoSlugs.length > 0
-    ? allVideos.filter(v => videoSlugs.includes(v.slug))
-    : allVideos.slice(0, 3);
+  const testimonials = (allTestimonials || []).filter(t => t && t.slug && testimonialSlugs.includes(t.slug));
+  const displayTestimonials = testimonialSlugs.length > 0 ? testimonials : (allTestimonials || []).slice(0, 3);
+  const videos = (allVideos || []).filter(v => v && v.slug && videoSlugs.includes(v.slug));
+  const displayVideos = videoSlugs.length > 0 ? videos : (allVideos || []).slice(0, 3);
 
   return (
     <>
@@ -123,8 +123,8 @@ export default async function OrthoPage() {
             <div className="grid md:grid-cols-4 gap-8">
               {(page?.features?.items || []).map((item: any, i: number) => (
                 <div key={i} className="space-y-3">
-                  <div className="font-serif text-[2rem] md:text-[2.5rem] leading-tight text-[#6b8a25] font-medium">{item.stat}</div>
-                  <div className="text-[15px] font-medium text-slate-600">{item.label}</div>
+                  <div className="font-serif text-[2rem] md:text-[2.5rem] leading-tight text-[#6b8a25] font-medium">{item?.stat || ""}</div>
+                  <div className="text-[15px] font-medium text-slate-600">{item?.label || ""}</div>
                 </div>
               ))}
             </div>
@@ -256,8 +256,8 @@ export default async function OrthoPage() {
                 return (
                   <div key={i} className="space-y-4 pt-4">
                     <Icon className="w-6 h-6 text-[#6b8a25]" />
-                    <h4 className="text-[17px] font-bold text-slate-900 leading-tight pt-2">{item.title}</h4>
-                    <p className="text-[14px] text-slate-600 font-medium leading-relaxed">{item.text}</p>
+                    <h4 className="text-[17px] font-bold text-slate-900 leading-tight pt-2">{item?.title || ""}</h4>
+                    <p className="text-[14px] text-slate-600 font-medium leading-relaxed">{item?.text || ""}</p>
                   </div>
                 );
               })}
@@ -272,27 +272,27 @@ export default async function OrthoPage() {
               {page?.testimonials?.heading || "Clinical Validation & People Stories"}
             </h2>
 
-            {testimonials.length > 0 && (
+            {displayTestimonials.length > 0 && (
               <div className="grid md:grid-cols-3 gap-8 mb-12">
-                {testimonials.map((t) => (
-                  <div key={t.slug} className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
+                {displayTestimonials.map((t) => (
+                  <div key={t?.slug} className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
                     <div className="flex text-yellow-400 gap-1 mb-6">
-                      {[...Array(t.rating || 5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
+                      {[...Array(Math.max(0, Math.min(5, Number(t?.rating || 5))))].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
                     </div>
                     <p className="text-[14px] text-slate-600 leading-relaxed font-medium italic mb-8">
-                      &quot;{t.quote}&quot;
+                      &quot;{t?.quote || ""}&quot;
                     </p>
                     <div className="flex items-center gap-3 pt-6 border-t border-slate-50">
                       <div className="w-10 h-10 bg-[#dbebf7] rounded-md flex items-center justify-center">
-                        {t.avatar ? (
-                          <img src={t.avatar} alt={t.name} className="w-full h-full object-cover rounded-md" />
+                        {t?.avatar ? (
+                          <img src={t.avatar} alt={t?.name || ""} className="w-full h-full object-cover rounded-md" />
                         ) : (
                           <ShieldCheck className="w-5 h-5 text-[#007db8]" />
                         )}
                       </div>
                       <div>
-                        <div className="text-[13px] font-bold text-slate-800">{t.name}</div>
-                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t.role}</div>
+                        <div className="text-[13px] font-bold text-slate-800">{t?.name || ""}</div>
+                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t?.role || ""}</div>
                       </div>
                     </div>
                   </div>
@@ -300,20 +300,20 @@ export default async function OrthoPage() {
               </div>
             )}
 
-            {videos.length > 0 && (
+            {displayVideos.length > 0 && (
               <div className="grid md:grid-cols-3 gap-8">
-                {videos.map((v) => (
-                  <div key={v.slug} className="relative group aspect-video rounded-2xl overflow-hidden shadow-md">
+                {displayVideos.map((v) => (
+                  <div key={v?.slug} className="relative group aspect-video rounded-2xl overflow-hidden shadow-md">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                    <img src={v.coverImage} alt={v.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
+                    <img src={v?.coverImage || ""} alt={v?.name || ""} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
                     <div className="absolute inset-0 flex items-center justify-center z-20">
                       <div className="w-12 h-12 bg-[#009bd6] rounded-full flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition">
                         <Play className="w-5 h-5 fill-current" />
                       </div>
                     </div>
                     <div className="absolute bottom-6 left-6 z-20 text-white">
-                      <div className="font-bold text-[15px]">{v.name}</div>
-                      <div className="text-[11px] opacity-80">{v.description}</div>
+                      <div className="font-bold text-[15px]">{v?.name || ""}</div>
+                      <div className="text-[11px] opacity-80">{v?.description || ""}</div>
                     </div>
                   </div>
                 ))}

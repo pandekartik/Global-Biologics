@@ -25,19 +25,19 @@ export default async function BedsorePage() {
 
   // Filter bedsore products by slugs from CMS
   const productSlugs: string[] = page?.productSection?.productSlugs || [];
-  const bedsoreProducts = productSlugs.length > 0
-    ? products.filter(p => productSlugs.includes(p.slug))
-    : products.filter(p => p.category.toLowerCase().includes("bedsore"));
+  const bedsoreProducts = (products || []).filter(p => {
+    if (!p || !p.slug) return false;
+    if (productSlugs.length > 0) return productSlugs.includes(p.slug);
+    return p.category && p.category.toLowerCase().includes("bedsore");
+  });
 
   // Filter testimonials and videos by slugs from CMS
   const testimonialSlugs: string[] = page?.testimonials?.testimonialSlugs || [];
   const videoSlugs: string[] = page?.testimonials?.videoSlugs || [];
-  const testimonials = testimonialSlugs.length > 0
-    ? allTestimonials.filter(t => testimonialSlugs.includes(t.slug))
-    : allTestimonials.slice(0, 3);
-  const videos = videoSlugs.length > 0
-    ? allVideos.filter(v => videoSlugs.includes(v.slug))
-    : allVideos.slice(0, 3);
+  const testimonials = (allTestimonials || []).filter(t => t && t.slug && testimonialSlugs.includes(t.slug));
+  const displayTestimonials = testimonialSlugs.length > 0 ? testimonials : (allTestimonials || []).slice(0, 3);
+  const videos = (allVideos || []).filter(v => v && v.slug && videoSlugs.includes(v.slug));
+  const displayVideos = videoSlugs.length > 0 ? videos : (allVideos || []).slice(0, 3);
 
   return (
     <>
@@ -116,13 +116,13 @@ export default async function BedsorePage() {
               {(page?.scenarios || []).map((scenario: any, si: number) => (
                 <div key={si}>
                   <h3 className="font-serif italic text-2xl text-[#6b8a25] mb-8 pb-2 border-b border-[#6b8a25]/10">
-                    {scenario.heading}
+                    {scenario?.heading || ""}
                   </h3>
                   <div className="space-y-8">
-                    {(scenario.items || []).map((item: any, ii: number) => (
+                    {(scenario?.items || []).map((item: any, ii: number) => (
                       <div key={ii}>
-                        <div className="text-[2.5rem] md:text-[3.2rem] font-light text-[#6b8a25] leading-none tracking-tight">{item.stat}</div>
-                        <p className="text-[15px] text-slate-600 font-medium mt-2 leading-relaxed">{item.description}</p>
+                        <div className="text-[2.5rem] md:text-[3.2rem] font-light text-[#6b8a25] leading-none tracking-tight">{item?.stat || ""}</div>
+                        <p className="text-[15px] text-slate-600 font-medium mt-2 leading-relaxed">{item?.description || ""}</p>
                       </div>
                     ))}
                   </div>
@@ -252,13 +252,13 @@ export default async function BedsorePage() {
                   : { badgeBg: "bg-[#e0f1f9]", badgeText: "text-[#007db8]", iconColor: "text-[#009bd6]", brandColor: "text-[#007db8]", btnBg: "bg-[#007db8] hover:bg-[#006091]" };
 
                 return (
-                  <div key={prod.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? 'bg-[#f9faf8] p-6 md:p-8 lg:p-12 rounded-3xl' : 'bg-white'}`}>
+                  <div key={prod?.slug} className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? 'bg-[#f9faf8] p-6 md:p-8 lg:p-12 rounded-3xl' : 'bg-white'}`}>
                     {/* Visual Container */}
                     <div className={`space-y-4 ${isReversed ? 'order-1 lg:order-2' : ''}`}>
                       <div className="aspect-[4/3] bg-[#18100e] rounded-2xl relative overflow-hidden p-6 flex items-center justify-center border border-slate-100">
-                        <img src={prod.image || "/images/product-image.png"} alt={prod.title} className="h-4/5 object-contain" />
+                        <img src={prod?.image || "/images/product-image.png"} alt={prod?.title || ""} className="h-4/5 object-contain" />
                       </div>
-                      {prod.thumbnails && prod.thumbnails.length > 0 && (
+                      {prod?.thumbnails && prod.thumbnails.length > 0 && (
                         <div className="grid grid-cols-4 gap-3">
                           {prod.thumbnails.map((thumb, ti) => (
                             <div key={ti} className="aspect-square bg-[#18100e] rounded-lg p-1.5 border border-slate-100 flex items-center justify-center">
@@ -271,14 +271,14 @@ export default async function BedsorePage() {
                     {/* Content */}
                     <div className={isReversed ? 'order-2 lg:order-1' : ''}>
                       <div className="flex gap-2 mb-4">
-                        {prod.conditions.map((cond, ci) => (
+                        {(prod?.conditions || []).map((cond, ci) => (
                           <span key={ci} className={`${colorScheme.badgeBg} ${colorScheme.badgeText} text-[9px] font-bold uppercase tracking-wider px-2 py-1 rounded-full`}>{cond}</span>
                         ))}
                       </div>
-                      <h3 className="text-[22px] font-bold text-slate-900 mb-3">{prod.title}</h3>
-                      <p className="text-[16px] text-slate-600 font-medium mb-8">{prod.summary}</p>
+                      <h3 className="text-[22px] font-bold text-slate-900 mb-3">{prod?.title || ""}</h3>
+                      <p className="text-[16px] text-slate-600 font-medium mb-8">{prod?.summary || ""}</p>
                       <div className="space-y-6 mb-10">
-                        {prod.composition && (
+                        {prod?.composition && (
                           <div className="flex gap-4">
                             {isReversed ? <Sprout className={`w-5 h-5 ${colorScheme.iconColor} shrink-0 mt-0.5`} /> : <Droplet className={`w-5 h-5 ${colorScheme.iconColor} shrink-0 mt-0.5`} />}
                             <div>
@@ -287,7 +287,7 @@ export default async function BedsorePage() {
                             </div>
                           </div>
                         )}
-                        {prod.usage && (
+                        {prod?.usage && (
                           <div className="flex gap-4">
                             <FileText className={`w-5 h-5 ${colorScheme.iconColor} shrink-0 mt-0.5`} />
                             <div>
@@ -298,12 +298,12 @@ export default async function BedsorePage() {
                         )}
                       </div>
                       <div className="flex items-center gap-4 mb-8 text-[12px] font-bold text-slate-400 uppercase tracking-wide">
-                        <span className="flex items-center gap-1.5"><FileText className="w-4 h-4" /> {prod.volume || "10ml"}</span>
+                        <span className="flex items-center gap-1.5"><FileText className="w-4 h-4" /> {prod?.volume || "10ml"}</span>
                         <span>•</span>
-                        <span className={colorScheme.brandColor}>By {prod.brand || "TwaraBio™"}</span>
+                        <span className={colorScheme.brandColor}>By {prod?.brand || "TwaraBio™"}</span>
                       </div>
                       <button className={`w-full ${colorScheme.btnBg} text-white font-bold py-4 rounded-md transition-colors shadow-sm text-[15px]`}>
-                        {prod.ctaLabel || "Buy Now"}
+                        {prod?.ctaLabel || "Buy Now"}
                       </button>
                     </div>
                   </div>
@@ -391,8 +391,8 @@ export default async function BedsorePage() {
                 return (
                   <div key={i} className="space-y-4 pt-4">
                     <Icon className="w-6 h-6 text-[#6b8a25]" />
-                    <h4 className="text-[17px] font-bold text-slate-900 leading-tight pt-2">{item.title}</h4>
-                    <p className="text-[14px] text-slate-600 font-medium leading-relaxed">{item.text}</p>
+                    <h4 className="text-[17px] font-bold text-slate-900 leading-tight pt-2">{item?.title || ""}</h4>
+                    <p className="text-[14px] text-slate-600 font-medium leading-relaxed">{item?.text || ""}</p>
                   </div>
                 );
               })}
@@ -407,27 +407,27 @@ export default async function BedsorePage() {
               {page?.testimonials?.heading || "Clinical Validation & People Stories"}
             </h2>
 
-            {testimonials.length > 0 && (
+            {displayTestimonials.length > 0 && (
               <div className="grid md:grid-cols-3 gap-8 mb-12">
-                {testimonials.map((t) => (
-                  <div key={t.slug} className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
+                {displayTestimonials.map((t) => (
+                  <div key={t?.slug} className="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
                     <div className="flex text-yellow-400 gap-1 mb-6">
-                      {[...Array(t.rating || 5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
+                      {[...Array(Math.max(0, Math.min(5, Number(t?.rating || 5))))].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
                     </div>
                     <p className="text-[14px] text-slate-600 leading-relaxed font-medium italic mb-8">
-                      &quot;{t.quote}&quot;
+                      &quot;{t?.quote || ""}&quot;
                     </p>
                     <div className="flex items-center gap-3 pt-6 border-t border-slate-50">
                       <div className="w-10 h-10 bg-[#dbebf7] rounded-md flex items-center justify-center">
-                        {t.avatar ? (
-                          <img src={t.avatar} alt={t.name} className="w-full h-full object-cover rounded-md" />
+                        {t?.avatar ? (
+                          <img src={t.avatar} alt={t?.name || ""} className="w-full h-full object-cover rounded-md" />
                         ) : (
                           <ShieldCheck className="w-5 h-5 text-[#007db8]" />
                         )}
                       </div>
                       <div>
-                        <div className="text-[13px] font-bold text-slate-800">{t.name}</div>
-                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t.role}</div>
+                        <div className="text-[13px] font-bold text-slate-800">{t?.name || ""}</div>
+                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t?.role || ""}</div>
                       </div>
                     </div>
                   </div>
@@ -435,20 +435,20 @@ export default async function BedsorePage() {
               </div>
             )}
 
-            {videos.length > 0 && (
+            {displayVideos.length > 0 && (
               <div className="grid md:grid-cols-3 gap-8">
-                {videos.map((v) => (
-                  <div key={v.slug} className="relative group aspect-video rounded-2xl overflow-hidden shadow-md">
+                {displayVideos.map((v) => (
+                  <div key={v?.slug} className="relative group aspect-video rounded-2xl overflow-hidden shadow-md">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
-                    <img src={v.coverImage} alt={v.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
+                    <img src={v?.coverImage || ""} alt={v?.name || ""} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" />
                     <div className="absolute inset-0 flex items-center justify-center z-20">
                       <div className="w-12 h-12 bg-[#009bd6] rounded-full flex items-center justify-center text-white shadow-lg transform group-hover:scale-110 transition">
                         <Play className="w-5 h-5 fill-current" />
                       </div>
                     </div>
                     <div className="absolute bottom-6 left-6 z-20 text-white">
-                      <div className="font-bold text-[15px]">{v.name}</div>
-                      <div className="text-[11px] opacity-80">{v.description}</div>
+                      <div className="font-bold text-[15px]">{v?.name || ""}</div>
+                      <div className="text-[11px] opacity-80">{v?.description || ""}</div>
                     </div>
                   </div>
                 ))}

@@ -130,7 +130,7 @@ function renderSection(
         <ProductGrid
           heading={section.heading}
           description={section.description}
-          products={context.products.filter((product) => section.productSlugs.includes(product.slug))}
+          products={(context.products || []).filter((product) => product && product.slug && (section.productSlugs || []).includes(product.slug))}
           id="products"
         />
       );
@@ -139,7 +139,7 @@ function renderSection(
         <SolutionGrid
           heading={section.heading}
           description={section.description}
-          solutions={context.solutions.filter((solution) => section.solutionSlugs.includes(solution.slug))}
+          solutions={(context.solutions || []).filter((solution) => solution && solution.slug && (section.solutionSlugs || []).includes(solution.slug))}
           id="solutions"
         />
       );
@@ -148,7 +148,7 @@ function renderSection(
         <TestimonialBand
           heading={section.heading}
           description={section.description}
-          testimonials={context.testimonials.filter((item) => section.testimonialSlugs.includes(item.slug))}
+          testimonials={(context.testimonials || []).filter((item) => item && item.slug && (section.testimonialSlugs || []).includes(item.slug))}
           id="testimonials"
         />
       );
@@ -157,7 +157,7 @@ function renderSection(
         <TeamStrip
           heading={section.heading}
           description={section.description}
-          team={context.team.filter((item) => section.teamSlugs.includes(item.slug))}
+          team={(context.team || []).filter((item) => item && item.slug && (section.teamSlugs || []).includes(item.slug))}
           id="team"
         />
       );
@@ -287,7 +287,7 @@ export function ProductTemplate({
             <div className="space-y-5">
               <SectionHeader badge="Benefits" title="Why this product belongs in the template system" description="The data and the route are decoupled, so new product entries only need content." />
               <div className="space-y-3">
-                {product.benefits.map((benefit) => (
+                {(product?.benefits || []).map((benefit) => (
                   <div key={benefit} className="rounded-2xl border border-border/10 bg-white/75 px-4 py-3 text-sm leading-6 text-muted shadow-soft">
                     {benefit}
                   </div>
@@ -297,7 +297,7 @@ export function ProductTemplate({
             <div className="space-y-5">
               <SectionHeader badge="Use cases" title="Mapped conditions" />
               <div className="flex flex-wrap gap-3">
-                {product.conditions.map((condition) => (
+                {(product?.conditions || []).map((condition) => (
                   <Badge key={condition}>{condition}</Badge>
                 ))}
               </div>
