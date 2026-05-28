@@ -18,9 +18,9 @@ collections:
         file: content/pages/home.json
         format: json
         fields:
-          - { label: Slug, name: slug, widget: string }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
+          - { label: Slug, name: slug, widget: string, required: false }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Description, name: description, widget: text, required: false }
           - label: Sections
             name: sections
             widget: list
@@ -44,39 +44,39 @@ collections:
                 widget: object
                 required: false
                 fields:
-                  - { label: Label, name: label, widget: string }
-                  - { label: Href, name: href, widget: string }
+                  - { label: Label, name: label, widget: string, required: false }
+                  - { label: Href, name: href, widget: string, required: false }
               - label: Secondary CTA
                 name: secondaryCta
                 widget: object
                 required: false
                 fields:
-                  - { label: Label, name: label, widget: string }
-                  - { label: Href, name: href, widget: string }
+                  - { label: Label, name: label, widget: string, required: false }
+                  - { label: Href, name: href, widget: string, required: false }
               - { label: Highlight, name: highlight, widget: text, required: false }
               - label: Cards
                 name: cards
                 widget: list
                 required: false
                 fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Summary, name: summary, widget: text }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
               - label: Challenges
                 name: challenges
                 widget: list
                 required: false
                 fields:
-                  - { label: Number, name: number, widget: string }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Summary, name: summary, widget: text }
+                  - { label: Number, name: number, widget: string, required: false }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
               - label: Approaches
                 name: approaches
                 widget: list
                 required: false
                 fields:
-                  - { label: Number, name: number, widget: string }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Summary, name: summary, widget: text }
+                  - { label: Number, name: number, widget: string, required: false }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
               - label: Missions
                 name: missions
                 widget: list
@@ -87,9 +87,9 @@ collections:
                 widget: list
                 required: false
                 fields:
-                  - { label: Label, name: label, widget: string }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Summary, name: summary, widget: text }
+                  - { label: Label, name: label, widget: string, required: false }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
                   - label: Bullets
                     name: bullets
                     widget: list
@@ -99,10 +99,10 @@ collections:
                 widget: list
                 required: false
                 fields:
-                  - { label: Initials, name: initials, widget: string }
-                  - { label: Name, name: name, widget: string }
-                  - { label: Role, name: role, widget: string }
-                  - { label: Summary, name: summary, widget: text }
+                  - { label: Initials, name: initials, widget: string, required: false }
+                  - { label: Name, name: name, widget: string, required: false }
+                  - { label: Role, name: role, widget: string, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
               - label: Tags
                 name: tags
                 widget: list
@@ -113,8 +113,8 @@ collections:
                 widget: list
                 required: false
                 fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Summary, name: summary, widget: text }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
                   - { label: Tag, name: tag, widget: string, required: false }
               - label: Product Slugs
                 name: productSlugs
@@ -141,60 +141,64 @@ collections:
         file: content/pages/ortho.json
         format: json
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Description, name: description, widget: text, required: false }
           - label: Hero
             name: hero
             widget: object
             fields:
-              - { label: Badge, name: badge, widget: string }
-              - { label: Title, name: title, widget: string }
-              - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Badge, name: badge, widget: string, required: false }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Subtitle, name: subtitle, widget: text, required: false }
               - { label: Hero Image, name: heroImage, widget: image, required: false }
               - { label: Logo Image, name: logoImage, widget: image, required: false }
           - label: Approach
             name: approach
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Subtitle, name: subtitle, widget: string }
-              - { label: Intro Text, name: intro, widget: text }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Subtitle, name: subtitle, widget: string, required: false }
+              - { label: Intro Text, name: intro, widget: text, required: false }
               - label: Stats
                 name: stats
                 widget: list
+                required: false
                 field: { label: Stat, name: text, widget: string }
           - label: Features
             name: features
             widget: object
             fields:
               - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Heading, name: heading, widget: text }
+              - { label: Heading, name: heading, widget: text, required: false }
               - label: Items
                 name: items
                 widget: list
+                required: false
                 fields:
-                  - { label: Stat, name: stat, widget: string }
-                  - { label: Label, name: label, widget: string }
+                  - { label: Stat, name: stat, widget: string, required: false }
+                  - { label: Label, name: label, widget: string, required: false }
           - label: Challenge Section
             name: challenge
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Challenge Intro, name: challengeIntro, widget: text }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Challenge Intro, name: challengeIntro, widget: text, required: false }
               - label: Challenges
                 name: challenges
                 widget: list
+                required: false
                 field: { label: Challenge, name: text, widget: string }
-              - { label: Approach Intro, name: approachIntro, widget: text }
+              - { label: Approach Intro, name: approachIntro, widget: text, required: false }
               - label: Approaches
                 name: approaches
                 widget: list
+                required: false
                 field: { label: Approach, name: text, widget: string }
           - label: Vision
             name: vision
             widget: object
             fields:
-              - { label: Title, name: title, widget: text }
+              - { label: Title, name: title, widget: text, required: false }
           - label: Mission
             name: mission
             widget: object
@@ -202,116 +206,128 @@ collections:
               - label: Items
                 name: items
                 widget: list
+                required: false
                 field: { label: Item, name: text, widget: string }
           - label: Product Section
             name: productSection
             widget: object
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string, required: false }
               - label: Product Slugs
                 name: productSlugs
                 widget: list
+                required: false
                 field: { label: Slug, name: slug, widget: string }
           - label: Why Different
             name: whyDifferent
             widget: object
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string, required: false }
               - label: Cards
                 name: cards
                 widget: list
+                required: false
                 fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Text, name: text, widget: text }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Text, name: text, widget: text, required: false }
           - label: Testimonials Section
             name: testimonials
             widget: object
             fields:
-              - { label: Heading, name: heading, widget: string }
+              - { label: Heading, name: heading, widget: string, required: false }
               - label: Testimonial Slugs
                 name: testimonialSlugs
                 widget: list
+                required: false
                 field: { label: Slug, name: slug, widget: string }
               - label: Video Slugs
                 name: videoSlugs
                 widget: list
+                required: false
                 field: { label: Slug, name: slug, widget: string }
       - name: bedsore
         label: Bedsore Page
         file: content/pages/bedsore.json
         format: json
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Description, name: description, widget: text, required: false }
           - label: Hero
             name: hero
             widget: object
             fields:
-              - { label: Badge, name: badge, widget: string }
-              - { label: Title, name: title, widget: string }
-              - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Badge, name: badge, widget: string, required: false }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Subtitle, name: subtitle, widget: text, required: false }
               - { label: Hero Image, name: heroImage, widget: image, required: false }
               - { label: Logo Image, name: logoImage, widget: image, required: false }
           - label: Intro
             name: intro
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Subtitle, name: subtitle, widget: string }
-              - { label: Text, name: text, widget: text }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Subtitle, name: subtitle, widget: string, required: false }
+              - { label: Text, name: text, widget: text, required: false }
           - label: Scenarios
             name: scenarios
             widget: list
+            required: false
             fields:
-              - { label: Heading, name: heading, widget: string }
+              - { label: Heading, name: heading, widget: string, required: false }
               - label: Items
                 name: items
                 widget: list
+                required: false
                 fields:
-                  - { label: Stat, name: stat, widget: string }
-                  - { label: Description, name: description, widget: text }
+                  - { label: Stat, name: stat, widget: string, required: false }
+                  - { label: Description, name: description, widget: text, required: false }
           - label: At Risk Section
             name: atRisk
             widget: object
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: text }
-              - { label: Subheading, name: subheading, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+              - { label: Heading, name: heading, widget: text, required: false }
+              - { label: Subheading, name: subheading, widget: string, required: false }
               - label: Patients
                 name: patients
                 widget: list
+                required: false
                 field: { label: Patient Type, name: text, widget: string }
               - label: Reasons
                 name: reasons
                 widget: list
+                required: false
                 field: { label: Reason, name: text, widget: text }
           - label: Gap vs Need
             name: gapVsNeed
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Gap Intro, name: gapIntro, widget: text }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Gap Intro, name: gapIntro, widget: text, required: false }
               - label: Gaps
                 name: gaps
                 widget: list
+                required: false
                 field: { label: Gap, name: text, widget: string }
-              - { label: Need Intro, name: needIntro, widget: text }
+              - { label: Need Intro, name: needIntro, widget: text, required: false }
               - label: Needs
                 name: needs
                 widget: list
+                required: false
                 field: { label: Need, name: text, widget: string }
           - label: Product Section
             name: productSection
             widget: object
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
-              - { label: Description, name: description, widget: text }
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string, required: false }
+              - { label: Description, name: description, widget: text, required: false }
               - label: Product Slugs
                 name: productSlugs
                 widget: list
+                required: false
                 field: { label: Slug, name: slug, widget: string }
           - label: Care Instructions
             name: careInstructions
@@ -320,44 +336,49 @@ collections:
               - label: Steps
                 name: steps
                 widget: list
+                required: false
                 field: { label: Step, name: text, widget: string }
-              - { label: Note Title, name: noteTitle, widget: string }
-              - { label: Note Text, name: noteText, widget: text }
-              - { label: Daily Frequency, name: dailyFrequency, widget: string }
-              - { label: Initial Course, name: initialCourse, widget: string }
+              - { label: Note Title, name: noteTitle, widget: string, required: false }
+              - { label: Note Text, name: noteText, widget: text, required: false }
+              - { label: Daily Frequency, name: dailyFrequency, widget: string, required: false }
+              - { label: Initial Course, name: initialCourse, widget: string, required: false }
           - label: Product Routine
             name: productRoutine
             widget: object
             fields:
-              - { label: Title, name: title, widget: string }
+              - { label: Title, name: title, widget: string, required: false }
               - label: Steps
                 name: steps
                 widget: list
+                required: false
                 field: { label: Step, name: text, widget: string }
           - label: Why Different
             name: whyDifferent
             widget: object
             fields:
-              - { label: Eyebrow, name: eyebrow, widget: string }
-              - { label: Heading, name: heading, widget: string }
+              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+              - { label: Heading, name: heading, widget: string, required: false }
               - label: Cards
                 name: cards
                 widget: list
+                required: false
                 fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Text, name: text, widget: text }
+                  - { label: Title, name: title, widget: string, required: false }
+                  - { label: Text, name: text, widget: text, required: false }
           - label: Testimonials Section
             name: testimonials
             widget: object
             fields:
-              - { label: Heading, name: heading, widget: string }
+              - { label: Heading, name: heading, widget: string, required: false }
               - label: Testimonial Slugs
                 name: testimonialSlugs
                 widget: list
+                required: false
                 field: { label: Slug, name: slug, widget: string }
               - label: Video Slugs
                 name: videoSlugs
                 widget: list
+                required: false
                 field: { label: Slug, name: slug, widget: string }
 
   - name: products
@@ -367,13 +388,13 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: Slug, name: slug, widget: string }
-      - { label: Title, name: title, widget: string }
-      - { label: Category, name: category, widget: string }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Category, name: category, widget: string, required: false }
       - { label: Brand, name: brand, widget: string, required: false }
       - { label: Volume, name: volume, widget: string, required: false }
-      - { label: Summary, name: summary, widget: text }
-      - { label: Description, name: description, widget: text }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Description, name: description, widget: text, required: false }
       - { label: Composition, name: composition, widget: text, required: false }
       - { label: Usage, name: usage, widget: text, required: false }
       - { label: Price, name: price, widget: string, required: false }
@@ -390,10 +411,12 @@ collections:
       - label: Benefits
         name: benefits
         widget: list
+        required: false
         field: { label: Benefit, name: benefit, widget: string }
       - label: Conditions
         name: conditions
         widget: list
+        required: false
         field: { label: Condition, name: condition, widget: string }
       - { label: Featured, name: featured, widget: boolean, required: false, default: false }
   - name: solutions
@@ -403,11 +426,11 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: Slug, name: slug, widget: string }
+      - { label: Slug, name: slug, widget: string, required: false }
       - { label: Label, name: label, widget: string, required: false }
-      - { label: Title, name: title, widget: string }
-      - { label: Summary, name: summary, widget: text }
-      - { label: Description, name: description, widget: text }
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Description, name: description, widget: text, required: false }
       - { label: Icon, name: icon, widget: string, required: false }
       - label: Bullets
         name: bullets
@@ -422,11 +445,11 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: Slug, name: slug, widget: string }
-      - { label: Name, name: name, widget: string }
-      - { label: Role, name: role, widget: string }
-      - { label: Summary, name: summary, widget: text }
-      - { label: Bio, name: bio, widget: text }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Name, name: name, widget: string, required: false }
+      - { label: Role, name: role, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Bio, name: bio, widget: text, required: false }
       - { label: Avatar, name: avatar, widget: image, required: false }
       - { label: Display Number, name: display_number, widget: number, required: false, default: 0, value_type: int }
   - name: testimonials
@@ -436,10 +459,10 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: Slug, name: slug, widget: string }
-      - { label: Quote, name: quote, widget: text }
-      - { label: Name, name: name, widget: string }
-      - { label: Role, name: role, widget: string }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Quote, name: quote, widget: text, required: false }
+      - { label: Name, name: name, widget: string, required: false }
+      - { label: Role, name: role, widget: string, required: false }
       - { label: Company, name: company, widget: string, required: false }
       - { label: Rating, name: rating, widget: number, required: false, default: 5, value_type: int, min: 1, max: 5 }
       - { label: Avatar, name: avatar, widget: image, required: false }
@@ -451,10 +474,10 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: Slug, name: slug, widget: string }
-      - { label: Name, name: name, widget: string }
-      - { label: Description, name: description, widget: string }
-      - { label: Cover Image, name: coverImage, widget: image }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Name, name: name, widget: string, required: false }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Cover Image, name: coverImage, widget: image, required: false }
       - { label: Video URL, name: videoUrl, widget: string, required: false }
 
   - name: solution_pages
@@ -464,14 +487,15 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: Slug, name: slug, widget: string }
-      - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: text }
+      - { label: Slug, name: slug, widget: string, required: false }
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
       - { label: Nav Label, name: navLabel, widget: string, required: false, hint: "Text shown in navbar dropdown" }
       - { label: Nav Logo, name: navLogo, widget: image, required: false, hint: "Logo icon shown in navbar dropdown" }
       - label: Sections
         name: sections
         widget: list
+        required: false
         summary: "{{fields.type}}: {{fields.heading}}{{fields.title}}"
         fields:
           - label: Type
@@ -492,39 +516,39 @@ collections:
             widget: object
             required: false
             fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Href, name: href, widget: string }
+              - { label: Label, name: label, widget: string, required: false }
+              - { label: Href, name: href, widget: string, required: false }
           - label: Secondary CTA
             name: secondaryCta
             widget: object
             required: false
             fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Href, name: href, widget: string }
+              - { label: Label, name: label, widget: string, required: false }
+              - { label: Href, name: href, widget: string, required: false }
           - { label: Highlight, name: highlight, widget: text, required: false }
           - label: Cards
             name: cards
             widget: list
             required: false
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
           - label: Challenges
             name: challenges
             widget: list
             required: false
             fields:
-              - { label: Number, name: number, widget: string }
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
+              - { label: Number, name: number, widget: string, required: false }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
           - label: Approaches
             name: approaches
             widget: list
             required: false
             fields:
-              - { label: Number, name: number, widget: string }
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
+              - { label: Number, name: number, widget: string, required: false }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
           - label: Missions
             name: missions
             widget: list
@@ -535,22 +559,23 @@ collections:
             widget: list
             required: false
             fields:
-              - { label: Label, name: label, widget: string }
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
+              - { label: Label, name: label, widget: string, required: false }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
               - label: Bullets
                 name: bullets
                 widget: list
+                required: false
                 field: { label: Bullet, name: bullet, widget: string }
           - label: Members
             name: members
             widget: list
             required: false
             fields:
-              - { label: Initials, name: initials, widget: string }
-              - { label: Name, name: name, widget: string }
-              - { label: Role, name: role, widget: string }
-              - { label: Summary, name: summary, widget: text }
+              - { label: Initials, name: initials, widget: string, required: false }
+              - { label: Name, name: name, widget: string, required: false }
+              - { label: Role, name: role, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
           - label: Tags
             name: tags
             widget: list
@@ -561,8 +586,8 @@ collections:
             widget: list
             required: false
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Summary, name: summary, widget: text }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
               - { label: Tag, name: tag, widget: string, required: false }
           - label: Product Slugs
             name: productSlugs

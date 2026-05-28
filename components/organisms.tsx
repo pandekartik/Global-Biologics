@@ -42,7 +42,7 @@ export function HeroSection({
   highlight?: string;
 }) {
   return (
-    <section className="overflow-hidden border-b border-border/10 bg-hero pt-32">
+    <section className="overflow-hidden border-b border-border/10 bg-white pt-32">
       <Container className="grid gap-12 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-28">
         <div className="space-y-8">
           {eyebrow ? <Badge>{eyebrow}</Badge> : null}
@@ -93,14 +93,6 @@ export function HomeHero({
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden border-b border-border/10 bg-white">
-      <div className="absolute right-0 top-0 h-full w-full md:w-[75%] lg:w-[65%] z-0 pointer-events-none overflow-hidden">
-        <img 
-          src="/images/hero-bg.png" 
-          alt="" 
-          className="w-full h-full object-cover object-center opacity-90" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/30 to-transparent" />
-      </div>
       
       <Container className="relative z-10 pt-32 pb-16 md:pt-24 grid gap-12 lg:grid-cols-[1fr_auto]">
         <div className="space-y-8 lg:max-w-xl">
