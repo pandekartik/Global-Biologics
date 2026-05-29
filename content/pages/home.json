@@ -19,20 +19,8 @@
           "summary": "Soil regeneration, crop resilience, and plant conservation."
         },
         {
-          "title": "Environmental Bioremediation",
-          "summary": "Restoring ecosystems through biodegradable biological systems."
-        },
-        {
           "title": "Herbal Therapeutics & Skin Care",
           "summary": "Topical, steroid-free, herbal medicines for chronic conditions."
-        },
-        {
-          "title": "Plant Conservation & Tissue Culture",
-          "summary": "Endangered species preservation via proprietary tissue culture."
-        },
-        {
-          "title": "Nutraceuticals & Food Technology",
-          "summary": "Nutraceuticals and clean-label functional foods."
         },
         {
           "title": "Orthopedic Support",
@@ -59,21 +47,16 @@
       "challenges": [
         {
           "number": "1",
-          "title": "Soil Degradation",
-          "summary": "Soil degradation from chemical agriculture."
-        },
-        {
-          "number": "2",
           "title": "Chronic Skin Diseases",
           "summary": "Rising chronic skin diseases and disorders."
         },
         {
-          "number": "3",
+          "number": "2",
           "title": "Pollution",
           "summary": "Environmental pollution and ecosystem imbalance."
         },
         {
-          "number": "4",
+          "number": "3",
           "title": "Chemical Dependency",
           "summary": "Chemical dependency in food and healthcare."
         }
@@ -136,7 +119,7 @@
     {
       "type": "solutions-tabs",
       "eyebrow": "OUR SOLUTIONS",
-      "title": "A glimpse into our comprehensive biological portfolio for healthcare solutions.",
+      "title": "A glimpse into our comprehensive portfolio for healthcare solutions.",
       "description": "From skincare to orthopedic care, the CMS can grow each route without changing the section system.",
       "tabs": [
         {
@@ -204,7 +187,7 @@
     {
       "type": "innovation",
       "eyebrow": "INNOVATION & PIPELINE",
-      "title": "A glimpse into our comprehensive biological innovation and pipeline.",
+      "title": "A glimpse into our comprehensive innovation pipeline.",
       "cards": [
         {
           "title": "Patented Technologies",

@@ -96,7 +96,7 @@ export default async function HomePage() {
         {/* 6. SOLUTIONS PORTFOLIO (DRIVEN DIRECTLY BY CMS SOLUTIONS COLLECTION) */}
         <SolutionsTabsSection
           eyebrow={sections["solutions-tabs"]?.eyebrow || "OUR SOLUTIONS"}
-          title={sections["solutions-tabs"]?.title || "A glimpse into our comprehensive biological portfolio for healthcare solutions."}
+          title={sections["solutions-tabs"]?.title || "A glimpse into our comprehensive portfolio for healthcare solutions."}
           description={sections["solutions-tabs"]?.description || "From skincare to orthopedic care, the CMS can grow each route without changing the section system."}
           tabs={solutionTabs.length > 0 ? solutionTabs : (sections["solutions-tabs"]?.tabs || [])}
         />
@@ -104,7 +104,7 @@ export default async function HomePage() {
         {/* 7. INNOVATION */}
         <InnovationSection
           eyebrow={sections["innovation"]?.eyebrow || "INNOVATION & PIPELINE"}
-          title={sections["innovation"]?.title || "A glimpse into our comprehensive biological innovation and pipeline."}
+          title={sections["innovation"]?.title || "A glimpse into our comprehensive innovation pipeline."}
           cards={sections["innovation"]?.cards || []}
         />
 
