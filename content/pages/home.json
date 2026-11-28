@@ -52,13 +52,16 @@
       "type": "final-cta",
       "title": "Building Partnerships Through Innovation",
       "description": "BioLogic Products Pvt. Ltd. welcomes institutional enquiries, research collaborations, strategic partnerships and business opportunities relating to product development and commercialisation.",
-      "tags": [
-        "Strategic Partnerships",
-        "CLINICAL COLLABORATIONS"
-      ],
+      "tags": [],
       "primaryCta": {
         "label": "Business & Institutional Enquiry",
         "href": "/contact"
+      },
+      "eyebrow": "CONNECT WITH BIOLOGIC PRODUCTS PVT.LTD.",
+      "heading": "Let's Explore Opportunities Together",
+      "secondaryCta": {
+        "label": "Explore Our Products",
+        "href": "/#products"
       }
     },
     {
