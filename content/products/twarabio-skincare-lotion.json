@@ -12,13 +12,8 @@
   "strikePrice": "₹1999",
   "badge": "BED SORE",
   "ctaLabel": "Buy Now",
-  "image": "/uploads/twarabio-herbal-skin-care-lotion.jpg",
-  "thumbnails": [
-    "/uploads/twarabio-herbal-skin-care-lotion.jpg",
-    "/images/product-image.png",
-    "/images/product-image.png",
-    "/images/product-image.png"
-  ],
+  "image": "https://globalbiologic.com/uploads/twarabio-herbal-skin-care-lotion.jpg",
+  "thumbnails": [],
   "benefits": [
     "Supports skin hydration and moisture maintenance.",
     "Helps maintain skin comfort in pressure-prone areas.",
