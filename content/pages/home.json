@@ -67,18 +67,20 @@
     {
       "type": "product-grid",
       "eyebrow": "FEATURED PRODUCT",
-      "title": "TWARABiO™ Herbal Bed Sore Care Lotion",
+      "title": "TWARABiO™ Herbal Skin Care Lotion",
       "heading": "Specialised Herbal Skin Care",
-      "description": "A plant-based topical formulation developed for specialised skin care, particularly for pressure-prone areas and bed sore care.",
+      "description": "A specialised plant-based skin care formulation developed for pressure-prone skin and bed sore care. Explore TWARABiO™ Herbal Skin Care Lotion and learn more about our specialised skin care approach.",
       "primaryCta": {
-        "label": "VIEW PRODUCT",
-        "href": ""
+        "label": "Shop TWARABiO™",
+        "href": "https://www.amazon.in/dp/B0HFZZY38Y"
       },
       "secondaryCta": {
-        "label": "",
-        "href": ""
+        "label": "Product Enquiry",
+        "href": "/contact"
       },
-      "productSlugs": []
+      "productSlugs": [
+        "twarabio-skincare-lotion"
+      ]
     }
   ]
 }
