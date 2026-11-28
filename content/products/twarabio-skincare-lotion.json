@@ -1,19 +1,27 @@
 {
   "slug": "twarabio-skincare-lotion",
-  "title": "Twarabio™ Herbal Skincare Lotion",
+  "title": "TWARABiO™ Herbal Skin Care Lotion",
   "category": "Bedsore",
-  "brand": "TwaraBio™",
-  "volume": "10ml",
-  "summary": "Supports early-stage bed sores and maintenance care in high-risk patients.",
-  "description": "A steroid-free herbal lotion for pressure-prone skin care.",
-  "composition": "Aloe-based, maintains hydration and skin comfort.",
-  "usage": "Suitable for frequent application and for all skin types (dry, sensitive or fragile skin). Patch test required on burning or inflamed skin.",
-  "price": "₹399",
+  "brand": "TWARABiO™",
+  "volume": "50 g",
+  "summary": "A herbal skin care lotion developed for specialised skin care, helping maintain skin hydration and comfort while supporting care of pressure-prone skin.",
+  "description": "TWARABiO™ Herbal Skin Care Lotion is a specialised plant-based skin care formulation developed for the care of pressure-prone skin and bed sore-affected areas. Formulated with an Aloe vera base enriched with traditional herbal extracts, it is designed to support skin hydration, comfort and routine skin care. The formulation is free from topical steroids and is intended for specialised skin care.",
+  "composition": "Aloe vera base enriched with traditional herbal extracts of Neem, Turmeric, Manjishtha and other selected herbs.",
+  "usage": "Apply thin layer over affected skin until absorbed completely, 2–3 times daily. Avoid aggressive rubbing or pressure.\n\n",
+  "price": "₹1399",
+  "strikePrice": "₹1999",
   "badge": "BED SORE",
   "ctaLabel": "Buy Now",
-  "image": "/images/product-image.png",
-  "thumbnails": ["/images/product-image.png", "/images/product-image.png", "/images/product-image.png", "/images/product-image.png"],
-  "benefits": ["Hydration support", "Safe for fragile skin", "Steroid free"],
-  "conditions": ["Bed Sore", "Skin Healing"],
+  "image": "https://globalbiologic.com/uploads/twarabio-herbal-skin-care-lotion.jpg",
+  "thumbnails": [],
+  "benefits": [
+    "Supports skin hydration and moisture maintenance.",
+    "Helps maintain skin comfort in pressure-prone areas.",
+    "Steroid free, Herbal formulation for specialised skin care."
+  ],
+  "conditions": [
+    "Bed/Pressure Sore",
+    "Pressure-Prone Skin"
+  ],
   "featured": true
 }
