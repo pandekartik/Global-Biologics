@@ -7,11 +7,18 @@
   "sections": [
     {
       "type": "hero",
-      "eyebrow": "Bed Sore Care",
+      "eyebrow": "TWARABiO™ BED SORE CARE",
       "title": "Complete Care for Pressure-Prone Skin",
-      "description": "Advanced Herbal formulation to protect, cleanse, and manage the risks of pressure ulcers.",
-      "primaryCta": { "label": "See solutions", "href": "/#solutions" },
-      "secondaryCta": { "label": "Return home", "href": "/" }
+      "description": "A specialised topical herbal care lotion formulation designed to support skin hygiene, hydration, comfort and routine care of pressure-prone skin in bedridden, elderly and mobility-limited individuals.",
+      "primaryCta": {
+        "label": "Shop TWARABiO™ Products",
+        "href": "/#products"
+      },
+      "secondaryCta": {
+        "label": "Contact Us for Enquiries",
+        "href": "/contact"
+      },
+      "heading": "Herbal Care for Bed Sore-Prone Skin"
     }
   ]
 }
