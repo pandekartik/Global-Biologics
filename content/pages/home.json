@@ -29,23 +29,24 @@
     },
     {
       "type": "innovation",
-      "eyebrow": "CREDENTIALS & INNOVATION",
-      "title": "Our Intellectual Property & Innovation",
+      "eyebrow": "INNOVATION & INTELLECTUAL PROPERTY",
+      "title": "Our Intellectual Property & Innovations",
       "cards": [
         {
           "title": "Patented Technologies",
-          "summary": "Patented and patent-published technologies across multiple domains."
+          "summary": "A portfolio of patented, patent-published and proprietary technologies developed through research and innovation across healthcare and emerging domains."
         },
         {
           "title": "Scalable Domains",
-          "summary": "Commercially scalable multi-domain product platforms."
+          "summary": "Developing product platforms and technologies with potential for commercialisation across healthcare, biotechnology, agriculture and emerging domains."
         },
         {
           "title": "R&D Implementation",
-          "summary": "Strong R&D-to-implementation pipeline."
+          "summary": "Translating research, formulation development and innovation into practical products and technologies for real-world applications."
         }
       ],
-      "description": "BioLogic Products Pvt. Ltd.'s business credentials and intellectual property portfolio support its focus on product development and commercialisation."
+      "description": "BioLogic Products Pvt. Ltd. focuses on proprietary formulation development, innovation and intellectual property generation. Our portfolio includes patented technologies and products under development across healthcare, phytotherapeutics and other emerging domains.",
+      "heading": "Building Proprietary Product Solutions"
     },
     {
       "type": "final-cta",
